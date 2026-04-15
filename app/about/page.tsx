@@ -1,6 +1,7 @@
 "use client";
 
 import { Target, Eye, Shield, Award, Users } from "lucide-react";
+import Image from "next/image";
 import { FaInstagram, FaWhatsapp } from "react-icons/fa";
 
 export default function AboutPage() {
@@ -223,9 +224,10 @@ export default function AboutPage() {
     {/* LOGO */}
     <div>
       <div className="flex items-center gap-2 mb-4">
-        <div className="bg-yellow-400 text-black font-bold px-3 py-1 rounded-md">
+        {/* <div className="bg-yellow-400 text-black font-bold px-3 py-1 rounded-md">
           AS
-        </div>
+        </div> */}
+        <Image src="/logo.jpeg" alt="" width={55} height={25}></Image>
         <h3 className="text-white font-semibold text-lg">
           Abhiyantri Setu
         </h3>
