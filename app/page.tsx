@@ -7,10 +7,13 @@ import Testimonials from "@/components/sections/Testimonials";
 import CTA from "@/components/sections/CTA";
 import Footer from "@/components/footer/Footer";
 
-export default function Home() {
+
+
+export default async function Home() {
+   
+
   return (
     <>
-      <Navbar />
       <Hero />
       <HowItWorks />
       <WhyChoose />

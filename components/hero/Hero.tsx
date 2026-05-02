@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 export default function Hero() {
     return (
@@ -51,9 +52,9 @@ export default function Hero() {
 
                 {/* BUTTONS */}
                 <div className="mt-8 flex flex-col md:flex-row gap-4 justify-center">
-                    <button className="bg-[#1E293B] px-6 py-3 rounded-lg font-medium hover:scale-105 transition">
+                    <Link href="/jobs/post" className="bg-[#1E293B] px-6 py-3 rounded-lg font-medium hover:scale-105 transition">
                         Post Your Project
-                    </button>
+                    </Link>
 
                     <button className="bg-white text-black px-6 py-3 rounded-lg font-medium hover:scale-105 transition">
                         Browse Services

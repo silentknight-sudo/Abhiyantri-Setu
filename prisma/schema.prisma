@@ -1,0 +1,133 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+
+model User {
+  id            String    @id @default(cuid())
+  name          String
+  email         String
+  emailVerified Boolean   @default(false)
+  image         String?
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+  bio           String?
+  phone         String?
+  location      String?
+  role          String    @default("client")
+  sessions      Session[]
+  accounts      Account[]
+
+  // App relations
+  jobs          Job[]     // jobs posted by this client
+  bids          Bid[]     // bids made by this user as provider
+
+  @@unique([email])
+  @@map("user")
+}
+
+model Session {
+  id        String   @id @default(cuid())
+  expiresAt DateTime
+  token     String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  ipAddress String?
+  userAgent String?
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([token])
+  @@index([userId])
+  @@map("session")
+}
+
+model Account {
+  id                    String    @id @default(cuid())
+  accountId             String
+  providerId            String
+  userId                String
+  user                  User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  accessToken           String?
+  refreshToken          String?
+  idToken               String?
+  accessTokenExpiresAt  DateTime?
+  refreshTokenExpiresAt DateTime?
+  scope                 String?
+  password              String?
+  createdAt             DateTime  @default(now())
+  updatedAt             DateTime  @updatedAt
+
+  @@index([userId])
+  @@map("account")
+}
+
+model Verification {
+  id         String   @id @default(cuid())
+  identifier String
+  value      String
+  expiresAt  DateTime
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  @@index([identifier])
+  @@map("verification")
+}
+
+// App tables 
+
+model Job {
+  id          String    @id @default(cuid())
+  title       String
+  description String
+  category    String    // "Architect" | "Contractor" | "Interior" | "Electrician" | "Plumber" | "Painter"
+  budget      Float?
+  location    String?   @default("Greater Noida")
+  status      JobStatus @default(ACTIVE)
+  clientId    String
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+
+  client      User      @relation(fields: [clientId], references: [id], onDelete: Cascade)
+  bids        Bid[]
+
+  @@index([clientId])
+  @@index([status])
+  @@map("job")
+}
+
+model Bid {
+  id          String    @id @default(cuid())
+  amount      Float
+  message     String?
+  status      BidStatus @default(PENDING)
+  jobId       String
+  providerId  String
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+
+  job         Job       @relation(fields: [jobId], references: [id], onDelete: Cascade)
+  provider    User      @relation(fields: [providerId], references: [id], onDelete: Cascade)
+
+  @@index([jobId])
+  @@index([providerId])
+  @@map("bid")
+}
+
+enum JobStatus {
+  ACTIVE
+  COMPLETED
+  CANCELLED
+  PAUSED
+}
+
+enum BidStatus {
+  PENDING
+  ACCEPTED
+  REJECTED
+}

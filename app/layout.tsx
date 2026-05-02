@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/navbar/Navbar";
+import { auth } from "@/lib/auth";
+import { headers } from "next/headers";
+
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -18,11 +21,16 @@ export const metadata: Metadata = {
   description: "Connecting construction professionals with clients",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+ 
+  // session api
+  const session = await auth.api.getSession({
+    headers: await headers(),
+  });
   return (
     <html
       lang="en"
@@ -31,7 +39,11 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col bg-white text-black">
         
         {/*  NAVBAR  */}
-        <Navbar />
+        <Navbar
+          userName={session?.user?.name}
+          userEmail={session?.user?.email}
+          userImage={session?.user?.image}
+        />
 
         {/* MAIN CONTENT (prevent navbar overlap) */}
         <main className="pt-16 flex-1">
