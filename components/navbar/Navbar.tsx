@@ -29,32 +29,36 @@ const ProfileIconSvg = () => (
   </svg>
 );
 
-interface NavbarProps {
+ interface NavbarProps {
   userName?: string;
   userEmail?: string;
   userImage?: string | null;
+  userRole?: string;
 }
 
 function ProfileDropdown({
   userName,
   userEmail,
   userImage,
+  userRole
   // initials,
 }: {
   userName: string;
   userEmail: string;
   userImage: string | null;
+  userRole: string;
   // initials: string;
 }) {
   const [open, setOpen] = useState(false);
   const router = useRouter();
+  console.log("NAVBAR ROLE =", userRole);
+  const baseRoute =
+  userRole?.toLowerCase() === "provider"
+    ? "/provider"
+    : "/client";
+    
   const ref = useRef<HTMLDivElement>(null);
-  const [isDark, setIsDark] = useState(false);
-
-  const toggleHandler = () =>{
-    setIsDark(prev => !prev);
-  }
-
+  
 
    const initials = userName
     .split(" ")
@@ -102,14 +106,16 @@ function ProfileDropdown({
               <p className="font-semibold text-gray-900 text-sm">{userName}</p>
               <p className="text-xs text-gray-500 truncate">{userEmail}</p>
               <span className="inline-block mt-1 text-xs font-medium text-yellow-600 bg-blue-50 px-2 py-0.5 rounded-full">
-                Client
-              </span>
+             {userRole?.toLowerCase() === "provider"
+              ? "Provider"
+              : "Client"}
+            </span>
             </div>
   
             {/* Menu items */}
             <div className="py-1">
               <Link
-                href="/client/dashboard"
+                href={`${baseRoute}/dashboard`}
                 onClick={() => setOpen(false)}
                 className="flex  items-center gap-3 px-4 py-2.5 text-sm text-gray-700 hover:bg-yellow-400 transition-colors"
               >
@@ -117,7 +123,7 @@ function ProfileDropdown({
                 Dashboard
               </Link>
               <Link
-                href="/client/profile"
+                href={`${baseRoute}/profile`}
                 onClick={() => setOpen(false)}
                 className="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-700 hover:bg-yellow-400 transition-colors"
               >
@@ -125,7 +131,7 @@ function ProfileDropdown({
                 Profile
               </Link>
               <Link
-                href="/client/messages"
+                href={`${baseRoute}/messages`}
                 onClick={() => setOpen(false)}
                 className="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-700 hover:bg-yellow-400 transition-colors"
               >
@@ -151,9 +157,13 @@ function ProfileDropdown({
 }
 
 
-export default function Navbar({ userName, userEmail, userImage }: NavbarProps) {
+export default function Navbar({ userName, userEmail, userImage, userRole }: NavbarProps) {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
+  const baseRoute =
+  userRole === "PROVIDER"
+    ? "/provider"
+    : "/client";
 
   const navLinks = [
     { name: "Home", href: "/" },
@@ -171,13 +181,13 @@ export default function Navbar({ userName, userEmail, userImage }: NavbarProps) 
   return (
     <>
       <nav className="fixed top-0 w-full z-50 bg-white/90 backdrop-blur-xl border-b border-gray-200 shadow-sm">
-        <div className="max-w-7xl mx-auto px-4 flex items-center justify-between h-16">
+        <div className="max-w-7xl mx-auto px-2 flex items-center justify-between h-20  mt-1.5 ">
 
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2">
-            <Image src="/logo.jpeg" alt="" width={55} height={25} />
+          <Link href="/" className="flex items-center h-full gap-2 -ml-3  ">
+            <Image src="/logo header.png" alt="" width={150} height={40}  />
             <span className="font-bold text-lg text-gray-800">
-              Abhiyantri Setu
+              {/* Abhiyantri Setu */}
             </span>
           </Link>
 
@@ -229,6 +239,7 @@ export default function Navbar({ userName, userEmail, userImage }: NavbarProps) 
                 userName={userName}
                 userEmail={userEmail!}
                 userImage={userImage ?? null}
+                userRole={userRole ?? "CLIENT"}
               />
             ) : (
               <>
@@ -288,7 +299,11 @@ export default function Navbar({ userName, userEmail, userImage }: NavbarProps) 
     <div className="mb-6 border-b pb-4">
       <p className="font-semibold text-gray-900 text-sm">{userName}</p>
       <p className="text-xs text-gray-500">{userEmail}</p>
-      <span className="text-xs text-yellow-600 font-medium">Client</span>
+      <span className="text-xs text-yellow-600 font-medium">
+     {userRole === "PROVIDER"
+    ? "Provider"
+    : "Client"}
+</span>
     </div>
   )}
 
@@ -320,19 +335,19 @@ export default function Navbar({ userName, userEmail, userImage }: NavbarProps) 
   {userName && (
     <div className="mt-6 border-t pt-4 space-y-3">
 
-      <Link href="/client/dashboard" onClick={() => setOpen(false)}
+      <Link href={`${baseRoute}/dashboard`} onClick={() => setOpen(false)}
         className="flex items-center gap-3 text-sm text-gray-700">
         <DashboardMenuIcon />
         Dashboard
       </Link>
 
-      <Link href="/client/profile" onClick={() => setOpen(false)}
+      <Link href={`${baseRoute}/profile`} onClick={() => setOpen(false)}
         className="flex items-center gap-3 text-sm text-gray-700">
         <ProfileIconSvg />
         Profile
       </Link>
 
-      <Link href="/client/messages" onClick={() => setOpen(false)}
+      <Link href={`${baseRoute}/profile`} onClick={() => setOpen(false)}
         className="flex items-center gap-3 text-sm text-gray-700">
         <MessageIcon />
         Messages

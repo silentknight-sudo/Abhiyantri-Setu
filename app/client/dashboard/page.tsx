@@ -18,8 +18,14 @@ export default async function ClientDashboardPage({searchParams}:any) {
   const { jobs } = await getMyJobs(auth.api.getSession);
 
   
-  if (!session?.user) {
+  if(!session?.user){
     redirect("/auth");
+  }
+
+  console.log("CLIENT SESSION", session.user);
+
+  if(session.user.role?.toLowerCase() !== "client"){
+    redirect("/provider/dashboard");
   }
    
  

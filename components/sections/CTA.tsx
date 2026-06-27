@@ -40,8 +40,8 @@ export default function CTASection() {
               {/* <div className="bg-yellow-400 text-black px-2 py-1 rounded font-bold">
                 AS
               </div> */}
-              <Image src="/logo.jpeg" alt="" width={55} height={25}></Image>
-              <h3 className="font-semibold text-lg">Abhiyantri Setu</h3>
+              <Image src="/logo_transparent.png" alt="" width={150} height={65}></Image>
+              {/* <h3 className="font-semibold text-lg">Abhiyantri Setu</h3> */}
             </div>
 
             <p className="text-gray-400">

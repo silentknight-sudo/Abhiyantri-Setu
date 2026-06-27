@@ -1,101 +1,79 @@
+
 "use client";
-import { CheckCircle } from "lucide-react";
+
+import { motion } from "framer-motion";
+import { Search, Users, FileText, Handshake, ClipboardCheck } from "lucide-react";
+
+const steps = [
+  { icon: Search,          label: "Step 1", title: "Search Your Requirement" },
+  { icon: Users,           label: "Step 2", title: "Compare Verified Providers" },
+  { icon: FileText,        label: "Step 3", title: "Receive Quotations" },
+  { icon: Handshake,       label: "Step 4", title: "Hire with Confidence" },
+  { icon: ClipboardCheck,  label: "Step 5", title: "Track & Complete Project" },
+];
 
 export default function HowItWorks() {
   return (
-    <section className="py-20 bg-gray-200">
-      <div className="max-w-6xl mx-auto px-4">
+    <section className="px-4 sm:px-8 lg:px-16 py-12 lg:py-16 bg-white">
+      {/* Heading */}
+      <motion.h2
+        initial={{ opacity: 0, y: 16 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5 }}
+        className="text-center text-2xl sm:text-3xl font-bold text-gray-900 mb-10 lg:mb-14"
+      >
+        How Abhiyantri Setu Works
+      </motion.h2>
 
-        {/* Heading */}
-        <h2 className="text-3xl md:text-4xl text-black font-semibold text-center mb-12">
-          How It Works
-        </h2>
+      {/* Steps */}
+      <div className="relative flex flex-col sm:flex-row items-start sm:items-start justify-between gap-8 sm:gap-0">
 
-        {/* Grid */}
-        <div className="grid md:grid-cols-2 gap-10">
+        {steps.map((step, i) => (
+          <div key={step.label} className="relative flex flex-col items-center text-center flex-1">
 
-          {/* CLIENT CARD */}
-          <div className="bg-white rounded-xl p-8 shadow-sm border 
-          hover:shadow-xl hover:-translate-y-2 hover:scale-[1.02] 
-         hover:border-yellow-400 transition-all duration-300 ease-in-out group">
-            <h3 className="text-yellow-500 font-semibold text-lg mb-6">
-              For Clients
-            </h3>
+            {/* Dashed connector line — between steps, desktop only */}
+            {i < steps.length - 1 && (
+              <motion.div
+                initial={{ scaleX: 0 }}
+                whileInView={{ scaleX: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.2 + i * 0.15 }}
+                className="hidden sm:block absolute top-9 left-1/2 w-full h-px origin-left"
+                style={{
+                  backgroundImage: "repeating-linear-gradient(to right, #D97706 0, #D97706 6px, transparent 6px, transparent 14px)",
+                  opacity: 0.45,
+                }}
+              />
+            )}
 
-            <div className="space-y-5 text-black">
-              {[
-                {
-                  title: "Post Your Requirements",
-                  desc: "Share details about your construction project",
-                },
-                {
-                  title: "Receive Quotes",
-                  desc: "Get proposals from verified professionals",
-                },
-                {
-                  title: "Track Progress",
-                  desc: "Monitor your project in real-time",
-                },
-                {
-                  title: "Secure Payment",
-                  desc: "Pay safely through our platform",
-                },
-              ].map((item, i) => (
-                <div key={i} className="flex gap-3 items-start group/item transition">
-                  <CheckCircle className="text-yellow-500 mt-1 transition-transform duration-300 group-hover/item:scale-110" size={20} />
-                  <div>
-                   <p className="font-medium transition group-hover/item:text-black">
-                   {item.title}
-                    </p>
+            {/* Icon circle */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.7 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: i * 0.12 }}
+              className="relative z-10 w-16 h-16 sm:w-72px sm:h-72px rounded-full bg-amber-100 flex items-center justify-center mb-4 shrink-0"
+            >
+              <step.icon className="w-7 h-7 sm:w-8 sm:h-8 text-amber-500" strokeWidth={1.5} />
+            </motion.div>
 
-                 <p className="text-gray-500 text-sm transition group-hover/item:text-gray-700">
-                {item.desc}
-</p>
-                  </div>
-                </div>
-              ))}
-            </div>
+            {/* Step label + title */}
+            <motion.div
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: 0.1 + i * 0.12 }}
+            >
+              <p className="text-sm font-semibold text-amber-500 mb-1">{step.label}</p>
+              <p className="text-sm font-semibold text-gray-900 leading-snug max-w-120px">
+                {step.title}
+              </p>
+            </motion.div>
+
           </div>
+        ))}
 
-          {/* PROVIDER CARD */}
-          <div className="bg-white rounded-xl p-8 shadow-sm border 
-           hover:shadow-xl hover:-translate-y-2 hover:scale-[1.02] 
-         hover:border-yellow-400 transition-all duration-300 ease-in-out group">
-            <h3 className="text-yellow-500 font-semibold text-lg mb-6">
-              For Service Providers
-            </h3>
-
-            <div className="space-y-5 text-black">
-              {[
-                {
-                  title: "Create Your Profile",
-                  desc: "Showcase your skills and experience",
-                },
-                {
-                  title: "Get Verified",
-                  desc: "Complete our verification process",
-                },
-                {
-                  title: "Receive Leads",
-                  desc: "Get matched with relevant projects",
-                },
-                {
-                  title: "Grow Your Business",
-                  desc: "Build reputation and get more clients",
-                },
-              ].map((item, i) => (
-                 <div key={i} className="flex gap-3 items-start group/item transition">
-                  <CheckCircle className="text-yellow-500 mt-1 transition-transform duration-300 group-hover/item:scale-110" size={20} />
-                  <div>
-                    <p className="font-medium">{item.title}</p>
-                    <p className="text-gray-500 text-sm">{item.desc}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-        </div>
       </div>
     </section>
   );

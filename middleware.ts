@@ -47,8 +47,10 @@ export default async function Middleware(request: NextRequest) {
 
   // Case 1: /auth + already logged in → redirect to dashboard ────────────
   if (isAuthRoute(pathname) && isLoggedIn) {
-    return NextResponse.redirect(new URL("/client/dashboard", request.url));
-  }
+  return NextResponse.redirect(
+    new URL("/dashboard", request.url)
+  );
+}
 
   // Case 2: /auth + not logged in → allow through ────────────────────────
   if (isAuthRoute(pathname)) {

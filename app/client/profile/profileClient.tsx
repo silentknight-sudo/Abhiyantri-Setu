@@ -27,7 +27,7 @@ type FormType = {
   role: string;
 };
 
-// ── Icons ──────────────────────────────────────────────────────────────────
+// Icons
 const SaveIcon = () => (
   <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
     <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z" />
@@ -49,12 +49,12 @@ const CameraIcon = () => (
   </svg>
 );
 
-// ── Helpers 
+// Helpers 
 function getInitials(name: string) {
   return name.split(" ").map((n) => n[0]).join("").toUpperCase().slice(0, 2);
 }
 
-// ── Input Field
+//Input Field
 function Field({
   label,
   required,
@@ -93,6 +93,7 @@ export default function ProfilePage({ profile }: Props) {
 
   const userEmail = profile?.email || "";
   const userImage = profile?.image || null;
+
   const [saving, setSaving] = useState(false);
   const [saved, setSaved] = useState(false);
   const [error, setError] = useState("");
@@ -124,7 +125,7 @@ export default function ProfilePage({ profile }: Props) {
     if (result?.success) {
       setMessage("Profile updated successfull");
       setSaved(true);
-       router.refresh();
+      router.refresh();
     } else {
       setMessage(result?.error || "Something went Wrong");
     }
@@ -158,7 +159,7 @@ export default function ProfilePage({ profile }: Props) {
         {/* Card */}
         <div className="bg-white border border-gray-200 rounded-2xl shadow-sm overflow-hidden">
 
-        {/* ── Avatar Section ── */}
+        {/*  Avatar Section  */}
           <div className="flex flex-col items-center pt-10 pb-6 px-6 border-b border-gray-100">
             {/* Avatar with camera overlay */}
             <div className="relative mb-4">
@@ -183,7 +184,7 @@ export default function ProfilePage({ profile }: Props) {
             <p className="text-sm text-gray-400 mt-2">{userEmail}</p>
           </div>
 
-          {/* ── Form Section ── */}
+          {/* Form Section */}
           <div className="p-6 sm:p-8 flex flex-col gap-5">
 
             {/* Error */}

@@ -1,66 +1,91 @@
+
 "use client";
 
+import { Search } from "lucide-react";
+import Image from "next/image";
 import { motion } from "framer-motion";
-import Link from "next/link";
+
+const popularTags = ["Interior Design", "Plumbing", "Electrical", "Construction", "Paint"];
 
 export default function Hero() {
-    return (
-        <section className="relative h-[85vh] flex items-center justify-center text-center text-white overflow-hidden">
+  return (
+    <section className="grid grid-cols-1 lg:grid-cols-2 items-center px-6 sm:px-10 lg:px-16 py-10 lg:py-16 gap-8 lg:gap-16 bg-white">
+      {/* LEFT */}
+      <motion.div
+        initial={{ opacity: 0, x: -40 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+      >
+        <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-[1.15] text-gray-900">
+          Build, Renovate, Repair &amp; Maintain
+          <span className="block text-amber-500 mt-2">All in One Trusted Platform</span>
+        </h1>
 
-            {/* VIDEO BACKGROUND (recommended) */}
-            <video
-                autoPlay
-                loop
-                muted
-                playsInline
-                className="absolute inset-0 w-full h-full object-cover"
+        <motion.p
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
+          className="mt-6 text-base text-gray-500 leading-relaxed"
+        >
+          Find verified professionals, compare quotations, and get your work
+          completed with confidence.
+        </motion.p>
+
+        {/* Search bar */}
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.35, ease: "easeOut" }}
+          className="mt-8 flex items-center border border-gray-300 rounded-full px-5 py-2 bg-white w-full"
+        >
+          <Search className="w-5 h-5 text-gray-400 mr-3 flex-shrink-0" />
+          <input
+            type="text"
+            placeholder="Search services, contractors, materials, equipment..."
+            className="flex-1 text-sm outline-none text-gray-800 placeholder:text-gray-400 bg-transparent min-w-0"
+          />
+          <button className="bg-amber-500 hover:bg-amber-600 transition rounded-full p-2.5 ml-3 flex-shrink-0">
+            <Search className="w-4 h-4 text-white" />
+          </button>
+        </motion.div>
+
+        {/* Popular tags */}
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.5, ease: "easeOut" }}
+          className="mt-5 flex items-center gap-2 flex-wrap"
+        >
+          <span className="text-sm text-gray-500">Popular:</span>
+          {popularTags.map((tag, i) => (
+            <motion.button
+              key={tag}
+              initial={{ opacity: 0, scale: 0.85 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.3, delay: 0.55 + i * 0.07 }}
+              className="text-sm border border-gray-300 rounded-full px-4 py-1.5 hover:bg-gray-50 transition text-gray-700"
             >
-                <source src="/hero.mp4" type="video/mp4" />
-            </video>
+              {tag}
+            </motion.button>
+          ))}
+        </motion.div>
+      </motion.div>
 
-            {/* DARK OVERLAY */}
-            <div className="absolute inset-0 bg-linear-to-b from-black/70 to-black/60"></div>
-
-            {/* CONTENT */}
-            <motion.div
-                initial={{ opacity: 0, y: 40 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8 }}
-                className="relative z-10 max-w-5xl px-4"
-            >
-                <h1 className="text-3xl md:text-5xl font-semibold leading-[1.15] tracking-tight">
-                    Connecting{" "}
-                    <span className="text-yellow-400">
-                        Construction Professionals
-                    </span>{" "}
-                    & Clients
-                </h1>
-
-                <p className="mt-4 text-md md:text-lg text-gray-200">
-                    Hire trusted experts, track your project, and pay securely — all in one place
-                </p>
-
-                {/* SEARCH BAR */}
-                <div className="mt-6 flex justify-center">
-                    <div className="w-full md:w-162.5 bg-white rounded-full shadow-lg flex items-center px-4 py-2">
-                        <input
-                            className="w-full px-2 py-2 outline-none text-black text-sm"
-                            placeholder="Search for services... e.g., 'modular kitchen', '2BHK renovation'"
-                        />
-                    </div>
-                </div>
-
-                {/* BUTTONS */}
-                <div className="mt-8 flex flex-col md:flex-row gap-4 justify-center">
-                    <Link href="/jobs/post" className="bg-[#1E293B] px-6 py-3 rounded-lg font-medium hover:scale-105 transition">
-                        Post Your Project
-                    </Link>
-
-                    <button className="bg-white text-black px-6 py-3 rounded-lg font-medium hover:scale-105 transition">
-                        Browse Services
-                    </button>
-                </div>
-            </motion.div>
-        </section>
-    );
+      {/* RIGHT — building image */}
+      <motion.div
+        initial={{ opacity: 0, x: 40 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.7, ease: "easeOut" }}
+        className="w-full h-[280px] sm:h-[360px] lg:h-[420px] rounded-2xl overflow-hidden relative"
+      >
+        <Image
+          src="/hero-house.jpg"
+          alt="Modern building at sunset"
+          fill
+          className="object-cover"
+          priority
+        />
+      </motion.div>
+    </section>
+  );
 }

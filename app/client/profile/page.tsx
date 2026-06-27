@@ -12,11 +12,12 @@ export default async function ProfileDashboardPage() {
     return <div>Not logged in</div>;
   }
 
-  const {profile} = await getProfile();
+  const { profile } = await getProfile();
+  const profileData = profile ? { ...profile, location: null, bio: null } : null;
 
   return (
-    <ProfilePage profile = {profile}/>
-  )
+    <ProfilePage profile={profileData} />
+  );
 }
 
 

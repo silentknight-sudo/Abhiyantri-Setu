@@ -222,7 +222,8 @@ const firstName = getFirstName(userName);
             <Link
               key={item.label}
               href={item.href}
-              className="bg-white border border-gray-200 rounded-xl p-5 flex flex-col items-center gap-3 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 text-sm font-medium text-gray-700"
+              className="bg-white border border-gray-200 rounded-xl p-5 flex flex-col items-center
+               gap-3 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 text-sm font-medium text-gray-700"
             >
               {item.icon}
               {item.label}

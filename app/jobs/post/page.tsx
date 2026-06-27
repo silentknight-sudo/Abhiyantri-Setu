@@ -62,13 +62,15 @@ const BriefcaseIcon = () => (
 );
 
 const CheckIcon = () => (
-  <svg className="w-4 h-4 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={3} strokeLinecap="round" strokeLinejoin="round">
+  <svg className="w-4 h-4 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" 
+  strokeWidth={3} strokeLinecap="round" strokeLinejoin="round">
     <polyline points="20 6 9 17 4 12" />
   </svg>
 );
 
 const UploadIcon = () => (
-  <svg className="w-8 h-8 text-gray-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round">
+  <svg className="w-8 h-8 text-gray-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" 
+  strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round">
     <polyline points="16 16 12 12 8 16" />
     <line x1="12" y1="12" x2="12" y2="21" />
     <path d="M20.39 18.39A5 5 0 0 0 18 9h-1.26A8 8 0 1 0 3 16.3" />
@@ -76,31 +78,35 @@ const UploadIcon = () => (
 );
 
 const AIIcon = () => (
-  <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
+  <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} 
+  strokeLinecap="round" strokeLinejoin="round">
     <rect x="3" y="3" width="18" height="18" rx="2" />
     <path d="M9 9h6M9 12h6M9 15h4" />
   </svg>
 );
 
 const ArrowRightIcon = () => (
-  <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5} strokeLinecap="round" strokeLinejoin="round">
+  <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5} 
+  strokeLinecap="round" strokeLinejoin="round">
     <line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" />
   </svg>
 );
 
 const ArrowLeftIcon = () => (
-  <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5} strokeLinecap="round" strokeLinejoin="round">
+  <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5} 
+  strokeLinecap="round" strokeLinejoin="round">
     <line x1="19" y1="12" x2="5" y2="12" /><polyline points="12 19 5 12 12 5" />
   </svg>
 );
 
 const RupeeIcon = () => (
-  <svg className="w-4 h-4 text-gray-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
+  <svg className="w-4 h-4 text-gray-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" 
+  strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
     <path d="M6 3h12M6 8h12M6 13l8.5 8L18 13H6" />
   </svg>
 );
 
-// ── Step Indicator ─────────────────────────────────────────────────────────
+// ── Step Indicator 
 function StepIndicator({ current }: { current: number }) {
   const steps = [
     { n: 1, label: "Basic Details", sub: "Project info" },
@@ -142,7 +148,7 @@ function StepIndicator({ current }: { current: number }) {
   );
 }
 
-// ── File Upload Zone ───────────────────────────────────────────────────────
+// ── File Upload Zone 
 function FileUpload({
   label,
   accept,
@@ -188,132 +194,132 @@ function FileUpload({
   );
 }
 
-// ── AI Price Estimator Sidebar ─────────────────────────────────────────────
-function AiEstimatorSidebar({
-  estimator,
-  onChange,
-}: {
-  estimator: AiEstimator;
-  onChange: (key: keyof AiEstimator, val: string) => void;
-}) {
-  const [estimate, setEstimate] = useState<string | null>(null);
-  const [loading, setLoading] = useState(false);
+// ── AI Price Estimator Sidebar 
+// function AiEstimatorSidebar({
+//   estimator,
+//   onChange,
+// }: {
+//   estimator: AiEstimator;
+//   onChange: (key: keyof AiEstimator, val: string) => void;
+// }) {
+//   const [estimate, setEstimate] = useState<string | null>(null);
+//   const [loading, setLoading] = useState(false);
 
-  const handleEstimate = async () => {
-    if (!estimator.projectType || !estimator.area) return;
-    setLoading(true);
+//   const handleEstimate = async () => {
+//     if (!estimator.projectType || !estimator.area) return;
+//     setLoading(true);
 
-    // Simulate AI calculation (replace with real API call)
-    await new Promise((r) => setTimeout(r, 1200));
+//     // Simulate AI calculation (replace with real API call)
+//     await new Promise((r) => setTimeout(r, 1200));
 
-    const baseRates: Record<string, number> = {
-      Architect: 50,
-      Contractor: 1800,
-      Interior: 800,
-      Electrician: 120,
-      Plumber: 150,
-      Painter: 25,
-      "Civil Engineer": 2000,
-      Mason: 900,
-    };
+//     const baseRates: Record<string, number> = {
+//       Architect: 50,
+//       Contractor: 1800,
+//       Interior: 800,
+//       Electrician: 120,
+//       Plumber: 150,
+//       Painter: 25,
+//       "Civil Engineer": 2000,
+//       Mason: 900,
+//     };
 
-    const qualityMultiplier = { Basic: 0.8, Standard: 1, Premium: 1.5 };
-    const laborMultiplier = {
-      "Full (Labour + Material)": 1,
-      "Labour Only": 0.45,
-      "Material Only": 0.55,
-    };
+//     const qualityMultiplier = { Basic: 0.8, Standard: 1, Premium: 1.5 };
+//     const laborMultiplier = {
+//       "Full (Labour + Material)": 1,
+//       "Labour Only": 0.45,
+//       "Material Only": 0.55,
+//     };
 
-    const base = baseRates[estimator.projectType] ?? 1000;
-    const area = parseFloat(estimator.area) || 100;
-    const qm = qualityMultiplier[estimator.materialQuality as keyof typeof qualityMultiplier] ?? 1;
-    const lm = laborMultiplier[estimator.laborType as keyof typeof laborMultiplier] ?? 1;
+//     const base = baseRates[estimator.projectType] ?? 1000;
+//     const area = parseFloat(estimator.area) || 100;
+//     const qm = qualityMultiplier[estimator.materialQuality as keyof typeof qualityMultiplier] ?? 1;
+//     const lm = laborMultiplier[estimator.laborType as keyof typeof laborMultiplier] ?? 1;
 
-    const min = Math.round(base * area * qm * lm * 0.85 / 1000) * 1000;
-    const max = Math.round(base * area * qm * lm * 1.15 / 1000) * 1000;
+//     const min = Math.round(base * area * qm * lm * 0.85 / 1000) * 1000;
+//     const max = Math.round(base * area * qm * lm * 1.15 / 1000) * 1000;
 
-    setEstimate(`₹${min.toLocaleString("en-IN")} – ₹${max.toLocaleString("en-IN")}`);
-    setLoading(false);
-  };
+//     setEstimate(`₹${min.toLocaleString("en-IN")} – ₹${max.toLocaleString("en-IN")}`);
+//     setLoading(false);
+//   };
 
-  return (
-    <div className="bg-white border border-gray-200 rounded-2xl p-6 sticky top-6">
-      <div className="flex items-center gap-2 mb-5">
-        <AIIcon />
-        <h3 className="font-bold text-gray-900">AI Price Estimator</h3>
-      </div>
+//   return (
+//     <div className="bg-white border border-gray-200 rounded-2xl p-6 sticky top-6">
+//       <div className="flex items-center gap-2 mb-5">
+//         <AIIcon />
+//         <h3 className="font-bold text-gray-900">AI Price Estimator</h3>
+//       </div>
 
-      <div className="grid grid-cols-2 gap-3 mb-3">
-        {/* Project Type */}
-        <div>
-          <label className="block text-xs font-medium text-gray-600 mb-1">Project Type</label>
-          <select value={estimator.projectType} onChange={(e) => onChange("projectType", e.target.value)}
-            className="w-full border border-gray-200 rounded-lg px-2 py-2 text-xs text-gray-700 outline-none focus:border-yellow-400">
-            <option value="">Select...</option>
-            {CATEGORIES.map(c => <option key={c}>{c}</option>)}
-          </select>
-        </div>
+//       <div className="grid grid-cols-2 gap-3 mb-3">
+//         {/* Project Type */}
+//         <div>
+//           <label className="block text-xs font-medium text-gray-600 mb-1">Project Type</label>
+//           <select value={estimator.projectType} onChange={(e) => onChange("projectType", e.target.value)}
+//             className="w-full border border-gray-200 rounded-lg px-2 py-2 text-xs text-gray-700 outline-none focus:border-yellow-400">
+//             <option value="">Select...</option>
+//             {CATEGORIES.map(c => <option key={c}>{c}</option>)}
+//           </select>
+//         </div>
 
-        {/* Area */}
-        <div>
-          <label className="block text-xs font-medium text-gray-600 mb-1">Area (sq ft)</label>
-          <input type="number" placeholder="Enter area i..." value={estimator.area}
-            onChange={(e) => onChange("area", e.target.value)}
-            className="w-full border border-gray-200 rounded-lg px-2 py-2 text-xs text-gray-700 outline-none focus:border-yellow-400" />
-        </div>
+//         {/* Area */}
+//         <div>
+//           <label className="block text-xs font-medium text-gray-600 mb-1">Area (sq ft)</label>
+//           <input type="number" placeholder="Enter area i..." value={estimator.area}
+//             onChange={(e) => onChange("area", e.target.value)}
+//             className="w-full border border-gray-200 rounded-lg px-2 py-2 text-xs text-gray-700 outline-none focus:border-yellow-400" />
+//         </div>
 
-        {/* Material Quality */}
-        <div>
-          <label className="block text-xs font-medium text-gray-600 mb-1">Material Quality</label>
-          <select value={estimator.materialQuality} onChange={(e) => onChange("materialQuality", e.target.value)}
-            className="w-full border border-gray-200 rounded-lg px-2 py-2 text-xs text-gray-700 outline-none focus:border-yellow-400">
-            {MATERIAL_QUALITY.map(q => <option key={q}>{q}</option>)}
-          </select>
-        </div>
+//         {/* Material Quality */}
+//         <div>
+//           <label className="block text-xs font-medium text-gray-600 mb-1">Material Quality</label>
+//           <select value={estimator.materialQuality} onChange={(e) => onChange("materialQuality", e.target.value)}
+//             className="w-full border border-gray-200 rounded-lg px-2 py-2 text-xs text-gray-700 outline-none focus:border-yellow-400">
+//             {MATERIAL_QUALITY.map(q => <option key={q}>{q}</option>)}
+//           </select>
+//         </div>
 
-        {/* City */}
-        <div>
-          <label className="block text-xs font-medium text-gray-600 mb-1">City</label>
-          <select value={estimator.city} onChange={(e) => onChange("city", e.target.value)}
-            className="w-full border border-gray-200 rounded-lg px-2 py-2 text-xs text-gray-700 outline-none focus:border-yellow-400">
-            {CITIES.map(c => <option key={c}>{c}</option>)}
-          </select>
-        </div>
-      </div>
+//         {/* City */}
+//         <div>
+//           <label className="block text-xs font-medium text-gray-600 mb-1">City</label>
+//           <select value={estimator.city} onChange={(e) => onChange("city", e.target.value)}
+//             className="w-full border border-gray-200 rounded-lg px-2 py-2 text-xs text-gray-700 outline-none focus:border-yellow-400">
+//             {CITIES.map(c => <option key={c}>{c}</option>)}
+//           </select>
+//         </div>
+//       </div>
 
-      {/* Labor Type */}
-      <div className="mb-4">
-        <label className="block text-xs font-medium text-gray-600 mb-1">Labor Type</label>
-        <select value={estimator.laborType} onChange={(e) => onChange("laborType", e.target.value)}
-          className="w-full border border-gray-200 rounded-lg px-2 py-2 text-xs text-gray-700 outline-none focus:border-yellow-400">
-          {LABOR_TYPES.map(l => <option key={l}>{l}</option>)}
-        </select>
-      </div>
+//       {/* Labor Type */}
+//       <div className="mb-4">
+//         <label className="block text-xs font-medium text-gray-600 mb-1">Labor Type</label>
+//         <select value={estimator.laborType} onChange={(e) => onChange("laborType", e.target.value)}
+//           className="w-full border border-gray-200 rounded-lg px-2 py-2 text-xs text-gray-700 outline-none focus:border-yellow-400">
+//           {LABOR_TYPES.map(l => <option key={l}>{l}</option>)}
+//         </select>
+//       </div>
 
-      {/* Estimate Result */}
-      {estimate && (
-        <div className="bg-yellow-50 border border-yellow-200 rounded-xl p-3 mb-3 text-center">
-          <p className="text-xs text-gray-500 mb-0.5">Estimated Range</p>
-          <p className="text-base font-bold text-gray-900">{estimate}</p>
-          <p className="text-xs text-gray-400 mt-0.5">Based on market rates in {estimator.city}</p>
-        </div>
-      )}
+//       {/* Estimate Result */}
+//       {estimate && (
+//         <div className="bg-yellow-50 border border-yellow-200 rounded-xl p-3 mb-3 text-center">
+//           <p className="text-xs text-gray-500 mb-0.5">Estimated Range</p>
+//           <p className="text-base font-bold text-gray-900">{estimate}</p>
+//           <p className="text-xs text-gray-400 mt-0.5">Based on market rates in {estimator.city}</p>
+//         </div>
+//       )}
 
-      <button onClick={handleEstimate} disabled={loading || !estimator.projectType || !estimator.area}
-        className="w-full bg-[#1A2332] text-white font-semibold py-3 rounded-xl hover:bg-[#2C3E55] transition-colors text-sm flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed">
-        {loading ? (
-          <svg className="w-4 h-4 animate-spin" viewBox="0 0 24 24" fill="none">
-            <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth={4} />
-            <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z" />
-          </svg>
-        ) : <AIIcon />}
-        {loading ? "Estimating..." : "Get AI Estimate"}
-      </button>
-    </div>
-  );
-}
+//       <button onClick={handleEstimate} disabled={loading || !estimator.projectType || !estimator.area}
+//         className="w-full bg-[#1A2332] text-white font-semibold py-3 rounded-xl hover:bg-[#2C3E55] transition-colors text-sm flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed">
+//         {loading ? (
+//           <svg className="w-4 h-4 animate-spin" viewBox="0 0 24 24" fill="none">
+//             <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth={4} />
+//             <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z" />
+//           </svg>
+//         ) : <AIIcon />}
+//         {loading ? "Estimating..." : "Get AI Estimate"}
+//       </button>
+//     </div>
+//   );
+// }
 
-// ── Main Component ─────────────────────────────────────────────────────────
+// ── Main Component 
 export default function PostJobPage() {
   const router = useRouter();
   const [step, setStep] = useState(1);
@@ -350,7 +356,7 @@ export default function PostJobPage() {
   const setEstimatorField = (key: keyof AiEstimator, value: string) =>
     setEstimator((prev) => ({ ...prev, [key]: value }));
 
-  // ── Validation ─────────────────────────────────────────────────────────────
+  // ── Validation 
   const validateStep1 = () => {
     const e: Record<string, string> = {};
     if (!form.title.trim()) e.title = "Project title is required.";
@@ -645,9 +651,9 @@ export default function PostJobPage() {
           </div>
 
           {/* ── AI Estimator Sidebar ── */}
-          <div className="lg:col-span-1">
+          {/* <div className="lg:col-span-1">
             <AiEstimatorSidebar estimator={estimator} onChange={setEstimatorField} />
-          </div>
+          </div> */}
 
         </div>
       </main>

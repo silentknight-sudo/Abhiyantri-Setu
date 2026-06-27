@@ -30,7 +30,7 @@ export interface PendingBid {
   createdAt: Date;
 }
 
-// ── Get dashboard stats for a client 
+// Get dashboard stats for a client 
 export async function getDashboardStats(userId: string): Promise<DashboardStats> {
   const [totalJobs, activeJobs, completedJobs, pendingBids] = await Promise.all([
     // Total jobs posted
@@ -60,7 +60,7 @@ export async function getDashboardStats(userId: string): Promise<DashboardStats>
   return { totalJobs, activeJobs, pendingBids, completedJobs };
 }
 
-// ── Get active jobs for a client
+//  Get active jobs for a client
 export async function getActiveJobs(userId: string): Promise<ActiveJob[]> {
   const jobs = await prisma.job.findMany({
     where: { clientId: userId, status: "ACTIVE" },
@@ -82,7 +82,7 @@ export async function getActiveJobs(userId: string): Promise<ActiveJob[]> {
   }));
 }
 
-// ── Get pending bids on client's jobs
+// Get pending bids on client's jobs
 export async function getPendingBids(userId: string): Promise<PendingBid[]> {
   const bids = await prisma.bid.findMany({
     where: {
@@ -108,7 +108,7 @@ export async function getPendingBids(userId: string): Promise<PendingBid[]> {
   }));
 }
 
-// ── Get completed jobs 
+// Get completed jobs 
 export async function getCompletedJobs(userId: string): Promise<ActiveJob[]> {
   const jobs = await prisma.job.findMany({
     where: { clientId: userId, status: "COMPLETED" },

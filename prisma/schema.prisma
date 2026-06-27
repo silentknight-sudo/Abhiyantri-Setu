@@ -1,3 +1,6 @@
+// prisma/schema.prisma
+// Run: npx prisma db push && npx prisma generate
+
 generator client {
   provider = "prisma-client-js"
 }
@@ -7,25 +10,31 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+// Better Auth tables
 
 model User {
-  id            String    @id @default(cuid())
+  id            String   @id @default(cuid())
   name          String
   email         String
-  emailVerified Boolean   @default(false)
+  emailVerified Boolean  @default(false)
   image         String?
-  createdAt     DateTime  @default(now())
-  updatedAt     DateTime  @updatedAt
-  bio           String?
+  role          String   @default("client") // "client" | "provider"
   phone         String?
-  location      String?
-  role          String    @default("client")
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
   sessions      Session[]
   accounts      Account[]
 
-  // App relations
-  jobs          Job[]     // jobs posted by this client
-  bids          Bid[]     // bids made by this user as provider
+  // Client relations
+  jobs          Job[]    @relation("ClientJobs")
+  clientBids    Bid[]    @relation("ClientBids") // bids received on client's jobs
+
+  // Provider relations
+  providerBids  Bid[]    @relation("ProviderBids") // bids made by this provider
+  providerProfile ProviderProfile?
+  earnings      Earning[]
+  scheduledJobs ScheduledJob[]
 
   @@unique([email])
   @@map("user")
@@ -79,13 +88,43 @@ model Verification {
   @@map("verification")
 }
 
-// App tables 
+// App models
 
+// Provider's extended profile (specialty, experience etc.)
+model ProviderProfile {
+  id               String   @id @default(cuid())
+  userId           String   @unique
+  specialty        String   // "Mason", "Electrician" etc.
+  experience       Int?     // years of experience
+  bio              String?
+  location         String?  @default("Greater Noida")
+  isOnline         Boolean  @default(true)
+  isVerified       Boolean  @default(false)
+  rating           Float?   @default(0)
+  totalReviews     Int      @default(0)
+  walletBalance    Float    @default(0)
+  // Profile completion
+  hasBasicInfo     Boolean  @default(true)
+  hasServicesPricing Boolean @default(false)
+  hasWorkPhotos    Boolean  @default(false)
+  hasIdVerification Boolean @default(false)
+  hasBankDetails   Boolean  @default(false)
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+
+  user             User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@index([specialty])
+  @@map("provider_profile")
+}
+
+// Jobs posted by clients
 model Job {
   id          String    @id @default(cuid())
   title       String
   description String
-  category    String    // "Architect" | "Contractor" | "Interior" | "Electrician" | "Plumber" | "Painter"
+  category    String    // matches provider specialty
   budget      Float?
   location    String?   @default("Greater Noida")
   status      JobStatus @default(ACTIVE)
@@ -93,31 +132,77 @@ model Job {
   createdAt   DateTime  @default(now())
   updatedAt   DateTime  @updatedAt
 
-  client      User      @relation(fields: [clientId], references: [id], onDelete: Cascade)
+  client      User      @relation("ClientJobs", fields: [clientId], references: [id], onDelete: Cascade)
   bids        Bid[]
 
   @@index([clientId])
   @@index([status])
+  @@index([category])
   @@map("job")
 }
 
+// Bids made by providers on jobs (also acts as "leads")
 model Bid {
-  id          String    @id @default(cuid())
-  amount      Float
-  message     String?
-  status      BidStatus @default(PENDING)
-  jobId       String
-  providerId  String
-  createdAt   DateTime  @default(now())
-  updatedAt   DateTime  @updatedAt
+  id           String    @id @default(cuid())
+  amount       Float
+  message      String?
+  status       BidStatus @default(PENDING)
+  // Lead tracking
+  leadStatus   LeadStatus @default(NEW) // NEW | CONTACTED | INTERESTED | CLOSED
+  jobId        String
+  providerId   String
+  clientId     String    // denormalized for easy queries
+  progress     Int       @default(0) // 0-100 % for active jobs
+  scheduledAt  DateTime? // when work is scheduled
+  completedAt  DateTime?
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
 
-  job         Job       @relation(fields: [jobId], references: [id], onDelete: Cascade)
-  provider    User      @relation(fields: [providerId], references: [id], onDelete: Cascade)
+  job          Job       @relation(fields: [jobId], references: [id], onDelete: Cascade)
+  provider     User      @relation("ProviderBids", fields: [providerId], references: [id], onDelete: Cascade)
+  client       User      @relation("ClientBids", fields: [clientId], references: [id], onDelete: Cascade)
 
   @@index([jobId])
   @@index([providerId])
+  @@index([clientId])
+  @@index([leadStatus])
   @@map("bid")
 }
+
+// Provider's scheduled upcoming jobs
+model ScheduledJob {
+  id          String   @id @default(cuid())
+  title       String
+  clientName  String
+  scheduledAt DateTime
+  status      String   @default("Confirmed") // "Confirmed" | "Pending"
+  providerId  String
+  createdAt   DateTime @default(now())
+
+  provider    User     @relation(fields: [providerId], references: [id], onDelete: Cascade)
+
+  @@index([providerId])
+  @@index([scheduledAt])
+  @@map("scheduled_job")
+}
+
+// Provider earnings / transactions
+model Earning {
+  id          String   @id @default(cuid())
+  amount      Float
+  type        String   @default("credit") // "credit" | "debit" | "withdrawal"
+  description String?
+  providerId  String
+  createdAt   DateTime @default(now())
+
+  provider    User     @relation(fields: [providerId], references: [id], onDelete: Cascade)
+
+  @@index([providerId])
+  @@index([createdAt])
+  @@map("earning")
+}
+
+// Enums
 
 enum JobStatus {
   ACTIVE
@@ -130,4 +215,11 @@ enum BidStatus {
   PENDING
   ACCEPTED
   REJECTED
+}
+
+enum LeadStatus {
+  NEW
+  CONTACTED
+  INTERESTED
+  CLOSED
 }
