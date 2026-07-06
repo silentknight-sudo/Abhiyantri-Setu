@@ -52,23 +52,23 @@ Users can post construction or renovation requirements, receive quotations, comp
 
 ## Home Page
 
-![Home](public/screenshots/Landing.png)
+![Home](public/screenshot/Landing.png)
 
 ## Client Dashboard
 
-![Dashboard](public/screenshots/Services.png)
+![Dashboard](public/screenshot/Client.png)
 
 ## Provider Dashboard
 
-![Provider](public/screenshots/Client.png)
+<!-- ![Provider](public/screenshot/Client.png) -->
 
 ## Service Page
 
-![Service](public/screenshots/LaunchingSoon.png)
+![Service](public/screenshot/LaunchingSoon.png)
 
-![Service](public/screenshots/PostJob.png)
+![Service](public/screenshot/PostJob.png)
 
-![Service](public/screenshots/JobPage.png)
+![Service](public/screenshot/JobPage.png)
 
 ---
 
