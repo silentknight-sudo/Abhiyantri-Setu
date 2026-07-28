@@ -382,9 +382,8 @@ export default function Navbar({ userName, userEmail, userImage, userRole }: Nav
       </Link>
     </div>
   )}
-
 </div>
-      </div>
+</div>
     </>
   );
 }

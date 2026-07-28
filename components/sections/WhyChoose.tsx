@@ -1,4 +1,6 @@
 "use client";
+
+import { motion } from "framer-motion";
 import { Shield, Calculator, Clock, FileText } from "lucide-react";
 
 export default function WhyChoose() {
@@ -30,9 +32,15 @@ export default function WhyChoose() {
       <div className="max-w-6xl mx-auto px-4">
 
         {/* Heading */}
-        <h2 className="text-3xl md:text-4xl text-black font-semibold text-center mb-12">
+        <motion.h2
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="text-3xl md:text-4xl text-black font-semibold text-center mb-12"
+        >
           Why Choose Abhiyantri Setu
-        </h2>
+        </motion.h2>
 
         {/* Cards */}
         <div className="grid md:grid-cols-4 gap-6">
@@ -40,22 +48,28 @@ export default function WhyChoose() {
             const Icon = item.icon;
 
             return (
-              <div
+              <motion.div
                 key={i}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: i * 0.12 }}
+                whileHover={{ y: -8, scale: 1.03 }}
                 className="bg-white rounded-xl p-6 text-center border shadow-sm 
-                hover:shadow-xl hover:-translate-y-2 hover:scale-[1.03] 
-                hover:border-yellow-400 transition-all duration-300 ease-in-out group cursor-pointer"
+                hover:shadow-xl hover:border-yellow-400 transition-colors duration-300 ease-in-out group cursor-pointer"
               >
                 {/* Icon */}
-                <div className="w-14 h-14 mx-auto mb-4 flex items-center justify-center 
-                rounded-full bg-yellow-100 transition 
-                group-hover:bg-yellow-200">
-                  
+                <motion.div
+                  whileHover={{ scale: 1.1 }}
+                  className="w-14 h-14 mx-auto mb-4 flex items-center justify-center 
+                  rounded-full bg-yellow-100 transition 
+                  group-hover:bg-yellow-200"
+                >
                   <Icon
-                    className="text-yellow-500 transition-transform duration-300 group-hover:scale-110"
+                    className="text-yellow-500"
                     size={26}
                   />
-                </div>
+                </motion.div>
 
                 {/* Title */}
                 <h3 className="font-semibold text-black text-lg mb-2 transition group-hover:text-gray-900">
@@ -66,7 +80,7 @@ export default function WhyChoose() {
                 <p className="text-gray-500 text-sm leading-relaxed transition group-hover:text-gray-700">
                   {item.desc}
                 </p>
-              </div>
+              </motion.div>
             );
           })}
         </div>

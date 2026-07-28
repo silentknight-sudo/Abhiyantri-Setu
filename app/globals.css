@@ -34,3 +34,8 @@ body {
   margin: auto;
   padding: 0 16px;
 }
+
+/* globals.css */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}

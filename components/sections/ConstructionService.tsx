@@ -1,4 +1,4 @@
-// components/ConstructionProjects.tsx
+
 "use client";
 
 import { useRef, useState } from "react";
@@ -112,7 +112,7 @@ export default function ConstructionProjects() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: i * 0.08 }}
-                className="relative flex-shrink-0 w-[200px] sm:w-[220px] lg:w-[240px] h-[220px] sm:h-[240px] lg:h-[260px]
+                className="relative shrink-0 w-50 sm:w-55 lg:w-60 h-55 sm:h-60 lg:h-65
                  rounded-2xl overflow-hidden cursor-pointer group"
               >
                 {/* Image */}
@@ -120,11 +120,14 @@ export default function ConstructionProjects() {
                   src={p.image}
                   alt={p.title}
                   fill
+                   sizes="(max-width: 640px) 200px,
+                  (max-width: 1024px) 220px,
+                   240px"
                   className="object-cover transition-transform duration-500 group-hover:scale-105"
                 />
 
                 {/* Gradient overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
+                <div className="absolute inset-0 bg-linear-to-t from-black/70 via-black/10 to-transparent" />
 
                 {/* Text overlay */}
                 <div className="absolute bottom-0 left-0 right-0 p-4">

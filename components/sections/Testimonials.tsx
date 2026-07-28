@@ -1,67 +1,132 @@
 "use client";
-import { Star } from "lucide-react";
+
+import { useRef, useState } from "react";
+import { motion } from "framer-motion";
+import { Star, ChevronLeft, ChevronRight } from "lucide-react";
+import Image from "next/image";
 
 const testimonials = [
   {
-    text: "Found an excellent contractor for my home renovation. The entire process was smooth and transparent.",
-    name: "Rajesh Kumar",
-    role: "Homeowner",
+    quote: "Found a reliable contractor for my home construction. The platform made everything so easy and transparent.",
+    name: "Rohit Sharma",
+    role: "Home Construction",
+    avatar: "/avatars/rohit.jpg",
+    
   },
   {
-    text: "Hired an interior designer through Abhiyantri Setu. Very professional service and great results!",
-    name: "Priya Sharma",
-    role: "Business Owner",
+    quote: "Booked plumbing and electrical services within minutes. Very professional and trusted platform.",
+    name: "Anjali Mehta",
+    role: "Home Services",
+    avatar: "/avatars/anjali.jpg",
   },
   {
-    text: "Best platform to find reliable construction professionals in Greater Noida. Highly recommended!",
-    name: "Amit Verma",
-    role: "Project Manager",
+    quote: "Great place to buy construction materials at best prices. Saved both time and money.",
+    name: "Vikram Singh",
+    role: "Building Developer",
+    avatar: "/avatars/vikram.jpg",
   },
 ];
 
 export default function Testimonials() {
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const [canScrollLeft, setCanScrollLeft] = useState(false);
+  const [canScrollRight, setCanScrollRight] = useState(true);
+
+  const updateScrollState = () => {
+    const el = scrollRef.current;
+    if (!el) return;
+    setCanScrollLeft(el.scrollLeft > 8);
+    setCanScrollRight(el.scrollLeft + el.clientWidth < el.scrollWidth - 8);
+  };
+
+  const scroll = (dir: "left" | "right") => {
+    const el = scrollRef.current;
+    if (!el) return;
+    el.scrollBy({ left: dir === "left" ? -340 : 340, behavior: "smooth" });
+    setTimeout(updateScrollState, 350);
+  };
+
   return (
-    <section className="py-20 bg-gray-50">
-      
-      <div className="max-w-6xl mx-auto px-4">
+    <section className="px-4 sm:px-8 lg:px-16 py-10 lg:py-14 bg-white">
+      <motion.h2
+        initial={{ opacity: 0, y: 16 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5 }}
+        className="text-center text-2xl sm:text-3xl font-bold text-gray-900 mb-10"
+      >
+        What Our Customers Say
+      </motion.h2>
 
-        {/* HEADING */}
-        <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-900 tracking-tight">
-          What Our Clients Say
-        </h2>
+      <div className="relative">
+        {/* Left arrow */}
+        <motion.button
+          onClick={() => scroll("left")}
+          animate={{ opacity: canScrollLeft ? 1 : 0.3 }}
+          transition={{ duration: 0.2 }}
+          disabled={!canScrollLeft}
+          className="hidden md:flex absolute -left-4 lg:-left-6 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full border border-gray-300 bg-white items-center justify-center hover:bg-gray-50 transition disabled:cursor-not-allowed"
+          aria-label="Previous testimonial"
+        >
+          <ChevronLeft className="w-4 h-4 text-gray-700" />
+        </motion.button>
 
-        {/* CARDS */}
-        <div className="grid md:grid-cols-3 gap-6 mt-12">
-          {testimonials.map((item, i) => (
-            <div
-              key={i}
-              className="bg-white p-6 rounded-xl border border-gray-200 shadow-sm 
-              hover:shadow-xl hover:-translate-y-2 hover:scale-[1.02] 
-            hover:border-yellow-400 transition-all duration-300 ease-in-out"
+        {/* Scrollable track */}
+        <div
+          ref={scrollRef}
+          onScroll={updateScrollState}
+          className="flex gap-5 overflow-x-auto scroll-smooth scrollbar-hide pb-1 snap-x snap-mandatory"
+          style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
+        >
+          {testimonials.map((t, i) => (
+            <motion.div
+              key={t.name}
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: i * 0.1 }}
+              className="snap-start shrink-0 w-70 sm:w-[320px] lg:w-[31%] border border-gray-200 rounded-2xl p-6 flex flex-col"
             >
-              
-              {/* STARS */}
-              <div className="flex mb-4">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} size={18} className="text-yellow-400 fill-yellow-400" />
+              {/* Stars */}
+              <div className="flex gap-0.5 mb-3">
+                {Array.from({ length: 5 }).map((_, idx) => (
+                  <Star key={idx} className="w-4 h-4 fill-amber-400 text-amber-400" />
                 ))}
               </div>
 
-              {/* TEXT */}
-              <p className="text-gray-600 text-sm leading-relaxed mb-4">
-                "{item.text}"
+              {/* Quote */}
+              <p className="text-sm text-gray-700 leading-relaxed mb-5 flex-1">
+                &quot;{t.quote}&quot;
               </p>
 
-              {/* USER */}
-              <div>
-                <p className="font-semibold text-gray-900">{item.name}</p>
-                <p className="text-sm text-gray-500">{item.role}</p>
-              </div>
+              {/* Divider */}
+              <div className="border-t border-gray-200 mb-4" />
 
-            </div>
+              {/* Author */}
+              <div className="flex items-center gap-3">
+                <div className="relative w-10 h-10 rounded-full overflow-hidden shrink-0 bg-gray-200">
+                  {/* <Image src={t.avatar} alt={t.name} fill className="object-cover" /> */}
+                </div>
+                <div>
+                  <p className="text-sm font-semibold text-gray-900">{t.name}</p>
+                  <p className="text-xs text-gray-500">{t.role}</p>
+                </div>
+              </div>
+            </motion.div>
           ))}
         </div>
 
+        {/* Right arrow */}
+        <motion.button
+          onClick={() => scroll("right")}
+          animate={{ opacity: canScrollRight ? 1 : 0.3 }}
+          transition={{ duration: 0.2 }}
+          disabled={!canScrollRight}
+          className="hidden md:flex absolute -right-4 lg:-right-6 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full border border-gray-300 bg-white items-center justify-center hover:bg-gray-50 transition disabled:cursor-not-allowed"
+          aria-label="Next testimonial"
+        >
+          <ChevronRight className="w-4 h-4 text-gray-700" />
+        </motion.button>
       </div>
     </section>
   );
