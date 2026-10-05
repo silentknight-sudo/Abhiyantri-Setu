@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 
 import { motion } from "framer-motion";
 import { Star, ChevronRight, BadgeCheck, MessageCircle, User } from "lucide-react";
@@ -59,9 +60,9 @@ export default function FeaturedProfessionals() {
             Compare verified professionals before hiring
           </p>
         </div>
-        <button className="text-xs sm:text-sm text-amber-500 font-medium flex items-center gap-0.5 whitespace-nowrap hover:text-amber-600 transition">
+        <Link href="/providers" className="text-xs sm:text-sm text-amber-500 font-medium flex items-center gap-0.5 whitespace-nowrap hover:text-amber-600 transition">
           View all <ChevronRight className="w-3.5 h-3.5" />
-        </button>
+        </Link>
       </div>
 
       {/* Professional cards */}
@@ -102,13 +103,13 @@ export default function FeaturedProfessionals() {
               <span>{p.projects}</span>
             </div>
 
-            <button className="bg-amber-500 hover:bg-amber-600 transition text-white text-[10.5px] font-semibold rounded-lg py-1.5 w-full mt-2">
+            <Link href="/providers" className="block text-center bg-amber-500 hover:bg-amber-600 transition text-white text-[10.5px] font-semibold rounded-lg py-1.5 w-full mt-2">
               View Profile
-            </button>
-            <button className="border border-gray-200 text-teal-600 text-[10px] rounded-lg py-1 w-full mt-1.5 flex items-center justify-center gap-1 hover:bg-gray-50 transition">
+            </Link>
+            <a href="https://wa.me/919289553069" target="_blank" rel="noopener noreferrer" className="border border-gray-200 text-teal-600 text-[10px] rounded-lg py-1 w-full mt-1.5 flex items-center justify-center gap-1 hover:bg-gray-50 transition">
               <MessageCircle className="w-3 h-3" />
               WhatsApp
-            </button>
+            </a>
           </motion.div>
         ))}
       </div>

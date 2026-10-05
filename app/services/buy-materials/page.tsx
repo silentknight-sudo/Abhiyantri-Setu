@@ -7,6 +7,7 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
+import { joinWaitlist } from "@/lib/actions/contact-action";
 
 const categories = [
   { icon: Layers,     label: "Cement & Concrete" },
@@ -36,9 +37,17 @@ export default function BuyMaterialsComingSoon() {
   const [submitted, setSubmitted] = useState(false);
   const [error, setError]         = useState(false);
 
-  const handleSubmit = () => {
-    if (!email || !email.includes("@")) { setError(true); return; }
+  const handleSubmit = async () => {
+    if (!email || !email.includes("@")) {
+      setError(true);
+      return;
+    }
     setError(false);
+    const res = await joinWaitlist(email, "Buy Materials");
+    if (res.error) {
+      setError(true);
+      return;
+    }
     setSubmitted(true);
   };
 

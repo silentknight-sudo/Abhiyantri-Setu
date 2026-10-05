@@ -1,8 +1,10 @@
 "use client";
 
+import NotificationBell from "@/components/shared/NotificationBell";
+import MessageButton from "@/components/shared/MessageButton";
+
 import { useState } from "react";
 import Link from "next/link";
-import { usePathname, useRouter } from "next/navigation";
 
 //  Type matching Prisma getProviderLeads return shape 
 interface Job {
@@ -18,6 +20,7 @@ interface Job {
   client: {
     id: string;
     name: string | null;
+    phone?: string | null;
   };
 }
 
@@ -101,7 +104,7 @@ function LeadCard({ job }: { job: Job }) {
                 New
               </span>
             </div>
-            <p className="text-xs text-gray-400 mt-0.5">{timeAgo(job.createdAt)}</p>
+            <p className="text-xs text-gray-400 mt-0.5" suppressHydrationWarning>{timeAgo(job.createdAt)}</p>
           </div>
         </div>
         <span className="text-base font-bold text-yellow-500 flex-shrink-0 ml-2">
@@ -129,18 +132,18 @@ function LeadCard({ job }: { job: Job }) {
 
       {/* Action buttons */}
       <div className="grid grid-cols-3 gap-2.5">
-        <button className="flex items-center justify-center gap-2 border border-gray-200 rounded-xl py-2.5 text-sm font-semibold text-gray-700 hover:bg-gray-50 transition-colors">
+        <a href={job.client.phone ? `tel:${job.client.phone}` : `/provider/leads/${job.id}`} title={job.client.phone ? job.client.phone : "Phone not shared — open details"} className="flex items-center justify-center gap-2 border border-gray-200 rounded-xl py-2.5 text-sm font-semibold text-gray-700 hover:bg-gray-50 transition-colors">
           <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
             <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.15 3.42 2 2 0 0 1 3.12 1.22h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.09 8.91a16 16 0 0 0 8 8l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 23 17z"/>
           </svg>
           Call
-        </button>
-        <button className="flex items-center justify-center gap-2 border border-gray-200 rounded-xl py-2.5 text-sm font-semibold text-gray-700 hover:bg-gray-50 transition-colors">
+        </a>
+        <MessageButton userId={job.client.id} jobId={job.id} viewerRole="provider" className="w-full flex items-center justify-center gap-2 border border-gray-200 rounded-xl py-2.5 text-sm font-semibold text-gray-700 hover:bg-gray-50 transition-colors">
           <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
             <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
           </svg>
           Chat
-        </button>
+        </MessageButton>
         <Link
           href={`/provider/leads/${job.id}`}
           className="flex items-center justify-center gap-2 bg-yellow-400 hover:bg-yellow-500 rounded-xl py-2.5 text-sm font-bold text-gray-900 transition-colors"
@@ -172,7 +175,8 @@ export default function ProviderLeads({
       (job.client.name ?? "").toLowerCase().includes(q) ||
       job.title.toLowerCase().includes(q) ||
       (job.location ?? "").toLowerCase().includes(q);
-    return matchesSearch;
+    const matchesStatus = statusFilter === "All Status" || statusFilter === "New";
+    return matchesSearch && matchesStatus;
   });
 
   return (
@@ -186,13 +190,7 @@ export default function ProviderLeads({
             <p className="text-gray-400 text-sm mt-0.5">Naye customers aapka intezaar kar rahe hain</p>
           </div>
           {/* Desktop notifications */}
-          <button className="hidden lg:flex relative items-center gap-2 bg-white border border-gray-200 rounded-xl px-4 py-2.5 text-sm font-semibold text-gray-700 hover:bg-gray-50 transition-all shadow-sm">
-            <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
-              <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/>
-            </svg>
-            Notifications
-            <span className="absolute -top-1.5 -right-1.5 w-5 h-5 bg-red-500 text-white text-xs font-bold rounded-full flex items-center justify-center">3</span>
-          </button>
+          <div className="hidden lg:block"><NotificationBell /></div>
         </div>
 
         {/* ── SEARCH + FILTER BAR ── */}

@@ -1,4 +1,5 @@
 "use client";
+import NotificationBell from "@/components/shared/NotificationBell";
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
@@ -51,7 +52,6 @@ function ProfileDropdown({
 }) {
   const [open, setOpen] = useState(false);
   const router = useRouter();
-  console.log("NAVBAR ROLE =", userRole);
   const baseRoute =
   userRole?.toLowerCase() === "provider"
     ? "/provider"
@@ -235,12 +235,15 @@ export default function Navbar({ userName, userEmail, userImage, userRole }: Nav
             </div>
           {/* AUTH LOGIC profiledropdown */}
             {userName ? (
+              <>
+              <NotificationBell compact />
               <ProfileDropdown
                 userName={userName}
                 userEmail={userEmail!}
                 userImage={userImage ?? null}
                 userRole={userRole ?? "CLIENT"}
               />
+              </>
             ) : (
               <>
                 <Link href="/provider-signup">
@@ -347,7 +350,7 @@ export default function Navbar({ userName, userEmail, userImage, userRole }: Nav
         Profile
       </Link>
 
-      <Link href={`${baseRoute}/profile`} onClick={() => setOpen(false)}
+      <Link href={`${baseRoute}/messages`} onClick={() => setOpen(false)}
         className="flex items-center gap-3 text-sm text-gray-700">
         <MessageIcon />
         Messages

@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 
 import { useState } from "react";
 import { motion, useInView, AnimatePresence, Variants } from "framer-motion";
@@ -135,13 +136,13 @@ function Hero() {
             custom={3}
             className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center"
           >
-            <button className="group inline-flex items-center justify-center gap-2 rounded-xl bg-amber-500 px-6 py-3.5 text-sm font-semibold text-neutral-900 shadow-sm shadow-amber-500/30 transition-all hover:bg-amber-400 hover:shadow-md hover:shadow-amber-500/40 active:scale-[0.98]">
+            <Link href="/providers" className="group inline-flex items-center justify-center gap-2 rounded-xl bg-amber-500 px-6 py-3.5 text-sm font-semibold text-neutral-900 shadow-sm shadow-amber-500/30 transition-all hover:bg-amber-400 hover:shadow-md hover:shadow-amber-500/40 active:scale-[0.98]">
               Find a Professional
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-            </button>
-            <button className="inline-flex items-center justify-center rounded-xl border border-neutral-200 bg-white px-6 py-3.5 text-sm font-semibold text-neutral-900 transition-colors hover:border-neutral-300 hover:bg-neutral-50 active:scale-[0.98]">
+            </Link>
+            <Link href="/auth?mode=signup&role=provider" className="inline-flex items-center justify-center rounded-xl border border-neutral-200 bg-white px-6 py-3.5 text-sm font-semibold text-neutral-900 transition-colors hover:border-neutral-300 hover:bg-neutral-50 active:scale-[0.98]">
               Become a Service Provider
-            </button>
+            </Link>
           </motion.div>
 
           <motion.div
@@ -696,6 +697,7 @@ function SplitFeature({
   items,
   image,
   cta,
+  href,
   reverse,
 }: {
   eyebrow: string;
@@ -703,6 +705,7 @@ function SplitFeature({
   items: string[];
   image: string;
   cta: string;
+  href: string;
   reverse?: boolean;
 }) {
   return (
@@ -739,10 +742,10 @@ function SplitFeature({
                 </li>
               ))}
             </ul>
-            <button className="group mt-8 inline-flex items-center gap-2 rounded-xl bg-neutral-900 px-6 py-3.5 text-sm font-semibold text-white transition-transform active:scale-[0.98]">
+            <Link href={href} className="group mt-8 inline-flex items-center gap-2 rounded-xl bg-neutral-900 px-6 py-3.5 text-sm font-semibold text-white transition-transform active:scale-[0.98]">
               {cta}
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-            </button>
+            </Link>
           </Reveal>
         </div>
       </div>
@@ -1033,13 +1036,13 @@ function FinalCTA() {
           </p>
 
           <div className="relative mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
-            <button className="group inline-flex items-center gap-2 rounded-xl bg-amber-500 px-6 py-3.5 text-sm font-semibold text-neutral-900 transition-all hover:bg-amber-400 active:scale-[0.98]">
+            <Link href="/providers" className="group inline-flex items-center gap-2 rounded-xl bg-amber-500 px-6 py-3.5 text-sm font-semibold text-neutral-900 transition-all hover:bg-amber-400 active:scale-[0.98]">
               Find a Professional
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-            </button>
-            <button className="inline-flex items-center gap-2 rounded-xl bg-white/10 px-6 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-white/15 active:scale-[0.98]">
+            </Link>
+            <Link href="/auth?mode=signup&role=provider" className="inline-flex items-center gap-2 rounded-xl bg-white/10 px-6 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-white/15 active:scale-[0.98]">
               Become a Service Provider
-            </button>
+            </Link>
           </div>
         </div>
       </Reveal>
@@ -1065,6 +1068,7 @@ export default function AboutPage() {
         title="Build with total peace of mind."
         image="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1200&auto=format&fit=crop"
         cta="Find Professionals"
+        href="/providers"
         items={[
           "Access thousands of verified professionals",
           "Compare quotations transparently",
@@ -1079,6 +1083,7 @@ export default function AboutPage() {
         title="Grow your business, digitally."
         image="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=1200&auto=format&fit=crop"
         cta="Join as Professional"
+        href="/auth?mode=signup&role=provider"
         reverse
         items={[
           "Generate qualified, high-intent leads",

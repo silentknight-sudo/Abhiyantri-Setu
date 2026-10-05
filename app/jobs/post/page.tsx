@@ -33,7 +33,7 @@ interface AiEstimator {
 const CATEGORIES = [
   "Architect",
   "Contractor",
-  "Interior",
+  "Interior Designer",
   "Electrician",
   "Plumber",
   "Painter",

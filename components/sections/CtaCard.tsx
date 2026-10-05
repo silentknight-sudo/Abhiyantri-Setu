@@ -26,9 +26,9 @@ export default function CtaCards() {
             <p className="text-sm text-gray-500 leading-relaxed mb-5 max-w-xs">
               Let Setu AI guide you to the right professionals.
             </p>
-            <button className="bg-slate-800 hover:bg-slate-900 transition text-white text-sm font-semibold rounded-lg px-5 py-2.5">
+            <Link href="/ai" className="bg-slate-800 hover:bg-slate-900 transition text-white text-sm font-semibold rounded-lg px-5 py-2.5">
               Ask Setu AI
-            </button>
+            </Link>
           </div>
 
           <motion.div

@@ -7,6 +7,7 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
+import { joinWaitlist } from "@/lib/actions/contact-action";
 
 const features = [
   { icon: Droplets,    label: "Plumbing" },
@@ -29,12 +30,17 @@ export default function HomeServicesComingSoon() {
   const [submitted, setSubmitted] = useState(false);
   const [error, setError]       = useState(false);
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     if (!email || !email.includes("@")) {
       setError(true);
       return;
     }
     setError(false);
+    const res = await joinWaitlist(email, "Home Services");
+    if (res.error) {
+      setError(true);
+      return;
+    }
     setSubmitted(true);
   };
 

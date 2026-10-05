@@ -13,8 +13,6 @@ export default async function DashboardPage() {
 
   const role = session.user.role?.toLowerCase();
 
-  console.log("DASHBOARD REDIRECT ROLE:", role);
-
   if (role === "provider") {
     redirect("/provider/dashboard");
   }

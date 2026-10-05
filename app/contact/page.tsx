@@ -1,6 +1,8 @@
 "use client";
 import Image from "next/image";
 import { useState } from "react";
+import Link from "next/link";
+import { submitContact } from "@/lib/actions/contact-action";
 import { FaInstagram, FaWhatsapp } from "react-icons/fa";
 
 // Icons 
@@ -112,9 +114,17 @@ export default function ContactPage() {
       setForm((prev) => ({ ...prev, [field]: e.target.value }));
     };
 
-  const handleSubmit = () => {
-    // Handle form submission
-    console.log("Form submitted:", form);
+  const [status, setStatus] = useState<{ type: "idle" | "sending" | "sent" | "error"; msg?: string }>({ type: "idle" });
+
+  const handleSubmit = async () => {
+    setStatus({ type: "sending" });
+    const res = await submitContact(form);
+    if (res.error) {
+      setStatus({ type: "error", msg: res.error });
+      return;
+    }
+    setStatus({ type: "sent", msg: "Thanks! We've received your message and will get back to you soon." });
+    setForm({ name: "", email: "", phone: "", subject: "", message: "" });
   };
 
   return (
@@ -189,11 +199,17 @@ export default function ContactPage() {
                 />
               </div>
 
+              {status.msg && (
+                <p className={`text-sm rounded-xl px-4 py-3 ${status.type === "error" ? "bg-red-50 text-red-600" : "bg-emerald-50 text-emerald-700"}`}>
+                  {status.msg}
+                </p>
+              )}
               <button
                 onClick={handleSubmit}
-                className="w-full bg-[#1A2332] text-white font-semibold py-4 rounded-xl hover:bg-[#2C3E55] transition-colors duration-200 mt-1"
+                disabled={status.type === "sending"}
+                className="w-full bg-[#1A2332] text-white font-semibold py-4 rounded-xl hover:bg-[#2C3E55] transition-colors duration-200 mt-1 disabled:opacity-60"
               >
-                Send Message
+                {status.type === "sending" ? "Sending..." : "Send Message"}
               </button>
             </div>
           </div>
@@ -334,9 +350,9 @@ export default function ContactPage() {
           </div>
           
           {/* FLOATING BUTTON */}
-          <button className="fixed bottom-6 right-6 bg-yellow-400 text-black px-5 py-3 rounded-full font-medium shadow-lg hover:scale-105 transition">
+          <Link href="/ai" className="fixed bottom-6 right-6 z-40 bg-yellow-400 text-black px-5 py-3 rounded-full font-medium shadow-lg hover:scale-105 transition">
             ✨ Ask Setu AI
-          </button>
+          </Link>
           
           </section>
 
