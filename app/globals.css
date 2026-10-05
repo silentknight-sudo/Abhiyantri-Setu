@@ -39,3 +39,48 @@ body {
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
 }
+/* ── Scroll + 3D motion ───────────────────────────────────────────── */
+html {
+  scroll-behavior: smooth;
+}
+
+.reveal-3d {
+  opacity: 0;
+  transform: perspective(1200px) translateY(60px) rotateX(-12deg) scale(0.97);
+  transform-origin: 50% 0%;
+  transition:
+    opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.reveal-3d.reveal-in {
+  opacity: 1;
+  transform: none;
+}
+
+.tilt-ready {
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.35s ease;
+  transform-style: preserve-3d;
+  background-image: radial-gradient(circle at var(--gx, 50%) var(--gy, 50%), rgba(255, 255, 255, 0.18), transparent 60%);
+}
+.tilt-ready:hover {
+  box-shadow: 0 24px 48px -16px rgba(17, 24, 39, 0.25);
+}
+
+/* Floating 3D shapes used in hero backgrounds */
+@keyframes float-3d {
+  0%, 100% { transform: translate3d(0, 0, 0) rotateX(0deg) rotateY(0deg); }
+  50% { transform: translate3d(0, -18px, 0) rotateX(25deg) rotateY(35deg); }
+}
+@keyframes spin-3d {
+  from { transform: rotateX(-20deg) rotateY(0deg); }
+  to { transform: rotateX(-20deg) rotateY(360deg); }
+}
+.float-3d { animation: float-3d 7s ease-in-out infinite; }
+.spin-3d { animation: spin-3d 18s linear infinite; transform-style: preserve-3d; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .reveal-3d { opacity: 1; transform: none; transition: none; }
+  .float-3d, .spin-3d { animation: none; }
+  .tilt-ready { transition: none; }
+}

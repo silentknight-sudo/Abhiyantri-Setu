@@ -9,6 +9,12 @@ const PUBLIC_ROUTES = [
   "/contact",
   "/jobs",    // job listings browse page (not /jobs/post)
   "/ai",
+  "/providers",
+  "/provider-signup",
+  "/terms",
+  "/privacy",
+  "/forgot-password",
+  "/api/ai",
 ];
 
 // Auth routes — logged-in users should not see these
@@ -46,7 +52,8 @@ export default async function Middleware(request: NextRequest) {
   const isLoggedIn = !!sessionCookie;
 
   // Case 1: /auth + already logged in → redirect to dashboard ────────────
-  if (isAuthRoute(pathname) && isLoggedIn) {
+  // (only for page loads — never redirect server-action POSTs)
+  if (isAuthRoute(pathname) && isLoggedIn && request.method === "GET") {
   return NextResponse.redirect(
     new URL("/dashboard", request.url)
   );

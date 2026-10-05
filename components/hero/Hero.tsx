@@ -3,13 +3,29 @@
 
 import { Search } from "lucide-react";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRouter } from "next/navigation";
+import { useRef, useState } from "react";
+import Tilt3D from "@/components/motion/Tilt3D";
+import Cube3D from "@/components/motion/Cube3D";
 
 const popularTags = ["Interior Design", "Plumbing", "Electrical", "Construction", "Paint"];
 
 export default function Hero() {
+  const router = useRouter();
+  const [query, setQuery] = useState("");
+  const ref = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
+  const imgY = useTransform(scrollYProgress, [0, 1], [0, 80]);
+  const imgRotate = useTransform(scrollYProgress, [0, 1], [0, 8]);
+
+  const search = (q: string) => {
+    const term = q.trim();
+    router.push(term ? `/providers?q=${encodeURIComponent(term)}` : "/providers");
+  };
+
   return (
-    <section className="grid grid-cols-1 lg:grid-cols-2 items-center px-6 sm:px-10 lg:px-16 py-10 lg:py-16 gap-8 lg:gap-16 bg-white">
+    <section ref={ref} data-no-reveal className="relative grid grid-cols-1 lg:grid-cols-2 items-center px-6 sm:px-10 lg:px-16 py-10 lg:py-16 gap-8 lg:gap-16 bg-white">
       {/* LEFT */}
       <motion.div
         initial={{ opacity: 0, x: -40 }}
@@ -32,7 +48,8 @@ export default function Hero() {
         </motion.p>
 
         {/* Search bar */}
-        <motion.div
+        <motion.form
+          onSubmit={(e) => { e.preventDefault(); search(query); }}
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.35, ease: "easeOut" }}
@@ -41,13 +58,15 @@ export default function Hero() {
           <Search className="w-5 h-5 text-gray-400 mr-3 flex-shrink-0" />
           <input
             type="text"
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
             placeholder="Search services, contractors, materials, equipment..."
             className="flex-1 text-sm outline-none text-gray-800 placeholder:text-gray-400 bg-transparent min-w-0"
           />
-          <button className="bg-amber-500 hover:bg-amber-600 transition rounded-full p-2.5 ml-3 flex-shrink-0">
+          <button type="submit" aria-label="Search" className="bg-amber-500 hover:bg-amber-600 transition rounded-full p-2.5 ml-3 flex-shrink-0">
             <Search className="w-4 h-4 text-white" />
           </button>
-        </motion.div>
+        </motion.form>
 
         {/* Popular tags */}
         <motion.div
@@ -63,6 +82,8 @@ export default function Hero() {
               initial={{ opacity: 0, scale: 0.85 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.3, delay: 0.55 + i * 0.07 }}
+              whileHover={{ y: -3, rotateX: 12, scale: 1.05 }}
+              onClick={() => search(tag)}
               className="text-sm border border-gray-300 rounded-full px-4 py-1.5 hover:bg-gray-50 transition text-gray-700"
             >
               {tag}
@@ -73,18 +94,25 @@ export default function Hero() {
 
       {/* RIGHT — building image */}
       <motion.div
-        initial={{ opacity: 0, x: 40 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.7, ease: "easeOut" }}
-        className="w-full h-[280px] sm:h-[360px] lg:h-[420px] rounded-2xl overflow-hidden relative"
+        initial={{ opacity: 0, x: 40, rotateY: -25 }}
+        animate={{ opacity: 1, x: 0, rotateY: 0 }}
+        transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+        style={{ y: imgY, rotateX: imgRotate, transformPerspective: 1200 }}
+        className="relative w-full"
       >
-        <Image
-          src="/hero-house.jpg"
-          alt="Modern building at sunset"
-          fill
-          className="object-cover"
-          priority
-        />
+        <Cube3D size={64} className="float-3d absolute -left-6 -top-8 z-10 hidden sm:block" />
+        <Cube3D size={40} className="float-3d absolute -bottom-6 right-8 z-10 hidden sm:block [animation-delay:-3s]" />
+        <Tilt3D max={12} className="w-full h-[280px] sm:h-[360px] lg:h-[420px]">
+          <div className="relative h-full w-full rounded-2xl overflow-hidden shadow-2xl shadow-amber-900/20">
+            <Image
+              src="/hero-house.jpg"
+              alt="Modern building at sunset"
+              fill
+              className="object-cover"
+              priority
+            />
+          </div>
+        </Tilt3D>
       </motion.div>
     </section>
   );

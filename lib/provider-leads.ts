@@ -1,6 +1,4 @@
-import { PrismaClient } from "@prisma/client";
-
-const prisma = new PrismaClient();
+import { prisma } from "@/lib/prisma";
 
 export async function getProviderLeads(
   userId: string
@@ -25,8 +23,6 @@ export async function getProviderLeads(
         jobId: true,
       },
     });
-console.log("PROFILE SPECIALTY:", profile.specialty);
-console.log("EXISTING BIDS:", existingBids);
   const jobs = await prisma.job.findMany({
     where: {
       category: profile.specialty,
@@ -44,6 +40,7 @@ console.log("EXISTING BIDS:", existingBids);
         select: {
           id: true,
           name: true,
+          phone: true,
         },
       },
     },
@@ -52,8 +49,6 @@ console.log("EXISTING BIDS:", existingBids);
       createdAt: "desc",
     },
   });
-console.log("JOBS FOUND:", jobs.length);
-console.log("JOBS:", jobs);
 
   return jobs;
 }

@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 
 import { motion } from "framer-motion";
 import {
@@ -33,9 +34,9 @@ export default function HomeServices() {
             Everyday services for your home & building
           </p>
         </div>
-        <button className="text-xs sm:text-sm text-amber-500 font-medium flex items-center gap-0.5 whitespace-nowrap hover:text-amber-600 transition">
+        <Link href="/services/home-services" className="text-xs sm:text-sm text-amber-500 font-medium flex items-center gap-0.5 whitespace-nowrap hover:text-amber-600 transition">
           View all <ChevronRight className="w-3.5 h-3.5" />
-        </button>
+        </Link>
       </div>
 
       {/* Service cards */}

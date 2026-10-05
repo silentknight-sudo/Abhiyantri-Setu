@@ -1,6 +1,8 @@
 import { getJobs } from "@/lib/actions/job-action";
 import Link from "next/link";
 
+export const dynamic = "force-dynamic";
+
 
 export default async function JobsPage() {
   const result = await getJobs();
@@ -48,7 +50,7 @@ export default async function JobsPage() {
           </div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-            {jobs.map((job: any) => (
+            {jobs.map((job) => (
               <Link key={job.id} href={`/jobs/${job.id}`}
                 className="bg-white border border-gray-200 rounded-2xl p-5 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200">
                 <div className="flex items-start justify-between mb-3">

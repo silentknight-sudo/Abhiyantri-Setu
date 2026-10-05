@@ -1,5 +1,5 @@
-
 "use client";
+import Link from "next/link";
 
 import { useRef, useState } from "react";
 import { motion } from "framer-motion";
@@ -77,10 +77,10 @@ export default function ConstructionProjects() {
               End-to-end solutions for your dream project
             </p>
           </div>
-          <button className="text-sm font-medium text-gray-700 hover:text-amber-500 transition flex items-center gap-1 whitespace-nowrap mt-1">
+          <Link href="/services/build-renovate" className="text-sm font-medium text-gray-700 hover:text-amber-500 transition flex items-center gap-1 whitespace-nowrap mt-1">
             View all projects
             <ChevronRight className="w-4 h-4" />
-          </button>
+          </Link>
         </div>
 
         {/* Carousel wrapper */}

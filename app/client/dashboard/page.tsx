@@ -1,42 +1,36 @@
-import { auth } from "@/lib/auth";
-import { headers } from "next/headers";
-import { redirect } from "next/navigation";
 import ClientDashboardClient from "./clientDashboard";
-import { getMyJobs } from "@/lib/actions/job-action";
+import { requireClient } from "@/lib/session";
+import { prisma } from "@/lib/prisma";
+import { getCompletedJobs, getDashboardStats, getPendingBids } from "@/lib/dashboard";
+
 export const dynamic = "force-dynamic";
 
-
-export default async function ClientDashboardPage({searchParams}:any) {
+export default async function ClientDashboardPage({ searchParams }: { searchParams: Promise<{ success?: string }> }) {
   const params = await searchParams;
-  const success =  params?.success || null;
+  const user = await requireClient();
 
-  const session = await auth.api.getSession({
-    headers: await headers(),
-  });
+  const [jobs, stats, pendingBids, completed] = await Promise.all([
+    prisma.job.findMany({
+      where: { clientId: user.id, status: { in: ["ACTIVE", "PAUSED"] } },
+      orderBy: { createdAt: "desc" },
+      take: 6,
+      select: { id: true, title: true, category: true, budget: true, status: true },
+    }),
+    getDashboardStats(user.id),
+    getPendingBids(user.id),
+    getCompletedJobs(user.id),
+  ]);
 
- //@ts-ignore
-  const { jobs } = await getMyJobs(auth.api.getSession);
-
-  
-  if(!session?.user){
-    redirect("/auth");
-  }
-
-  console.log("CLIENT SESSION", session.user);
-
-  if(session.user.role?.toLowerCase() !== "client"){
-    redirect("/provider/dashboard");
-  }
-   
- 
   return (
     <ClientDashboardClient
-      userName={session.user.name ?? "User"}
-      userEmail={session.user.email ?? ""}
-      userImage={session.user.image ?? null}
-      // @ts-ignore
-     jobs = {jobs}
-     success = {success}
+      userName={user.name ?? "User"}
+      userEmail={user.email ?? ""}
+      userImage={user.image ?? null}
+      jobs={jobs}
+      success={params?.success ?? null}
+      stats={stats}
+      pendingBids={pendingBids.map((b) => ({ id: b.id, amount: b.amount, providerName: b.providerName, jobTitle: b.jobTitle }))}
+      completed={completed.map((j) => ({ id: j.id, title: j.title, category: j.category }))}
     />
   );
 }

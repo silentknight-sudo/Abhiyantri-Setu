@@ -8,23 +8,31 @@ datasource db {
 }
 
 model User {
-  id              String           @id @default(cuid())
-  name            String
-  email           String           @unique
-  emailVerified   Boolean          @default(false)
-  image           String?
-  createdAt       DateTime         @default(now())
-  updatedAt       DateTime         @updatedAt
-  phone           String?
-  role            String           @default("client")
-  accounts        Account[]
-  clientBids      Bid[]            @relation("ClientBids")
-  providerBids    Bid[]            @relation("ProviderBids")
-  earnings        Earning[]
-  jobs            Job[]            @relation("ClientJobs")
-  providerProfile ProviderProfile?
-  scheduledJobs   ScheduledJob[]
-  sessions        Session[]
+  id                    String            @id @default(cuid())
+  name                  String
+  email                 String            @unique
+  emailVerified         Boolean           @default(false)
+  image                 String?
+  createdAt             DateTime          @default(now())
+  updatedAt             DateTime          @updatedAt
+  phone                 String?
+  role                  String            @default("client")
+  accounts              Account[]
+  clientBids            Bid[]             @relation("ClientBids")
+  providerBids          Bid[]             @relation("ProviderBids")
+  earnings              Earning[]
+  jobs                  Job[]             @relation("ClientJobs")
+  providerProfile       ProviderProfile?
+  scheduledJobs         ScheduledJob[]
+  sessions              Session[]
+  clientConversations   Conversation[]    @relation("ClientConversations")
+  providerConversations Conversation[]    @relation("ProviderConversations")
+  messages              Message[]
+  reviewsGiven          Review[]          @relation("ReviewsGiven")
+  reviewsReceived       Review[]          @relation("ReviewsReceived")
+  services              ProviderService[]
+  workPhotos            WorkPhoto[]
+  notifications         Notification[]
 
   @@map("user")
 }
@@ -93,6 +101,12 @@ model ProviderProfile {
   hasWorkPhotos      Boolean  @default(false)
   hasIdVerification  Boolean  @default(false)
   hasBankDetails     Boolean  @default(false)
+  idType             String?
+  idNumber           String?
+  bankAccountName    String?
+  bankAccountNumber  String?
+  bankIfsc           String?
+  upiId              String?
   createdAt          DateTime @default(now())
   updatedAt          DateTime @updatedAt
   user               User     @relation(fields: [userId], references: [id], onDelete: Cascade)
@@ -103,18 +117,20 @@ model ProviderProfile {
 }
 
 model Job {
-  id          String    @id @default(cuid())
-  title       String
-  description String
-  category    String
-  budget      Float?
-  location    String?   @default("Greater Noida")
-  status      JobStatus @default(ACTIVE)
-  clientId    String
-  createdAt   DateTime  @default(now())
-  updatedAt   DateTime  @updatedAt
-  bids        Bid[]
-  client      User      @relation("ClientJobs", fields: [clientId], references: [id], onDelete: Cascade)
+  id            String         @id @default(cuid())
+  title         String
+  description   String
+  category      String
+  budget        Float?
+  location      String?        @default("Greater Noida")
+  status        JobStatus      @default(ACTIVE)
+  clientId      String
+  createdAt     DateTime       @default(now())
+  updatedAt     DateTime       @updatedAt
+  bids          Bid[]
+  conversations Conversation[]
+  reviews       Review[]
+  client        User           @relation("ClientJobs", fields: [clientId], references: [id], onDelete: Cascade)
 
   @@index([clientId])
   @@index([status])
@@ -194,4 +210,103 @@ enum LeadStatus {
   CONTACTED
   INTERESTED
   CLOSED
+}
+
+model Conversation {
+  id         String    @id @default(cuid())
+  clientId   String
+  providerId String
+  jobId      String?
+  createdAt  DateTime  @default(now())
+  updatedAt  DateTime  @updatedAt
+  client     User      @relation("ClientConversations", fields: [clientId], references: [id], onDelete: Cascade)
+  provider   User      @relation("ProviderConversations", fields: [providerId], references: [id], onDelete: Cascade)
+  job        Job?      @relation(fields: [jobId], references: [id], onDelete: SetNull)
+  messages   Message[]
+
+  @@unique([clientId, providerId])
+  @@index([providerId])
+  @@map("conversation")
+}
+
+model Message {
+  id             String       @id @default(cuid())
+  text           String
+  conversationId String
+  senderId       String
+  readAt         DateTime?
+  createdAt      DateTime     @default(now())
+  conversation   Conversation @relation(fields: [conversationId], references: [id], onDelete: Cascade)
+  sender         User         @relation(fields: [senderId], references: [id], onDelete: Cascade)
+
+  @@index([conversationId, createdAt])
+  @@map("message")
+}
+
+model Review {
+  id         String   @id @default(cuid())
+  rating     Int
+  comment    String?
+  providerId String
+  clientId   String
+  jobId      String?
+  createdAt  DateTime @default(now())
+  provider   User     @relation("ReviewsReceived", fields: [providerId], references: [id], onDelete: Cascade)
+  client     User     @relation("ReviewsGiven", fields: [clientId], references: [id], onDelete: Cascade)
+  job        Job?     @relation(fields: [jobId], references: [id], onDelete: SetNull)
+
+  @@unique([clientId, jobId])
+  @@index([providerId])
+  @@map("review")
+}
+
+model ProviderService {
+  id         String   @id @default(cuid())
+  name       String
+  price      Float
+  unit       String   @default("per job")
+  providerId String
+  createdAt  DateTime @default(now())
+  provider   User     @relation(fields: [providerId], references: [id], onDelete: Cascade)
+
+  @@index([providerId])
+  @@map("provider_service")
+}
+
+model WorkPhoto {
+  id         String   @id @default(cuid())
+  url        String
+  caption    String?
+  providerId String
+  createdAt  DateTime @default(now())
+  provider   User     @relation(fields: [providerId], references: [id], onDelete: Cascade)
+
+  @@index([providerId])
+  @@map("work_photo")
+}
+
+model Notification {
+  id        String    @id @default(cuid())
+  userId    String
+  title     String
+  body      String?
+  href      String?
+  readAt    DateTime?
+  createdAt DateTime  @default(now())
+  user      User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId, createdAt])
+  @@map("notification")
+}
+
+model ContactMessage {
+  id        String   @id @default(cuid())
+  name      String
+  email     String
+  phone     String?
+  subject   String?
+  message   String
+  createdAt DateTime @default(now())
+
+  @@map("contact_message")
 }

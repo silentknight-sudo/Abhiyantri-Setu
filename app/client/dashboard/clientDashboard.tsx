@@ -12,8 +12,11 @@ interface Props {
   userName: string;
   userEmail: string;
   userImage: string | null;
-  jobs: any[];
+  jobs: { id: string; title: string; category: string; budget: number | null; status: string }[];
   success: string | null;
+  stats: { totalJobs: number; activeJobs: number; pendingBids: number; completedJobs: number };
+  pendingBids: { id: string; amount: number; providerName: string; jobTitle: string }[];
+  completed: { id: string; title: string; category: string }[];
 }
 
 interface StatCardProps {
@@ -156,7 +159,7 @@ const quickLinks = [
 ];
 
 // Main Dashboard
-export default function ClientDashboardClient({ userName, userEmail, userImage,jobs, success }: Props) {
+export default function ClientDashboardClient({ userName, userEmail, userImage, jobs, success, stats, pendingBids, completed }: Props) {
 
 const [showMessage, setShowMessage] = useState(true);
 const router = useRouter();
@@ -233,10 +236,10 @@ const firstName = getFirstName(userName);
 
         {/* Stats */}
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
-          <StatCard label="Total Jobs" value={jobs.length} color="border-yellow-400" />
-          <StatCard label="Active" value={jobs.filter(j => j.status === "ACTIVE").length} color="border-blue-400" />
-          <StatCard label="Pending Bids" value={0} color="border-orange-400" />
-          <StatCard label="Completed" value={0} color="border-green-400" />
+          <StatCard label="Total Jobs" value={stats.totalJobs} color="border-yellow-400" />
+          <StatCard label="Active" value={stats.activeJobs} color="border-blue-400" />
+          <StatCard label="Pending Bids" value={stats.pendingBids} color="border-orange-400" />
+          <StatCard label="Completed" value={stats.completedJobs} color="border-green-400" />
         </div>
 
         {/* Find a Service */}
@@ -249,12 +252,12 @@ const firstName = getFirstName(userName);
           </div>
           <div className="grid grid-cols-3 sm:grid-cols-6 gap-3">
             {services.map((s) => (
-              <button key={s.label} className="flex flex-col items-center gap-2 group">
+              <Link key={s.label} href={`/providers?specialty=${encodeURIComponent(s.label === "Interior" ? "Interior Designer" : s.label)}`} className="flex flex-col items-center gap-2 group">
                 <div className={`w-14 h-14 rounded-full ${s.color} flex items-center justify-center group-hover:scale-110 transition-transform duration-200`}>
                   {s.icon}
                 </div>
                 <span className="text-xs font-medium text-gray-600 group-hover:text-gray-900 transition-colors">{s.label}</span>
-              </button>
+              </Link>
             ))}
           </div>
         </div>
@@ -282,11 +285,11 @@ const firstName = getFirstName(userName);
   ) : (
     <div className="space-y-3">
     {jobs.map((job) => (
-      <div key={job.id} className="border p-4 rounded-lg">
+      <Link key={job.id} href={`/client/project?job=${job.id}`} className="block border p-4 rounded-lg hover:bg-gray-50 transition-colors">
         <h3 className="font-semibold text-black">{job.title}</h3>
-        <p className="text-sm text-black">{job.category}</p>
-        <p className="text-sm text-black font-medium">₹{job.budget}</p>
-      </div>
+        <p className="text-sm text-black">{job.category} · {job.status}</p>
+        <p className="text-sm text-black font-medium">{job.budget ? `₹${job.budget.toLocaleString("en-IN")}` : "Open budget"}</p>
+      </Link>
     ))}
   </div>
    )}
@@ -296,11 +299,36 @@ const firstName = getFirstName(userName);
           <div className="lg:col-span-2 flex flex-col gap-5">
             <div className="bg-white border border-gray-200 rounded-2xl p-6">
               <h2 className="text-base font-bold text-gray-900 mb-4">Pending Bids</h2>
-              <p className="text-gray-400 text-sm text-center py-4">No pending bids</p>
+              {pendingBids.length === 0 ? (
+                <p className="text-gray-400 text-sm text-center py-4">No pending bids</p>
+              ) : (
+                <div className="space-y-2">
+                  {pendingBids.map((b) => (
+                    <Link key={b.id} href="/client/project" className="flex items-center justify-between rounded-lg border border-gray-100 p-3 text-sm hover:bg-gray-50">
+                      <span className="min-w-0">
+                        <span className="block truncate font-semibold text-gray-900">{b.providerName}</span>
+                        <span className="block truncate text-xs text-gray-500">{b.jobTitle}</span>
+                      </span>
+                      <span className="font-bold text-gray-900">₹{b.amount.toLocaleString("en-IN")}</span>
+                    </Link>
+                  ))}
+                </div>
+              )}
             </div>
             <div className="bg-white border border-gray-200 rounded-2xl p-6">
               <h2 className="text-base font-bold text-gray-900 mb-4">Completed</h2>
-              <p className="text-gray-400 text-sm text-center py-4">No completed projects</p>
+              {completed.length === 0 ? (
+                <p className="text-gray-400 text-sm text-center py-4">No completed projects</p>
+              ) : (
+                <div className="space-y-2">
+                  {completed.map((j) => (
+                    <Link key={j.id} href={`/client/project?job=${j.id}`} className="block rounded-lg border border-gray-100 p-3 text-sm hover:bg-gray-50">
+                      <span className="font-semibold text-gray-900">{j.title}</span>
+                      <span className="block text-xs text-gray-500">{j.category}</span>
+                    </Link>
+                  ))}
+                </div>
+              )}
             </div>
             <div className="bg-[#1A2332] rounded-2xl p-6">
               <div className="flex items-start gap-3">
@@ -369,9 +397,9 @@ const firstName = getFirstName(userName);
             <p className="mt-1">Launching first in Greater Noida</p>
           </div>
         </div>
-        <button className="fixed bottom-6 right-6 bg-yellow-400 text-black px-5 py-3 rounded-full font-medium shadow-lg hover:scale-105 transition">
+        <Link href="/ai" className="fixed bottom-6 right-6 bg-yellow-400 text-black px-5 py-3 rounded-full font-medium shadow-lg hover:scale-105 transition">
           ✨ Ask Setu AI
-        </button>
+        </Link>
       </section>
     </div>
   );

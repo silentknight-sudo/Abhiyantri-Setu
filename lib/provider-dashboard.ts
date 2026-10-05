@@ -1,8 +1,4 @@
-import { PrismaClient } from "@prisma/client";
-
-const globalForPrisma = globalThis as unknown as { prisma: PrismaClient };
-const prisma = globalForPrisma.prisma ?? new PrismaClient();
-if (process.env.NODE_ENV !== "production") globalForPrisma.prisma = prisma;
+import { prisma } from "@/lib/prisma";
 
 // Types 
 
@@ -137,7 +133,7 @@ export async function getProviderDashboardData(
 
     // Active Jobs = provider's bids ACCEPTED
     prisma.bid.count({
-      where: { providerId: userId, status: "ACCEPTED" },
+      where: { providerId: userId, status: "ACCEPTED", completedAt: null },
     }),
 
     // Today's earnings
@@ -204,7 +200,7 @@ export async function getProviderDashboardData(
     // Active jobs (accepted bids with progress)
     
     prisma.bid.findMany({
-      where: { providerId: userId, status: "ACCEPTED" },
+      where: { providerId: userId, status: "ACCEPTED", completedAt: null },
       include: {
         client: { select: { name: true } },
         job: { select: { title: true, location: true } },

@@ -5,6 +5,8 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
 import { signOut } from "@/lib/actions/auth-action";
+import { setOnline } from "@/lib/actions/provider-action";
+import NotificationBell from "@/components/shared/NotificationBell";
 
 //  Types 
 interface Props {
@@ -141,6 +143,16 @@ const NAV_ITEMS = [
     ),
   },
   {
+    href: "/provider/messages",
+    label: "Messages",
+    sub: "Baat-cheet",
+    icon: (
+      <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
+        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+      </svg>
+    ),
+  },
+  {
     href: "/provider/support",
     label: "Support",
     sub: "Madad",
@@ -238,7 +250,7 @@ function SidebarInner({
           <NavItem
             key={item.href}
             {...item}
-            active={pathname === item.href}
+            active={pathname === item.href || pathname.startsWith(item.href + "/")}
             onClick={onNavClick}
           />
         ))}
@@ -290,6 +302,14 @@ export default function ProviderSidebar({ userName, userEmail, userImage, initia
     return () => { document.body.style.overflow = ""; };
   }, [drawerOpen]);
 
+  const toggleOnline = () => {
+    const next = !isOnline;
+    setIsOnline(next);
+    setOnline(next).then((r) => {
+      if (r.error) setIsOnline(!next);
+    });
+  };
+
   const handleSignOut = async () => {
     await signOut();
     router.push("/");
@@ -306,7 +326,7 @@ export default function ProviderSidebar({ userName, userEmail, userImage, initia
           userImage={userImage}
           initials={initials}
           isOnline={isOnline}
-          onToggleOnline={() => setIsOnline((p) => !p)}
+          onToggleOnline={toggleOnline}
           pathname={pathname}
           onSignOut={handleSignOut}
         />
@@ -334,15 +354,7 @@ export default function ProviderSidebar({ userName, userEmail, userImage, initia
           <span className="font-bold text-gray-900 text-sm">Abhiyantri</span>
         </div>
 
-        <button className="relative w-9 h-9 flex items-center justify-center rounded-xl hover:bg-gray-100 transition-colors">
-          <svg className="w-5 h-5 text-gray-700" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
-            <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
-            <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
-          </svg>
-          <span className="absolute -top-0.5 -right-0.5 w-4 h-4 bg-red-500 text-white text-xs font-bold rounded-full flex items-center justify-center leading-none">
-            3
-          </span>
-        </button>
+        <NotificationBell compact />
       </div>
 
       {/* ── MOBILE DRAWER ── */}
@@ -359,7 +371,7 @@ export default function ProviderSidebar({ userName, userEmail, userImage, initia
               userImage={userImage}
               initials={initials}
               isOnline={isOnline}
-              onToggleOnline={() => setIsOnline((p) => !p)}
+              onToggleOnline={toggleOnline}
               pathname={pathname}
               onSignOut={handleSignOut}
               onNavClick={() => setDrawerOpen(false)}

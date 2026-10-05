@@ -1,9 +1,8 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { signIn, signUp, signInSocial } from "@/lib/actions/auth-action";
-import { signOut } from "better-auth/api";
 // import { EyeIcon } from "lucide-react";
 
 const LogoIcon = () => (
@@ -57,6 +56,14 @@ export default function AuthPage() {
 
   const clearMessages = () => { setError(""); setSuccess(""); };
 
+  // Allow deep links like /auth?mode=signup&role=provider
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- one-time read of the URL after mount
+    if (params.get("mode") === "signup") setTab("signup");
+    if (params.get("role") === "provider") setRole("provider");
+  }, []);
+
   // social auth authentication (client-> provider)
   const handleSocialAuth = async (provider: "google") => {
     setGoogleLoading(true);
@@ -90,14 +97,14 @@ export default function AuthPage() {
       signInForm.password
     );
 
-    console.log("LOGIN RESULT", result);
-
     if (!result.success) {
       setError(result.error || "Sign in failed.");
+      setLoading(false);
       return;
     }
 
-    router.push("/dashboard");
+    const next = new URLSearchParams(window.location.search).get("callbackUrl");
+    router.push(next && next.startsWith("/") && !next.startsWith("//") ? next : "/dashboard");
     router.refresh();
 
   } catch (error) {
@@ -150,46 +157,18 @@ export default function AuthPage() {
    signUpForm.phone,
    signUpForm.location
 );
-    // @ts-ignore
-    if (result?.error) {
-
-      setError(
-        //@ts-ignore
-        result.error.message ?? "Registration failed."
-      );
-
+    if (result.error) {
+      setError(result.error.message || "Registration failed.");
     } else {
-      // await signOut();
-      setSuccess(
-        "Account created successfully! Please sign in."
-      );
-
-      // auto fill signin email
-      setSignInForm({
-        email: signUpForm.email,
-        password: "",
-      });
-
-      // switch to signin tab
-      setTab("signin");
-
-      // clear signup form
-      setSignUpForm({
-        name: "",
-        email: "",
-        password: "",
-        confirm: "",
-        agreed: false,
-        specialty: "",
-        experience: "",
-        phone: "",
-        location: "",
-      });
+      // Sign-up also signs the user in — go straight to their dashboard
+      setSuccess("Account created successfully! Taking you to your dashboard...");
+      router.push("/dashboard");
+      router.refresh();
+      return;
     }
 
   } catch (err) {
 
-    console.log(err);
     setError(
       err instanceof Error
         ? err.message
@@ -282,7 +261,7 @@ export default function AuthPage() {
                     className={`${inputClass} pr-10`} />
                   <button type="button" onClick={() => setShowPassword(!showPassword)} className="absolute right-3 top-1/2 -translate-y-1/2"><EyeIcon show={showPassword} /></button>
                 </div>
-                <div className="text-right mt-1.5"><a href="#" className="text-xs text-yellow-600 hover:underline font-medium">Forgot password?</a></div>
+                <div className="text-right mt-1.5"><a href="/forgot-password" className="text-xs text-yellow-600 hover:underline font-medium">Forgot password?</a></div>
               </div>
               <button onClick={handleSignIn} disabled={loading}
                 className="w-full cursor-pointer bg-[#1A2332] text-white font-semibold py-3.5 rounded-xl hover:bg-[#2C3E55] transition-colors
@@ -372,7 +351,7 @@ export default function AuthPage() {
               <label className="flex items-start gap-2 cursor-pointer">
                 <input type="checkbox" checked={signUpForm.agreed} onChange={(e) => setSignUpForm({ ...signUpForm, agreed: e.target.checked })} className="mt-0.5 accent-yellow-400 w-4 h-4" />
                 <span className="text-xs text-gray-500 leading-relaxed">
-                  I agree to the <a href="#" className="text-yellow-600 hover:underline font-medium">Terms of Service</a> and <a href="#" className="text-yellow-600 hover:underline font-medium">Privacy Policy</a>
+                  I agree to the <a href="/terms" target="_blank" className="text-yellow-600 hover:underline font-medium">Terms of Service</a> and <a href="/privacy" target="_blank" className="text-yellow-600 hover:underline font-medium">Privacy Policy</a>
                 </span>
               </label>
 

@@ -20,13 +20,13 @@ export default function CTASection() {
         </p>
 
         <div className="flex flex-col sm:flex-row justify-center gap-4">
-          <button className="bg-white text-black px-6 py-3 rounded-lg text-sm font-medium hover:bg-gray-200 transition">
+          <Link href="/auth?mode=signup&role=provider" className="bg-white text-black px-6 py-3 rounded-lg text-sm font-medium hover:bg-gray-200 transition">
             Register as Provider
-          </button>
+          </Link>
 
-          <button  className="bg-gray-200 text-black px-6 py-3 rounded-lg text-sm font-medium hover:bg-gray-300 transition">
+          <Link href="/contact"  className="bg-gray-200 text-black px-6 py-3 rounded-lg text-sm font-medium hover:bg-gray-300 transition">
             Contact Us
-          </button>
+          </Link>
         </div>
       </div>
 
