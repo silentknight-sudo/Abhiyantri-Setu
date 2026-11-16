@@ -1,0 +1,847 @@
+<title>Abhiyantri Setu Corporate Profile</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap">
+<style>
+/* Layout: long-form corporate publication — sticky contents rail on desktop, single column on phone; navy structure, orange used only as signal */
+:root{
+  --navy:#0B1F4D; --orange:#F97316; --yellow:#FACC15;
+  --bg:#F8FAFC; --surface:#FFFFFF; --text:#0F172A; --muted:#475569;
+  --line:#DCE3EE; --tint:#EEF2F9; --navy-ink:#0B1F4D; --on-navy:#FFFFFF;
+  --ok:#15803D; --ok-bg:#E7F6EC; --warn:#B45309; --warn-bg:#FEF3E2; --info:#1D4ED8; --info-bg:#E8EEFD; --bad:#B91C1C; --bad-bg:#FDECEC; --grey-bg:#EEF1F5;
+  --display:"Poppins",system-ui,sans-serif; --body:"Inter",system-ui,sans-serif; --mono:"JetBrains Mono",ui-monospace,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0A1328; --surface:#101C38; --text:#E6ECF7; --muted:#A5B2CB; --line:#24345A; --tint:#152447; --navy-ink:#9DB6F0; --on-navy:#FFFFFF;
+  --ok:#4ADE80; --ok-bg:#12321F; --warn:#FBBF5A; --warn-bg:#3A2A10; --info:#93B4FF; --info-bg:#172A55; --bad:#FCA5A5; --bad-bg:#3B1616; --grey-bg:#1A2747; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0A1328; --surface:#101C38; --text:#E6ECF7; --muted:#A5B2CB; --line:#24345A; --tint:#152447; --navy-ink:#9DB6F0; --on-navy:#FFFFFF;
+  --ok:#4ADE80; --ok-bg:#12321F; --warn:#FBBF5A; --warn-bg:#3A2A10; --info:#93B4FF; --info-bg:#172A55; --bad:#FCA5A5; --bad-bg:#3B1616; --grey-bg:#1A2747; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font:16px/1.65 var(--body);padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.wrap{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:240px minmax(0,1fr);gap:48px}
+@media (max-width:900px){.wrap{grid-template-columns:minmax(0,1fr)}nav.toc{display:none}}
+nav.toc{position:sticky;top:env(safe-area-inset-top,0px);align-self:start;max-height:100vh;overflow:auto;padding-block:32px;font-size:13px}
+nav.toc b{font:600 11px var(--body);letter-spacing:.12em;text-transform:uppercase;color:var(--muted);display:block;margin:18px 0 6px}
+nav.toc a{display:block;color:var(--muted);text-decoration:none;padding:3px 0}
+nav.toc a:hover,nav.toc a:focus-visible{color:var(--orange)}
+main{min-width:0;padding-block:32px 80px}
+h1,h2,h3,h4{font-family:var(--display);color:var(--navy-ink);text-wrap:balance;line-height:1.2}
+h2{font-size:30px;margin:0 0 6px}
+h3{font-size:20px;margin:28px 0 8px}
+h4{font-size:16px;margin:18px 0 6px}
+p,li{max-width:72ch}
+p{margin:8px 0}
+a{color:var(--orange)}
+section{padding-block:56px;border-top:1px solid var(--line)}
+.part{font:600 12px var(--body);letter-spacing:.14em;text-transform:uppercase;color:var(--orange);margin-bottom:6px}
+.lead{font-size:18px;color:var(--muted)}
+.cover{border-top:none;padding-block:40px 56px}
+.cover .band{background:#0B1F4D;color:#fff;border-radius:6px;padding:48px 40px;position:relative;overflow:hidden}
+.cover .band::after{content:"";position:absolute;right:-60px;bottom:-60px;width:320px;height:320px;border:2px solid rgba(249,115,22,.5);transform:rotate(45deg)}
+.cover h1{color:#fff;font-size:clamp(34px,6vw,60px);margin:0;font-weight:800;letter-spacing:-.01em}
+.cover h1 span{color:#F97316}
+.cover .tag{font:600 clamp(18px,2.4vw,24px) var(--display);color:#FACC15;margin:10px 0 24px}
+.cover .meta{display:flex;flex-wrap:wrap;gap:8px 28px;font-size:14px;color:#C9D4EA;position:relative;z-index:1}
+.cover .meta b{color:#fff;font-weight:600}
+.cover .entity{font:500 13px var(--mono);letter-spacing:.06em;color:#C9D4EA;margin-bottom:18px}
+.legend{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:20px}
+.legend div{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:12px 14px;font-size:14px}
+.k{display:inline-block;font:600 11px var(--body);letter-spacing:.06em;text-transform:uppercase;padding:2px 8px;border-radius:999px;white-space:nowrap;vertical-align:1px}
+.k.c{background:var(--ok-bg);color:var(--ok)} .k.h{background:var(--warn-bg);color:var(--warn)} .k.p{background:var(--info-bg);color:var(--info)} .k.u{background:var(--grey-bg);color:var(--muted)} .k.b{background:var(--bad-bg);color:var(--bad)}
+.grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:18px 20px;min-width:0}
+.card h4{margin-top:0}
+.card ul{padding-left:18px;margin:6px 0}
+.card li{font-size:14.5px}
+.vert{border-left:4px solid var(--navy-ink)}
+.vert.live{border-left-color:var(--orange)}
+.vert .vno{font:500 12px var(--mono);color:var(--muted)}
+.tbl{overflow-x:auto;margin:14px 0;border:1px solid var(--line);border-radius:6px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:14px;font-variant-numeric:tabular-nums}
+th{background:var(--tint);color:var(--navy-ink);text-align:left;font-weight:600;padding:10px 12px;white-space:nowrap}
+td{padding:9px 12px;border-top:1px solid var(--line);vertical-align:top}
+td.n,th.n{text-align:right}
+.note{background:var(--tint);border-left:3px solid var(--orange);padding:12px 16px;border-radius:0 6px 6px 0;font-size:14.5px;margin:14px 0;max-width:none}
+.note b{color:var(--navy-ink)}
+.fig{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:18px;margin:16px 0;overflow-x:auto}
+.fig figcaption{font-size:13px;color:var(--muted);margin-top:8px}
+.fig svg{display:block;max-width:100%;height:auto}
+.fig svg text{font-family:var(--body);fill:var(--text)}
+.steps{counter-reset:s;list-style:none;padding:0;display:grid;gap:8px;grid-template-columns:repeat(auto-fit,minmax(210px,1fr))}
+.steps li{counter-increment:s;background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:10px 12px 10px 44px;position:relative;font-size:14px}
+.steps li::before{content:counter(s,decimal-leading-zero);position:absolute;left:12px;top:10px;font:600 13px var(--mono);color:var(--orange)}
+.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px}
+.two>*{min-width:0}
+.quote{font:600 22px/1.4 var(--display);color:var(--navy-ink);border-left:4px solid var(--orange);padding-left:18px;margin:18px 0}
+.phase{display:grid;grid-template-columns:140px minmax(0,1fr);gap:18px;padding:18px 0;border-top:1px solid var(--line)}
+.phase .yr{font:700 18px var(--display);color:var(--orange)}
+.phase .yr small{display:block;font:500 12px var(--body);color:var(--muted)}
+@media (max-width:600px){.phase{grid-template-columns:minmax(0,1fr);gap:4px}.cover .band{padding:32px 22px}}
+.kv{display:grid;grid-template-columns:200px minmax(0,1fr);gap:0;border:1px solid var(--line);border-radius:6px;background:var(--surface);overflow:hidden}
+.kv>div{padding:9px 14px;border-top:1px solid var(--line);font-size:14.5px}
+.kv>div:nth-child(-n+2){border-top:none}
+.kv>div:nth-child(odd){background:var(--tint);font-weight:600;color:var(--navy-ink)}
+@media (max-width:600px){.kv{grid-template-columns:minmax(0,1fr)}.kv>div:nth-child(odd){border-top:1px solid var(--line)}}
+.swatches{display:flex;flex-wrap:wrap;gap:10px}
+.sw{width:130px;border:1px solid var(--line);border-radius:6px;overflow:hidden;background:var(--surface);font:500 12px var(--mono)}
+.sw i{display:block;height:48px}
+.sw span{display:block;padding:6px 8px;color:var(--muted)}
+footer{padding-block:40px;color:var(--muted);font-size:13px;border-top:1px solid var(--line)}
+:focus-visible{outline:2px solid var(--orange);outline-offset:2px}
+</style>
+
+<div class="wrap">
+<nav class="toc" aria-label="Contents">
+  <b>Part A · Company</b>
+  <a href="#exec">Executive summary</a><a href="#snapshot">Corporate snapshot</a><a href="#founder">Founder &amp; story</a><a href="#vision">Vision, mission, values</a>
+  <b>Part B · Business</b>
+  <a href="#problem">Market problems</a><a href="#solution">Solution &amp; positioning</a><a href="#ecosystem">Six verticals</a><a href="#how">How the platform works</a><a href="#features">Features &amp; roadmap</a><a href="#tech">Technology</a>
+  <b>Part C · Commercials</b>
+  <a href="#revenue">Revenue model</a><a href="#finance">Financial framework</a><a href="#market">Market opportunity</a><a href="#compete">Competition</a>
+  <b>Part D · Execution</b>
+  <a href="#trust">Trust &amp; governance</a><a href="#marketing">Marketing blueprint</a><a href="#partners">Partnerships</a><a href="#progress">Progress &amp; status</a><a href="#pending">Pending work</a><a href="#plan90">90-day plan</a><a href="#org">Organisation</a><a href="#roadmap">Roadmap 2026–2035</a>
+  <b>Part E · Outlook</b>
+  <a href="#investor">Investor profile</a><a href="#risk">Risk management</a><a href="#impact">Impact &amp; future</a><a href="#qc">Open questions</a><a href="#contact">Contact</a>
+</nav>
+
+<main>
+<!-- COVER -->
+<section class="cover" id="top">
+  <div class="band">
+    <div class="entity">ABHIYANTRI SETU DIGITAL INFRA PRIVATE LIMITED</div>
+    <h1>Abhiyantri <span>Setu</span></h1>
+    <div class="tag">Building Connections. Engineering Progress.</div>
+    <p style="color:#E2E8F5;max-width:60ch;position:relative;z-index:1">Corporate Brand Profile &amp; Company Master Document. India's digital construction and infrastructure ecosystem, starting in Greater Noida.</p>
+    <div class="meta"><span><b>Founder</b> Avinish Tripathi</span><span><b>Base</b> Greater Noida, Uttar Pradesh</span><span><b>Web</b> www.abhiyantrisetu.com</span><span><b>Edition</b> v1.0 · 16 November 2026</span></div>
+  </div>
+  <h3>How to read this document</h3>
+  <p>Every material statement carries one of four labels. The document describes the maturity of the business thinking; it does not claim operational scale the company has not yet reached.</p>
+  <div class="legend">
+    <div><span class="k c">Confirmed</span><br>Supplied by the founder or visible in company assets (brand, codebase).</div>
+    <div><span class="k h">Historical</span><br>Previously reported; needs revalidation before external use.</div>
+    <div><span class="k p">Proposed</span><br>Strategy, pricing, projections and plans recommended for execution.</div>
+    <div><span class="k u">Unknown</span><br>Placeholder. Founder must supply evidence before use.</div>
+  </div>
+</section>
+
+<!-- EXEC SUMMARY -->
+<section id="exec">
+  <div class="part">Deliverable 10 · Executive summary</div>
+  <h2>Abhiyantri Setu in one page</h2>
+  <p class="lead">A digital platform that connects everyone who builds, repairs, supplies and maintains property in India: homeowners, businesses, contractors, tradespeople, engineers, suppliers and equipment owners.</p>
+  <div class="two">
+    <div>
+      <h4>Who we are</h4><p>Abhiyantri Setu Digital Infra Pvt. Ltd., a ConTech company founded by Avinish Tripathi in Greater Noida. <span class="k c">Confirmed</span></p>
+      <h4>Why we exist</h4><p>Construction in India is large and fragmented. Customers struggle to find reliable contractors, compare honest quotations and procure material; capable providers struggle to be found.</p>
+      <h4>What the platform does</h4><p>Customers post a requirement, receive multiple quotations from verified providers, compare, hire, track work and rate it. The same rails later carry material procurement, equipment rental, professional consultation and enterprise RFQs.</p>
+      <h4>How we earn</h4><p>Commissions on completed jobs, lead fees, vendor subscriptions, supply and rental margins, consultation fees and, later, enterprise procurement and AMC contracts. <span class="k p">Proposed</span></p>
+    </div>
+    <div>
+      <h4>What exists today</h4><p>Company incorporated, GST registered, brand identity, social accounts and a working web application codebase (Next.js, PostgreSQL) with client job posting, provider bidding and dashboards. <span class="k h">Historical</span> / <span class="k c">Codebase confirmed</span></p>
+      <h4>What is pending</h4><p>Compliance verification, PRD sign-off, production launch, vendor onboarding at scale, payments, SOPs, and the first paying customers in Greater Noida.</p>
+      <h4>How we grow</h4><p>Win one micro-market (Greater Noida) with Build &amp; Renovate and Quick Home Services, then add materials and rentals, expand across NCR (2027–29), then selected metros (2029–31).</p>
+      <h4>Where we want to be by 2035</h4><p>A nationally trusted ecosystem for the full construction lifecycle: discovery, procurement, execution and maintenance, for households and enterprises.</p>
+    </div>
+  </div>
+  <div class="quote">One Platform. The Entire Construction Ecosystem.</div>
+</section>
+
+<!-- SNAPSHOT -->
+<section id="snapshot">
+  <div class="part">Part A · 02–03</div>
+  <h2>Company introduction &amp; corporate snapshot</h2>
+  <div class="kv">
+    <div>Legal name</div><div>Abhiyantri Setu Digital Infra Private Limited <span class="k c">Confirmed</span></div>
+    <div>Brand</div><div>Abhiyantri Setu ("Engineer's Bridge") <span class="k c">Confirmed</span></div>
+    <div>Founder</div><div>Avinish Tripathi <span class="k c">Confirmed</span></div>
+    <div>Category</div><div>Construction technology · online marketplace · service aggregation <span class="k c">Confirmed</span></div>
+    <div>Registered office</div><div>Greater Noida, UP <span class="k u">Full address required</span></div>
+    <div>CIN / date of incorporation</div><div><span class="k u">Founder to supply</span></div>
+    <div>GSTIN</div><div>Registered <span class="k h">Historical</span> · number <span class="k u">to supply</span></div>
+    <div>Udyam / MSME</div><div><span class="k u">Verify current status</span></div>
+    <div>Launch market</div><div>Greater Noida → Noida → Delhi NCR <span class="k c">Confirmed</span></div>
+    <div>Customers</div><div>B2C (homeowners, property owners) and B2B (builders, businesses, institutions) <span class="k c">Confirmed</span></div>
+    <div>Employees · customers · vendors · revenue</div><div><span class="k u">Not stated. Not to be published until evidenced.</span></div>
+    <div>Website</div><div>www.abhiyantrisetu.com (public site; content reflects intent, not proof of operations)</div>
+  </div>
+</section>
+
+<!-- FOUNDER -->
+<section id="founder">
+  <div class="part">Part A · 04–05</div>
+  <h2>Founder, leadership &amp; our story</h2>
+  <div class="two">
+    <div>
+      <h3>Avinish Tripathi, Founder</h3>
+      <p>Avinish leads strategy, product direction, brand and early partnerships. <span class="k u">Founder biography, qualifications, prior experience and photograph to be supplied</span>. Do not add credentials, employers or degrees until confirmed.</p>
+      <p><b>Leadership team:</b> currently founder-led. Advisory board and key hires are listed as proposed roles in the organisation section.</p>
+    </div>
+    <div>
+      <h3>Our story</h3>
+      <p>Anyone who has built or renovated a home in Greater Noida knows the routine: calling contacts for a mason, getting three verbal quotes that cannot be compared, buying cement from whoever answers the phone, and chasing a contractor who has moved on to the next site.</p>
+      <p>Abhiyantri Setu began from that experience. The name joins <i>Abhiyantri</i> (engineering) with <i>Setu</i> (bridge): a bridge between people who need building work done and the people who do it well. The company chose to start where it can see every job, in one city, before trying to serve a country.</p>
+      <p class="note"><b>Founder input needed:</b> the personal origin story, the founding date and the first project or moment that triggered the company. The paragraph above is a proposed narrative frame.</p>
+    </div>
+  </div>
+</section>
+
+<!-- VISION -->
+<section id="vision">
+  <div class="part">Part A · 06–07</div>
+  <h2>Vision, mission &amp; core values</h2>
+  <div class="two">
+    <div class="card"><h4>Vision</h4><p>To become India's most trusted and comprehensive digital ecosystem for construction, engineering and infrastructure services.</p></div>
+    <div class="card"><h4>Mission</h4><p>To connect customers, professionals, contractors, suppliers and businesses through technology, transparency and reliable service delivery, simplifying the entire construction and infrastructure lifecycle.</p></div>
+  </div>
+  <h3>Ten values, and what each means in daily operations</h3>
+  <div class="tbl"><table>
+    <tr><th>Value</th><th>Operational meaning</th></tr>
+    <tr><td>Trust &amp; transparency</td><td>Itemised quotations in a standard format; commission and fees disclosed to both sides; reviews never edited or bought.</td></tr>
+    <tr><td>Engineering excellence</td><td>Category standards written with engineers (e.g. waterproofing method statements, curing periods); technical review for structural work.</td></tr>
+    <tr><td>Customer-first thinking</td><td>Response-time SLAs, a named point of contact for projects, and a clear complaint path within 48 hours.</td></tr>
+    <tr><td>Technology-driven innovation</td><td>Every manual process (WhatsApp, sheets) is logged so it can be automated once volumes prove it.</td></tr>
+    <tr><td>Accountability</td><td>Milestone sign-offs, photo documentation at each stage, and named ownership for every escalation.</td></tr>
+    <tr><td>Quality &amp; reliability</td><td>Vendor scorecards (rating, punctuality, rework rate); low performers coached, then delisted.</td></tr>
+    <tr><td>Professional empowerment</td><td>Free basic listing, digital profiles and portfolios for tradespeople; faster, transparent payouts.</td></tr>
+    <tr><td>Sustainable development</td><td>Promote rainwater harvesting, STP, efficient materials; track waste and rework as cost.</td></tr>
+    <tr><td>Operational efficiency</td><td>Measured requirement-to-quote and quote-to-hire times; templates for repeat work.</td></tr>
+    <tr><td>Long-term partnerships</td><td>Multi-year relationships with suppliers, AMC customers and developers rather than one-off transactions.</td></tr>
+  </table></div>
+</section>
+
+<!-- PROBLEM -->
+<section id="problem">
+  <div class="part">Part B · 08</div>
+  <h2>The problems we address</h2>
+  <div class="grid">
+    <div class="card"><h4>For customers</h4><ul><li>Fragmented, unbranded providers</li><li>Quotations that cannot be compared</li><li>Hard to identify reliable contractors</li><li>Unorganised material buying, unclear prices</li><li>No digital record of scope, payments or warranty</li></ul></div>
+    <div class="card"><h4>For providers</h4><ul><li>Limited visibility beyond word of mouth</li><li>Irregular work pipeline</li><li>Payment delays and disputes</li><li>No portable reputation</li></ul></div>
+    <div class="card"><h4>For the system</h4><ul><li>Poor coordination between owner, contractor, supplier</li><li>Inefficient project communication</li><li>Unstructured equipment rental</li><li>Limited discovery of qualified professionals</li></ul></div>
+  </div>
+</section>
+
+<!-- SOLUTION -->
+<section id="solution">
+  <div class="part">Part B · 09–10</div>
+  <h2>Our solution &amp; positioning</h2>
+  <p class="lead">Positioning: <b>India's Digital Construction &amp; Infrastructure Ecosystem.</b> Not a home-services app with a construction tab, but one record that follows a property from design to build to maintenance.</p>
+  <div class="grid">
+    <div class="card"><h4>Discover</h4><p>Verified profiles of contractors, trades, professionals, suppliers and equipment owners, by location and category.</p></div>
+    <div class="card"><h4>Compare</h4><p>Multiple structured quotations against one requirement, line by line.</p></div>
+    <div class="card"><h4>Procure &amp; execute</h4><p>Materials and equipment sourced through the same project; milestones and photos tracked.</p></div>
+    <div class="card"><h4>Maintain</h4><p>AMC, repairs and facility services linked to the same property record.</p></div>
+  </div>
+  <p class="note"><b>Lifecycle advantage (proposed):</b> each completed project generates data (scope, rates, materials, vendor performance) that improves matching, pricing and cross-sell for the next stage. This is the intended moat; it exists only once transaction volume does.</p>
+</section>
+
+<!-- ECOSYSTEM -->
+<section id="ecosystem">
+  <div class="part">Part B · 11–12</div>
+  <h2>The ecosystem &amp; six business verticals</h2>
+  <figure class="fig">
+    <svg viewBox="0 0 760 360" role="img" aria-label="Ecosystem diagram: platform core connected to six verticals">
+      <rect x="0" y="0" width="760" height="360" fill="none"/>
+      <g stroke="#94A3B8" stroke-width="1.5">
+        <line x1="380" y1="180" x2="140" y2="60"/><line x1="380" y1="180" x2="620" y2="60"/>
+        <line x1="380" y1="180" x2="110" y2="180"/><line x1="380" y1="180" x2="650" y2="180"/>
+        <line x1="380" y1="180" x2="140" y2="300"/><line x1="380" y1="180" x2="620" y2="300"/>
+      </g>
+      <circle cx="380" cy="180" r="78" fill="#0B1F4D"/>
+      <text x="380" y="168" text-anchor="middle" style="fill:#fff;font-weight:700;font-size:15px">Abhiyantri Setu</text>
+      <text x="380" y="188" text-anchor="middle" style="fill:#FACC15;font-size:12px">Requirements · Quotes</text>
+      <text x="380" y="204" text-anchor="middle" style="fill:#FACC15;font-size:12px">Trust · Payments · Data</text>
+      <g font-size="13">
+        <rect x="40" y="36" width="200" height="48" rx="6" fill="#F97316"/><text x="140" y="58" text-anchor="middle" style="fill:#fff;font-weight:600">01 Build &amp; Renovate</text><text x="140" y="75" text-anchor="middle" style="fill:#fff;font-size:11px">launch vertical</text>
+        <rect x="520" y="36" width="200" height="48" rx="6" fill="#F97316"/><text x="620" y="58" text-anchor="middle" style="fill:#fff;font-weight:600">02 Quick Home Services</text><text x="620" y="75" text-anchor="middle" style="fill:#fff;font-size:11px">launch vertical</text>
+        <rect x="10" y="156" width="200" height="48" rx="6" fill="#E2E8F0" stroke="#0B1F4D"/><text x="110" y="178" text-anchor="middle" style="fill:#0B1F4D;font-weight:600">03 Material Marketplace</text><text x="110" y="195" text-anchor="middle" style="fill:#0B1F4D;font-size:11px">planned</text>
+        <rect x="550" y="156" width="200" height="48" rx="6" fill="#E2E8F0" stroke="#0B1F4D"/><text x="650" y="178" text-anchor="middle" style="fill:#0B1F4D;font-weight:600">04 Equipment Rental</text><text x="650" y="195" text-anchor="middle" style="fill:#0B1F4D;font-size:11px">planned</text>
+        <rect x="40" y="276" width="200" height="48" rx="6" fill="#E2E8F0" stroke="#0B1F4D"/><text x="140" y="298" text-anchor="middle" style="fill:#0B1F4D;font-weight:600">05 Find Professionals</text><text x="140" y="315" text-anchor="middle" style="fill:#0B1F4D;font-size:11px">partially planned</text>
+        <rect x="520" y="276" width="200" height="48" rx="6" fill="#fff" stroke="#0B1F4D" stroke-dasharray="4 3"/><text x="620" y="298" text-anchor="middle" style="fill:#0B1F4D;font-weight:600">06 Business &amp; Infra</text><text x="620" y="315" text-anchor="middle" style="fill:#0B1F4D;font-size:11px">strategic expansion</text>
+      </g>
+    </svg>
+    <figcaption>Orange: launch verticals. Grey: planned for Phase 2. Dashed: strategic expansion (Phase 2–3). No vertical is yet operating at commercial scale.</figcaption>
+  </figure>
+
+  <div class="grid">
+    <div class="card vert live"><div class="vno">VERTICAL 01 · <span class="k p">MVP launch</span></div><h4>Build &amp; Renovate</h4>
+      <p><b>Scope:</b> new home, residential and commercial construction; renovation; waterproofing; painting; flooring and tiling; interior fit-out; POP, gypsum, PVC/WPC; boundary walls and gates; roofing and sheds; fabrication; masonry and civil; structural engineering; labour contractors.</p>
+      <p><b>Flow:</b> customer posts scope + photos/drawings → site visit by shortlisted contractors (for jobs above a threshold) → itemised quotes on a standard BOQ template → hire → milestone plan → stage photos and QC checklist → handover and warranty note.</p>
+      <p><b>Vendors:</b> KYC, GST/PAN, 3+ past project photos, references; structural work requires a qualified engineer.</p>
+      <p><b>Money:</b> 3–6% success commission on contract value, or lead fee for small jobs <span class="k p">Proposed</span>.</p></div>
+    <div class="card vert live"><div class="vno">VERTICAL 02 · <span class="k p">MVP launch</span></div><h4>Quick Home Services</h4>
+      <p><b>Scope:</b> mason, painter, carpenter, plumber, electrician, tile fitter, deep cleaning, home maintenance, AC/HVAC, repairs, AMCs.</p>
+      <p><b>Flow:</b> pick service → describe issue, slot and address → request routed to nearest available verified provider (or 2–3 quotes for non-standard jobs) → visit, inspection charge or rate card → completion OTP → rating.</p>
+      <p><b>Money:</b> 10–20% commission on service value, AMC margins <span class="k p">Proposed</span>.</p></div>
+    <div class="card vert"><div class="vno">VERTICAL 03 · <span class="k p">Phase 2</span></div><h4>Material Marketplace</h4>
+      <p><b>Scope:</b> cement, TMT steel, sand, aggregates, bricks and blocks, tiles, marble/granite, paints, sanitaryware, electrical, plumbing, chemicals, interior and hardware.</p>
+      <p><b>Flow:</b> supplier lists catalogue and delivery radius → customer or contractor raises an RFQ (brand, grade, quantity, site) → suppliers quote incl. freight → confirm, advance/COD → dispatch tracking → delivery proof.</p>
+      <p><b>Money:</b> 1–4% supplier commission (commodity) to 5–10% (finishes) <span class="k p">Proposed</span>. Asset-light first; no inventory.</p></div>
+    <div class="card vert"><div class="vno">VERTICAL 04 · <span class="k p">Phase 2</span></div><h4>Equipment Rental</h4>
+      <p><b>Scope:</b> excavators, cranes, scaffolding, cuplock, shuttering, mixers, vibrators, lifting equipment, power tools, industrial equipment.</p>
+      <p><b>Key terms:</b> rental period (hour/day/month), transport both ways, security deposit, damage and loss policy, operator inclusion and licence, fuel, minimum billing.</p>
+      <p><b>Money:</b> 8–15% booking commission <span class="k p">Proposed</span>.</p></div>
+    <div class="card vert"><div class="vno">VERTICAL 05 · <span class="k p">Phase 1–2</span></div><h4>Find Professionals</h4>
+      <p><b>Scope:</b> architects, civil and structural engineers, interior designers, MEP, electrical, plumbing and HVAC consultants, PMC, quantity surveyors, safety, Vastu, engineering consultants.</p>
+      <p><b>Profiles:</b> qualifications (CoA registration for architects), portfolio, service area, fee basis. Engagement: paid consultation, site visit, or project fee.</p>
+      <p><b>Money:</b> 10–15% on booked consultations; subscriptions for visibility <span class="k p">Proposed</span>.</p></div>
+    <div class="card vert"><div class="vno">VERTICAL 06 · <span class="k p">Strategic expansion</span></div><h4>Business &amp; Infrastructure Solutions</h4>
+      <p><b>Scope:</b> STP/ETP/WTP, RO plants, fire fighting, HVAC and pumping, hydropneumatic systems, industrial pumps, VFD panels, automation, rainwater harvesting, borewells, commercial and institutional projects, facility management, industrial maintenance, EPC services.</p>
+      <p><b>Why it matters:</b> fewer, larger tickets; recurring AMC and FM revenue; requires technical pre-sales and bid management.</p>
+      <p><b>Money:</b> 2–5% sourcing fee on project value; AMC/FM margins <span class="k p">Proposed</span>.</p></div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section id="how">
+  <div class="part">Part B · 13–17 · Deliverable 3</div>
+  <h2>How the platform works</h2>
+  <p>The core object is the <b>Requirement</b> (a job in the current codebase). Every participant either creates requirements, responds to them, or supplies what fulfils them. The admin team sits in the middle and guarantees process, not outcome.</p>
+  <figure class="fig">
+    <svg viewBox="0 0 900 190" role="img" aria-label="Marketplace operating model flow">
+      <g font-size="13">
+        <rect x="10" y="60" width="130" height="64" rx="6" fill="#0B1F4D"/><text x="75" y="88" text-anchor="middle" style="fill:#fff;font-weight:600">Customer</text><text x="75" y="106" text-anchor="middle" style="fill:#C9D4EA;font-size:11px">posts requirement</text>
+        <rect x="190" y="60" width="150" height="64" rx="6" fill="#F97316"/><text x="265" y="88" text-anchor="middle" style="fill:#fff;font-weight:600">Platform + Admin</text><text x="265" y="106" text-anchor="middle" style="fill:#fff;font-size:11px">qualify · match · notify</text>
+        <rect x="390" y="60" width="140" height="64" rx="6" fill="#0B1F4D"/><text x="460" y="88" text-anchor="middle" style="fill:#fff;font-weight:600">Verified providers</text><text x="460" y="106" text-anchor="middle" style="fill:#C9D4EA;font-size:11px">submit quotations</text>
+        <rect x="580" y="60" width="140" height="64" rx="6" fill="#0B1F4D"/><text x="650" y="88" text-anchor="middle" style="fill:#fff;font-weight:600">Compare &amp; hire</text><text x="650" y="106" text-anchor="middle" style="fill:#C9D4EA;font-size:11px">scope + terms locked</text>
+        <rect x="770" y="60" width="120" height="64" rx="6" fill="#0B1F4D"/><text x="830" y="88" text-anchor="middle" style="fill:#fff;font-weight:600">Execute</text><text x="830" y="106" text-anchor="middle" style="fill:#C9D4EA;font-size:11px">track · pay · rate</text>
+      </g>
+      <g stroke="#F97316" stroke-width="2" fill="#F97316">
+        <line x1="140" y1="92" x2="184" y2="92"/><polygon points="184,87 190,92 184,97"/>
+        <line x1="340" y1="92" x2="384" y2="92"/><polygon points="384,87 390,92 384,97"/>
+        <line x1="530" y1="92" x2="574" y2="92"/><polygon points="574,87 580,92 574,97"/>
+        <line x1="720" y1="92" x2="764" y2="92"/><polygon points="764,87 770,92 764,97"/>
+      </g>
+      <path d="M830 124 C830 170, 75 170, 75 128" fill="none" stroke="#94A3B8" stroke-width="1.5" stroke-dasharray="5 4"/>
+      <text x="450" y="178" text-anchor="middle" style="fill:#475569;font-size:12px">Ratings, rework and payment data feed vendor scorecards and future matching</text>
+      <text x="450" y="30" text-anchor="middle" style="fill:#475569;font-size:12px">Material suppliers and equipment owners plug in at "Execute" via RFQs linked to the same project</text>
+    </svg>
+  </figure>
+
+  <h3>A · Customer journey</h3>
+  <ol class="steps">
+    <li>Visits website or app</li><li>Selects category</li><li>Submits requirement</li><li>Enters location and project details</li><li>Uploads photos, drawings, documents</li><li>Requirement reaches platform; ops qualifies it</li><li>Platform identifies 3–5 suitable providers</li><li>Providers submit quotations</li><li>Customer compares on one screen</li><li>Selects provider</li><li>Scope and commercial terms confirmed in writing</li><li>Execution begins</li><li>Progress updates and stage photos</li><li>Completion sign-off</li><li>Feedback and rating</li><li>After-service and warranty support</li>
+  </ol>
+  <h3>B–C · Vendor and contractor journey</h3>
+  <ol class="steps">
+    <li>Registration (mobile OTP)</li><li>Profile creation</li><li>KYC and business verification</li><li>Category selection</li><li>Service area (pin codes / radius)</li><li>Portfolio and experience</li><li>Verification and approval</li><li>Lead notifications</li><li>Quotation submission</li><li>Customer communication</li><li>Project confirmation</li><li>Work execution</li><li>Completion documentation</li><li>Payment and commission settlement</li><li>Performance monitoring</li>
+  </ol>
+  <p class="note"><b>Codebase fit:</b> the existing provider profile already tracks onboarding steps (basic info, services and pricing, work photos, ID verification, bank details) and a verified flag. Bids carry status, lead status, progress and schedule. Steps 1–12 have a data foundation; settlement and performance monitoring do not yet.</p>
+
+  <div class="two">
+    <div><h3>D · Material supplier journey</h3>
+      <ol class="steps" style="grid-template-columns:1fr"><li>Supplier registration and GST check</li><li>Catalogue with brand, grade, unit, specs</li><li>Delivery coverage and minimum order</li><li>Indicative pricing; stock status</li><li>Receives RFQs and bulk enquiries</li><li>Quotes incl. freight and lead time</li><li>Purchase confirmation and advance</li><li>Logistics and delivery proof</li><li>Order closure and invoice</li></ol></div>
+    <div><h3>E · Equipment rental provider</h3>
+      <ol class="steps" style="grid-template-columns:1fr"><li>Register fleet with photos, capacity, year</li><li>Set rates, minimum billing, deposit</li><li>Availability calendar</li><li>Receive booking request</li><li>Confirm operator, transport, fuel terms</li><li>Handover checklist with photos</li><li>Return inspection; damage assessment</li><li>Deposit release and commission settlement</li></ol>
+      <h3>F · Professional consultant</h3>
+      <p>Profile with registration and qualifications → portfolio → fee basis (per visit, per sq ft, lump sum) → consultation booking → deliverables uploaded (drawings, reports) → rating.</p></div>
+  </div>
+  <h3>G · Enterprise journey</h3>
+  <ol class="steps">
+    <li>Business account with GSTIN, multiple users</li><li>Project requirement submission</li><li>RFQ generated with technical spec</li><li>Vendor shortlisting (pre-qualified)</li><li>Technical and commercial bid comparison</li><li>Negotiation</li><li>PO or contract documentation</li><li>Project milestones</li><li>Delivery and quality tracking</li><li>Invoice and payment management</li>
+  </ol>
+  <h3>H · Platform administrator</h3>
+  <p>Verifies vendors, qualifies requirements, routes leads, configures categories and commissions, monitors SLAs, handles disputes, refunds and fraud signals, and reports weekly metrics.</p>
+</section>
+
+<!-- FEATURES -->
+<section id="features">
+  <div class="part">Part B · 18</div>
+  <h2>Platform features &amp; product roadmap</h2>
+  <p>Status column reflects evidence in the repository as of this edition. "Built (code)" means code exists; it does not mean launched, tested or in production use.</p>
+  <div class="tbl"><table>
+    <tr><th>User</th><th>Feature</th><th>Phase</th><th>Status</th></tr>
+    <tr><td>Customer</td><td>Registration / login</td><td>MVP</td><td><span class="k c">Built (code)</span></td></tr>
+    <tr><td>Customer</td><td>Requirement (job) posting, category, location</td><td>MVP</td><td><span class="k c">Built (code)</span></td></tr>
+    <tr><td>Customer</td><td>View and compare quotations (bids)</td><td>MVP</td><td><span class="k c">Built (code)</span></td></tr>
+    <tr><td>Customer</td><td>Provider profiles, messaging, project tracking</td><td>MVP</td><td><span class="k h">Partial — verify</span></td></tr>
+    <tr><td>Customer</td><td>Photo/document upload with requirement</td><td>MVP</td><td><span class="k u">Not evidenced</span></td></tr>
+    <tr><td>Customer</td><td>Reviews and ratings</td><td>MVP</td><td><span class="k h">Fields exist; flow to verify</span></td></tr>
+    <tr><td>Customer</td><td>Online booking payments, support tickets, disputes</td><td>Phase 2</td><td><span class="k p">Planned</span></td></tr>
+    <tr><td>Vendor</td><td>Registration, onboarding checklist, verified flag</td><td>MVP</td><td><span class="k c">Built (code)</span></td></tr>
+    <tr><td>Vendor</td><td>Lead management, quotation, job schedule, earnings</td><td>MVP</td><td><span class="k c">Built (code)</span></td></tr>
+    <tr><td>Vendor</td><td>Subscriptions, performance analytics, payouts</td><td>Phase 2</td><td><span class="k p">Planned</span></td></tr>
+    <tr><td>Supplier</td><td>Catalogue, inventory, RFQ, orders, pricing, coverage</td><td>Phase 2</td><td><span class="k p">Planned</span> (UI page placeholder exists)</td></tr>
+    <tr><td>Rental</td><td>Fleet listing, calendar, deposits, handover checklists</td><td>Phase 2</td><td><span class="k p">Planned</span></td></tr>
+    <tr><td>Admin</td><td>User management, vendor verification</td><td>MVP</td><td><span class="k u">Not evidenced — build</span></td></tr>
+    <tr><td>Admin</td><td>Categories, lead distribution, commission config</td><td>MVP</td><td><span class="k p">Planned</span></td></tr>
+    <tr><td>Admin</td><td>Payments, refunds, disputes, CMS, reports</td><td>Phase 2</td><td><span class="k p">Planned</span></td></tr>
+    <tr><td>Enterprise</td><td>Multi-user accounts, RFQ, bid comparison, PO, milestones</td><td>Phase 3</td><td><span class="k p">Planned</span></td></tr>
+    <tr><td>All</td><td>Fraud and quality monitoring, vendor scorecards</td><td>Phase 3</td><td><span class="k p">Planned</span></td></tr>
+    <tr><td>All</td><td>AI matching, cost estimation, quote analysis, predictive maintenance</td><td>Long-term</td><td><span class="k p">Planned</span> (an "AI" page exists in code; no AI capability evidenced)</td></tr>
+  </table></div>
+</section>
+
+<!-- TECH -->
+<section id="tech">
+  <div class="part">Part B · 19</div>
+  <h2>Technology architecture</h2>
+  <p class="note"><b>Important finding:</b> earlier planning favoured Firebase. The current codebase is built on <b>Next.js (React, TypeScript), Prisma ORM and PostgreSQL</b>, with session/account tables consistent with a standard auth library. This document recommends continuing on that stack rather than migrating to Firebase. Founder and developers should confirm.</p>
+  <figure class="fig">
+    <svg viewBox="0 0 860 300" role="img" aria-label="Technology architecture layers">
+      <g font-size="12.5">
+        <text x="10" y="22" style="font-weight:700;fill:#475569">CLIENTS</text>
+        <rect x="10" y="32" width="160" height="40" rx="5" fill="#0B1F4D"/><text x="90" y="57" text-anchor="middle" style="fill:#fff">Customer web / PWA</text>
+        <rect x="180" y="32" width="160" height="40" rx="5" fill="#0B1F4D"/><text x="260" y="57" text-anchor="middle" style="fill:#fff">Vendor / Contractor</text>
+        <rect x="350" y="32" width="160" height="40" rx="5" fill="#0B1F4D"/><text x="430" y="57" text-anchor="middle" style="fill:#fff">Supplier / Rental</text>
+        <rect x="520" y="32" width="160" height="40" rx="5" fill="#0B1F4D"/><text x="600" y="57" text-anchor="middle" style="fill:#fff">Enterprise portal</text>
+        <rect x="690" y="32" width="160" height="40" rx="5" fill="#F97316"/><text x="770" y="57" text-anchor="middle" style="fill:#fff">Admin dashboard</text>
+        <text x="10" y="102" style="font-weight:700;fill:#475569">APPLICATION</text>
+        <rect x="10" y="112" width="840" height="46" rx="5" fill="#E2E8F0" stroke="#0B1F4D"/>
+        <text x="430" y="140" text-anchor="middle" style="fill:#0B1F4D;font-weight:600">Next.js app + API routes · Auth · Requirements · Quotes · Projects · Catalogue · Payments · Notifications</text>
+        <text x="10" y="186" style="font-weight:700;fill:#475569">DATA &amp; SERVICES</text>
+        <rect x="10" y="196" width="160" height="40" rx="5" fill="#fff" stroke="#0B1F4D"/><text x="90" y="221" text-anchor="middle" style="fill:#0B1F4D">PostgreSQL (Prisma)</text>
+        <rect x="180" y="196" width="160" height="40" rx="5" fill="#fff" stroke="#0B1F4D"/><text x="260" y="221" text-anchor="middle" style="fill:#0B1F4D">Object storage (photos)</text>
+        <rect x="350" y="196" width="160" height="40" rx="5" fill="#fff" stroke="#0B1F4D"/><text x="430" y="221" text-anchor="middle" style="fill:#0B1F4D">WhatsApp / SMS / email</text>
+        <rect x="520" y="196" width="160" height="40" rx="5" fill="#fff" stroke="#0B1F4D"/><text x="600" y="221" text-anchor="middle" style="fill:#0B1F4D">Payment gateway</text>
+        <rect x="690" y="196" width="160" height="40" rx="5" fill="#fff" stroke="#0B1F4D"/><text x="770" y="221" text-anchor="middle" style="fill:#0B1F4D">Analytics &amp; reporting</text>
+        <rect x="10" y="252" width="840" height="34" rx="5" fill="#0B1F4D"/>
+        <text x="430" y="274" text-anchor="middle" style="fill:#FACC15">Cloud hosting · backups · monitoring · role-based access · audit logs · encryption in transit and at rest</text>
+      </g>
+    </svg>
+  </figure>
+  <div class="tbl"><table>
+    <tr><th>Layer</th><th>MVP recommendation</th><th>When to evolve</th></tr>
+    <tr><td>Web &amp; app</td><td>Next.js responsive web + installable PWA; native app only after retention is proven</td><td>React Native / Flutter app at ~5k monthly active users</td></tr>
+    <tr><td>Backend</td><td>Next.js API routes, server actions</td><td>Split matching, payments and notifications into services when teams grow</td></tr>
+    <tr><td>Database</td><td>Managed PostgreSQL with Prisma migrations</td><td>Read replicas; data warehouse for BI in Phase 3</td></tr>
+    <tr><td>Auth</td><td>Mobile OTP first (trades rarely use email), roles: client, provider, supplier, admin</td><td>SSO for enterprise accounts</td></tr>
+    <tr><td>Storage</td><td>S3-compatible object storage, signed URLs, image compression</td><td>CDN, document versioning</td></tr>
+    <tr><td>Notifications</td><td>WhatsApp Business API (primary), SMS fallback, email</td><td>Event bus with templates per category</td></tr>
+    <tr><td>Payments</td><td>Indian gateway with UPI; later marketplace split/escrow-style payouts</td><td>Milestone payments, vendor wallets, invoicing</td></tr>
+    <tr><td>Search</td><td>PostgreSQL full-text + pin-code geo filters</td><td>Dedicated search engine at catalogue scale</td></tr>
+    <tr><td>Analytics</td><td>Product analytics + weekly SQL reports</td><td>BI dashboards per city</td></tr>
+    <tr><td>Security</td><td>RBAC, rate limits, daily backups, audit trail for admin actions, DPDP-aligned consent</td><td>Periodic VAPT, ISO 27001 readiness for enterprise</td></tr>
+  </table></div>
+  <h3>Firebase assessment</h3>
+  <p>Firebase suits a fast prototype (auth, push, hosting). For a quote-and-transaction marketplace with relational data (jobs, bids, payments, commissions, reports), PostgreSQL is the better fit and is already in use. Firebase Cloud Messaging can still be used for push notifications.</p>
+  <h3>Future technology (all proposed; none exists today)</h3>
+  <p>AI requirement classification from text and photos · vendor matching on distance, rating and price fit · quote anomaly detection · construction cost estimator from area and specification · photo-based progress tracking · digital procurement for contractors · predictive maintenance for AMC assets · enterprise ERP integrations.</p>
+</section>
+
+<!-- REVENUE -->
+<section id="revenue">
+  <div class="part">Part C · 20–21 · Deliverable 4</div>
+  <h2>Business &amp; revenue model</h2>
+  <p>All rates and prices below are <span class="k p">Proposed</span> and must be validated with 20–30 vendor interviews and the first 3 months of transactions.</p>
+  <figure class="fig">
+    <svg viewBox="0 0 820 220" role="img" aria-label="Revenue model diagram">
+      <g font-size="12.5">
+        <rect x="10" y="20" width="200" height="180" rx="6" fill="#0B1F4D"/>
+        <text x="110" y="50" text-anchor="middle" style="fill:#FACC15;font-weight:700">GMV</text>
+        <text x="110" y="74" text-anchor="middle" style="fill:#fff">Value of jobs, materials</text>
+        <text x="110" y="92" text-anchor="middle" style="fill:#fff">and rentals transacted</text>
+        <text x="110" y="128" text-anchor="middle" style="fill:#C9D4EA;font-size:11px">Mostly belongs to vendors.</text>
+        <text x="110" y="144" text-anchor="middle" style="fill:#C9D4EA;font-size:11px">Not company revenue.</text>
+        <polygon points="215,110 255,95 255,125" fill="#F97316"/>
+        <rect x="260" y="20" width="240" height="180" rx="6" fill="#F97316"/>
+        <text x="380" y="50" text-anchor="middle" style="fill:#fff;font-weight:700">Platform revenue</text>
+        <text x="380" y="76" text-anchor="middle" style="fill:#fff">Commissions (take rate × GMV)</text>
+        <text x="380" y="96" text-anchor="middle" style="fill:#fff">+ lead fees</text>
+        <text x="380" y="116" text-anchor="middle" style="fill:#fff">+ subscriptions &amp; listings</text>
+        <text x="380" y="136" text-anchor="middle" style="fill:#fff">+ consultation &amp; sourcing fees</text>
+        <text x="380" y="156" text-anchor="middle" style="fill:#fff">+ AMC / FM margins</text>
+        <text x="380" y="176" text-anchor="middle" style="fill:#fff">+ advertising</text>
+        <polygon points="505,110 545,95 545,125" fill="#0B1F4D"/>
+        <rect x="550" y="20" width="260" height="180" rx="6" fill="#fff" stroke="#0B1F4D"/>
+        <text x="680" y="50" text-anchor="middle" style="fill:#0B1F4D;font-weight:700">Contribution</text>
+        <text x="680" y="76" text-anchor="middle" style="fill:#0B1F4D">minus payment fees</text>
+        <text x="680" y="96" text-anchor="middle" style="fill:#0B1F4D">minus customer &amp; vendor acquisition</text>
+        <text x="680" y="116" text-anchor="middle" style="fill:#0B1F4D">minus ops &amp; support per job</text>
+        <text x="680" y="136" text-anchor="middle" style="fill:#0B1F4D">minus refunds / goodwill</text>
+        <text x="680" y="168" text-anchor="middle" style="fill:#475569;font-size:11px">then fixed opex → EBITDA</text>
+      </g>
+    </svg>
+    <figcaption>GMV vs recognised revenue. Under Indian GST and Ind AS principles, a marketplace acting as agent recognises only its commission/fee as revenue. Confirm treatment with the company's CA.</figcaption>
+  </figure>
+  <div class="tbl"><table>
+    <tr><th>#</th><th>Stream</th><th>Who pays</th><th>How charged</th><th>Cost implication</th><th>Start</th></tr>
+    <tr><td>1</td><td>Service transaction commission</td><td>Vendor</td><td>% of job value on completion</td><td>Needs payment collection or trust-based invoicing</td><td>MVP</td></tr>
+    <tr><td>2</td><td>Qualified lead fee</td><td>Vendor</td><td>₹ per lead unlocked</td><td>Low cost; vendor churn if lead quality is poor</td><td>MVP</td></tr>
+    <tr><td>3</td><td>Vendor subscription</td><td>Vendor</td><td>Monthly / annual plan</td><td>Sales effort; predictable revenue</td><td>Month 4+</td></tr>
+    <tr><td>4</td><td>Premium listing</td><td>Vendor</td><td>Fixed fee per category/area</td><td>Must not undermine ranking trust</td><td>Phase 2</td></tr>
+    <tr><td>5–6</td><td>Material commission / margin</td><td>Supplier / buyer</td><td>% of order or buy-sell spread</td><td>Thin margins; credit and logistics risk if trading</td><td>Phase 2</td></tr>
+    <tr><td>7</td><td>Equipment rental commission</td><td>Owner</td><td>% of rental value</td><td>Damage disputes</td><td>Phase 2</td></tr>
+    <tr><td>8</td><td>Consultation fees</td><td>Customer / professional</td><td>Booking fee or %</td><td>Low</td><td>MVP–Phase 2</td></tr>
+    <tr><td>9–10</td><td>Project sourcing / enterprise procurement</td><td>Enterprise or vendor</td><td>% of contract or retainer</td><td>Long sales cycle; pre-sales engineers</td><td>Phase 2–3</td></tr>
+    <tr><td>11–12</td><td>Facility management &amp; AMC</td><td>Customer</td><td>Annual contract</td><td>Service delivery obligations</td><td>Phase 2</td></tr>
+    <tr><td>13</td><td>Sponsored listings &amp; ads</td><td>Brands, suppliers</td><td>CPM / fixed</td><td>Needs traffic first</td><td>Phase 3</td></tr>
+    <tr><td>14</td><td>Enterprise software / SaaS</td><td>Contractors, developers</td><td>Seat or project licence</td><td>Product investment</td><td>Long-term</td></tr>
+  </table></div>
+  <h3>Vendor subscription plans <span class="k p">Proposed, subject to validation</span></h3>
+  <div class="grid">
+    <div class="card"><h4>Basic · Free</h4><ul><li>Verified profile, 1 category, 1 area</li><li>Pay per lead or commission</li><li>Up to 5 quotes per month</li></ul></div>
+    <div class="card" style="border-color:var(--orange)"><h4>Professional · ₹999–1,999 / month</h4><ul><li>3 categories, wider area</li><li>Unlimited quotes, lower commission</li><li>Portfolio gallery, priority support</li><li>Performance insights</li></ul></div>
+    <div class="card"><h4>Enterprise · ₹4,999–9,999 / month</h4><ul><li>Multi-user team account</li><li>Access to B2B RFQs</li><li>Featured placement (labelled)</li><li>Dedicated account manager</li></ul></div>
+  </div>
+  <h3>Illustrative commission ranges</h3>
+  <div class="tbl"><table>
+    <tr><th>Category</th><th class="n">Range</th><th>Why it differs</th></tr>
+    <tr><td>Quick home services</td><td class="n">10–20%</td><td>Small tickets, high frequency, platform does more matching per rupee</td></tr>
+    <tr><td>Construction / renovation projects</td><td class="n">3–6%</td><td>Large tickets; contractors resist high %; long cycles</td></tr>
+    <tr><td>Materials</td><td class="n">1–4% (commodity) · 5–10% (finishes)</td><td>Cement and steel trade on thin margins</td></tr>
+    <tr><td>Equipment rental</td><td class="n">8–15%</td><td>Utilisation value to owners is high</td></tr>
+    <tr><td>Professional consultations</td><td class="n">10–15%</td><td>Fee-based, low fulfilment cost</td></tr>
+    <tr><td>Enterprise sourcing</td><td class="n">2–5% or retainer</td><td>Large contract values, competitive bidding</td></tr>
+  </table></div>
+</section>
+
+<!-- FINANCE -->
+<section id="finance">
+  <div class="part">Part C · 32 · Illustrative financial framework</div>
+  <h2>Financial framework</h2>
+  <p class="note"><b>These are not company figures.</b> They are planning scenarios built from stated assumptions so the founder can test the model. The company has reported no revenue, GMV or transaction counts, and none should be inferred from this table.</p>
+  <h3>Key assumptions (Greater Noida, then NCR)</h3>
+  <div class="tbl"><table>
+    <tr><th>Assumption</th><th class="n">Conservative</th><th class="n">Base</th><th class="n">Aggressive</th></tr>
+    <tr><td>Paid jobs / month by month 12</td><td class="n">60</td><td class="n">150</td><td class="n">300</td></tr>
+    <tr><td>Avg. ticket — home services</td><td class="n">₹2,000</td><td class="n">₹2,500</td><td class="n">₹3,000</td></tr>
+    <tr><td>Renovation/construction jobs / month (M12)</td><td class="n">4</td><td class="n">10</td><td class="n">20</td></tr>
+    <tr><td>Avg. ticket — renovation</td><td class="n">₹2.5 L</td><td class="n">₹3 L</td><td class="n">₹4 L</td></tr>
+    <tr><td>Blended take rate</td><td class="n">5%</td><td class="n">6%</td><td class="n">7%</td></tr>
+    <tr><td>Paying subscribers (M12)</td><td class="n">15</td><td class="n">40</td><td class="n">80</td></tr>
+    <tr><td>CAC per paying customer</td><td class="n">₹900</td><td class="n">₹600</td><td class="n">₹450</td></tr>
+  </table></div>
+  <h3>Three-year illustration (₹ lakh, financial years)</h3>
+  <div class="tbl"><table>
+    <tr><th>Metric</th><th class="n">FY27 Cons.</th><th class="n">FY27 Base</th><th class="n">FY27 Aggr.</th><th class="n">FY28 Base</th><th class="n">FY29 Base</th></tr>
+    <tr><td>GMV</td><td class="n">90</td><td class="n">240</td><td class="n">520</td><td class="n">900</td><td class="n">2,400</td></tr>
+    <tr><td>Platform revenue (incl. subs)</td><td class="n">6</td><td class="n">18</td><td class="n">42</td><td class="n">65</td><td class="n">170</td></tr>
+    <tr><td>Variable costs (payments, support, refunds)</td><td class="n">2</td><td class="n">5</td><td class="n">11</td><td class="n">16</td><td class="n">38</td></tr>
+    <tr><td>Customer + vendor acquisition</td><td class="n">8</td><td class="n">14</td><td class="n">24</td><td class="n">30</td><td class="n">55</td></tr>
+    <tr><td>Contribution</td><td class="n">−4</td><td class="n">−1</td><td class="n">7</td><td class="n">19</td><td class="n">77</td></tr>
+    <tr><td>Fixed opex (team, tech, office)</td><td class="n">30</td><td class="n">45</td><td class="n">70</td><td class="n">110</td><td class="n">190</td></tr>
+    <tr><td>EBITDA</td><td class="n">−34</td><td class="n">−46</td><td class="n">−63</td><td class="n">−91</td><td class="n">−113</td></tr>
+  </table></div>
+  <p><b>Break-even logic:</b> fixed opex ÷ (take rate × contribution margin %) = GMV needed. At ₹110 L opex, a 7% take rate and 70% contribution margin on revenue, break-even GMV ≈ ₹22 crore a year (~₹1.9 crore a month). This is why Vertical 06 (large B2B tickets) and AMC (recurring) matter to the long-term model.</p>
+  <p><b>Cash flow:</b> keep 12–18 months of runway; avoid inventory and supplier credit until working-capital financing is arranged; collect commission at payment time rather than invoicing vendors later.</p>
+  <h3>Funding requirement <span class="k u">To be decided by founder</span></h3>
+  <p>Indicative bootstrap/angel need for Phase 1 (18 months): ₹60 lakh–1.2 crore covering a 6–8 person team, product completion, Greater Noida marketing and working buffer. Capital priorities: product and admin tools (30%), supply onboarding and ops (25%), demand marketing (25%), compliance, legal and contingency (20%). No funding has been raised or committed to anyone's knowledge in this document.</p>
+</section>
+
+<!-- MARKET -->
+<section id="market">
+  <div class="part">Part C · 22</div>
+  <h2>Industry &amp; market opportunity</h2>
+  <p class="note"><b>Source discipline:</b> figures below are from public sources as commonly reported; verify the latest edition before using in investor material.</p>
+  <div class="grid">
+    <div class="card"><h4>Construction</h4><p>India's construction sector is often cited as heading toward ~US$1.4 trillion in output, among the largest employers in the country. <i>Source: IBEF, Infrastructure &amp; Real Estate sector reports.</i></p></div>
+    <div class="card"><h4>Public capex</h4><p>Union Budget 2025-26 allocated ₹11.21 lakh crore to capital expenditure. <i>Source: Union Budget 2025-26, Ministry of Finance.</i></p></div>
+    <div class="card"><h4>Housing</h4><p>PMAY-Urban 2.0 targets 1 crore additional urban homes. <i>Source: MoHUA, Cabinet approval Aug 2024.</i></p></div>
+    <div class="card"><h4>Real estate</h4><p>Indian real estate projected to reach ~US$1 trillion by 2030. <i>Source: IBEF / CREDAI–Colliers.</i></p></div>
+    <div class="card"><h4>Local demand: Greater Noida</h4><p>Dense residential sectors (Alpha, Beta, Gamma, Delta, Greater Noida West), YEIDA development and Noida International Airport (Jewar) drive construction and maintenance demand. <i>Source: YEIDA / NIAL public information.</i></p></div>
+    <div class="card"><h4>Digital adoption</h4><p>UPI and WhatsApp are near-universal among tradespeople and homeowners, lowering onboarding friction. <i>Source: NPCI monthly statistics.</i></p></div>
+  </div>
+  <h3>TAM · SAM · SOM methodology</h3>
+  <p>The size of Indian construction is not Abhiyantri Setu's opportunity. The addressable opportunity is the revenue the company could earn (commissions and fees) on the slice of spending that flows through intermediated discovery.</p>
+  <div class="tbl"><table>
+    <tr><th>Layer</th><th>Definition</th><th>Method</th><th>Illustrative output</th></tr>
+    <tr><td>TAM</td><td>Annual spend on residential renovation, home services, small/medium construction, construction materials (retail/SME) and equipment rental in India</td><td>Households × annual spend + SME construction spend; triangulate with published sector sizes</td><td>Lakhs of crores of spend; to be computed with sourced inputs <span class="k u">Research task</span></td></tr>
+    <tr><td>SAM</td><td>Same categories in Delhi NCR, by households and businesses reachable digitally</td><td>NCR households (Census + growth) × % owner-occupied × annual spend per household</td><td><span class="k u">Research task</span></td></tr>
+    <tr><td>SOM (3 yrs)</td><td>Share realistically captured in Greater Noida + Noida</td><td>Target households × penetration (1–3%) × jobs/year × ticket × take rate</td><td>e.g. 4 lakh households × 2% × 1.5 jobs × ₹8,000 × 6% ≈ ₹5.8 crore revenue/yr potential (assumption-based)</td></tr>
+  </table></div>
+</section>
+
+<!-- COMPETE -->
+<section id="compete">
+  <div class="part">Part C · 23 · 15</div>
+  <h2>Competitive landscape</h2>
+  <div class="tbl"><table>
+    <tr><th>Category</th><th>Examples</th><th>Their focus</th><th>Gap Abhiyantri Setu targets</th></tr>
+    <tr><td>Home services</td><td>Urban Company, NoBroker Home Services</td><td>Standardised, fixed-price small jobs; strong brand</td><td>Civil, renovation and construction work that does not fit a rate card</td></tr>
+    <tr><td>Design-led interiors</td><td>Livspace, HomeLane</td><td>Modular interiors, full-service, premium</td><td>Structural/civil renovation, budget segments, open quotes</td></tr>
+    <tr><td>Tech-enabled home builders</td><td>Brick&amp;Bolt and similar</td><td>Full-stack home construction packages</td><td>Marketplace choice among local contractors, smaller jobs, maintenance</td></tr>
+    <tr><td>Listings / directories</td><td>Justdial, Sulekha, IndiaMART</td><td>Lead directories, broad categories</td><td>Verification, structured quotes, execution tracking</td></tr>
+    <tr><td>B2B materials &amp; procurement</td><td>Infra.Market, Moglix, OfBusiness</td><td>Large-volume B2B procurement and credit</td><td>Retail and small-contractor buyers tied to an active project</td></tr>
+    <tr><td>Equipment rental</td><td>Regional rental firms, classifieds</td><td>Offline, phone-based</td><td>Structured booking, deposits, availability</td></tr>
+  </table></div>
+  <p><b>Intended differentiation:</b> one requirement can pull in a contractor, a professional, materials and equipment; local depth before national breadth; quotes compared line by line; and a maintenance relationship after the build. <b>Required capabilities to defend it:</b> dense verified supply in each micro-market, reliable dispute handling, payment flow on-platform, and proprietary rate and performance data. No claim of market leadership is made.</p>
+</section>
+
+<!-- TRUST -->
+<section id="trust">
+  <div class="part">Part D · 24 · 16</div>
+  <h2>Trust, quality &amp; governance framework</h2>
+  <div class="grid">
+    <div class="card"><h4>Vendor verification</h4><ul><li>Aadhaar-based KYC (with consent), PAN, GST where applicable</li><li>Address and reference checks</li><li>Portfolio review; trade test for new trades</li><li>Professional credentials (CoA, engineering degrees, licences)</li><li>Re-verification yearly</li></ul></div>
+    <div class="card"><h4>Quotation &amp; work transparency</h4><ul><li>Standard BOQ quote template</li><li>Written scope before start</li><li>Stage photos and QC checklist</li><li>Completion sign-off by OTP</li></ul></div>
+    <div class="card"><h4>Payments &amp; refunds</h4><ul><li>Fees disclosed upfront</li><li>Milestone payments for projects</li><li>Cancellation and refund policy per category</li><li>Invoices for every transaction</li></ul></div>
+    <div class="card"><h4>Complaints &amp; disputes</h4><ul><li>Acknowledge in 24 h, resolve plan in 72 h</li><li>Re-visit or rework first, refund second</li><li>Grievance officer per consumer e-commerce rules</li><li>Escalation to mediation for large disputes</li></ul></div>
+    <div class="card"><h4>Data &amp; security</h4><ul><li>Digital Personal Data Protection Act 2023 consent and notices</li><li>Minimal storage of ID documents, encrypted</li><li>Role-based admin access, audit logs</li><li>Backups and incident response plan</li></ul></div>
+    <div class="card"><h4>Vendor performance</h4><ul><li>Scorecard: rating, response time, punctuality, rework, complaints</li><li>Warnings → suspension → delisting</li></ul></div>
+  </div>
+  <p class="note"><b>Disclaimer to publish:</b> "Verification confirms identity and documents provided at the time of onboarding. It does not guarantee the quality or outcome of any work. Contracts for services are between the customer and the provider; Abhiyantri Setu facilitates discovery, documentation and dispute support." Legal counsel should review terms against the Consumer Protection Act 2019, Consumer Protection (E-Commerce) Rules 2020, IT Act 2000 intermediary rules, DPDP Act 2023, GST TCS obligations for e-commerce operators, and labour and safety rules relevant to construction (BOCW Act).</p>
+</section>
+
+<!-- MARKETING -->
+<section id="marketing">
+  <div class="part">Part D · 25 · Deliverable 8</div>
+  <h2>Marketing &amp; brand growth blueprint</h2>
+  <p>Marketing must build both sides. In a new micro-market, supply comes first: no customer should post a requirement that gets zero quotes.</p>
+  <figure class="fig">
+    <svg viewBox="0 0 640 230" role="img" aria-label="Marketing funnel">
+      <g font-size="13" text-anchor="middle">
+        <polygon points="20,10 620,10 580,50 60,50" fill="#0B1F4D"/><text x="320" y="35" style="fill:#fff">Awareness · Instagram, Facebook, society activations, SEO</text>
+        <polygon points="60,55 580,55 540,95 100,95" fill="#1E3A7A"/><text x="320" y="80" style="fill:#fff">Interest · educational reels, characters, Google Business Profile</text>
+        <polygon points="100,100 540,100 500,140 140,140" fill="#F97316"/><text x="320" y="125" style="fill:#fff">Requirement posted · WhatsApp, website form</text>
+        <polygon points="140,145 500,145 460,185 180,185" fill="#EA580C"/><text x="320" y="170" style="fill:#fff">Quotes received → hire</text>
+        <polygon points="180,190 460,190 430,225 210,225" fill="#FACC15"/><text x="320" y="213" style="fill:#0B1F4D">Rating, referral, AMC, repeat</text>
+      </g>
+    </svg>
+  </figure>
+  <div class="two">
+    <div class="card"><h4>B2C</h4><p><b>Audience:</b> homeowners, residents, people planning construction or renovation, maintenance seekers.</p><p><b>Channels:</b> Instagram, Facebook, Google Search, Google Business Profile, WhatsApp Business, RWA partnerships, offline campaigns, referrals, local SEO ("waterproofing in Greater Noida").</p></div>
+    <div class="card"><h4>B2B</h4><p><b>Audience:</b> builders, developers, contractors, architects, consultants, industries, commercial establishments, facility managers, institutions.</p><p><b>Channels:</b> LinkedIn (founder-led), direct outreach, industry associations, email, WhatsApp Business, exhibitions, corporate presentations, case studies.</p></div>
+  </div>
+  <h3>Content pillars</h3>
+  <p>Construction education · common homeowner problems · renovation awareness · material knowledge · vendor education · engineering insights · project case studies · customer testimonials · platform education · brand storytelling.</p>
+  <h3>Character universe <span class="k h">Concept developed</span></h3>
+  <div class="tbl"><table>
+    <tr><th>Character</th><th>Proposed role</th></tr>
+    <tr><td>Setu</td><td>Brand guide and narrator; explains how the platform works</td></tr>
+    <tr><td>Aditi</td><td>Homeowner planning a renovation; asks the questions customers ask</td></tr>
+    <tr><td>Rohit</td><td>Young engineer; explains technical points simply</td></tr>
+    <tr><td>Mahesh</td><td>Experienced contractor; shows good workmanship and fair quoting</td></tr>
+    <tr><td>Meera</td><td>Architect / designer; covers planning, Vastu, interiors</td></tr>
+    <tr><td>Shortcut Singh</td><td>Comic foil whose shortcuts (no curing, cheap waterproofing) cause problems</td></tr>
+  </table></div>
+  <p>Style: premium stylised 3D animation with locked character sheets (face, outfit, palette, voice) so every reel stays consistent. Character roles above are proposed; align with the existing character bible.</p>
+  <h3>Greater Noida offline plan</h3>
+  <p>RWA campaigns in Alpha, Beta, Gamma, Delta and Greater Noida West societies · weekend canopy with free "home health check" (seepage, wiring) · pamphlets via newspaper inserts · standees at hardware and paint shops · contractor meet-ups at material yards · supplier networking · refer-a-neighbour credit.</p>
+  <h3>KPIs (targets to be set after month 1 baseline)</h3>
+  <p>Website visitors · qualified requirements · cost per qualified lead · CAC · vendor acquisition cost · reach · organic engagement · conversion rate · requirement-to-quotation ratio · requirement-to-hire ratio · repeat customer rate. No audience or follower figures are claimed.</p>
+  <h3>12-month marketing strategy</h3>
+  <div class="tbl"><table>
+    <tr><th>Quarter</th><th>Focus</th><th>Key outputs</th></tr>
+    <tr><td>Dec 2026–Feb 2027</td><td>Supply first, soft demand</td><td>150 verified vendors target, GBP live, 3 posts + 3 reels/week, 5 RWA activations</td></tr>
+    <tr><td>Mar–May 2027</td><td>Demand launch Greater Noida</td><td>Search ads on high-intent terms, referral programme, first case studies</td></tr>
+    <tr><td>Jun–Aug 2027</td><td>Monsoon (waterproofing, repairs) campaign; Noida entry</td><td>Seasonal campaign, testimonial reels, AMC launch</td></tr>
+    <tr><td>Sep–Nov 2027</td><td>Festive renovation season; B2B pipeline</td><td>Diwali painting campaign, LinkedIn B2B series, 10 B2B meetings/month</td></tr>
+  </table></div>
+</section>
+
+<!-- PARTNERS -->
+<section id="partners">
+  <div class="part">Part D · 26 · 17</div>
+  <h2>Partnerships &amp; network</h2>
+  <div class="tbl"><table>
+    <tr><th>Partner type</th><th>Value to partner</th><th>Value to Abhiyantri Setu</th></tr>
+    <tr><td>Builders &amp; developers</td><td>Vetted subcontractors, post-handover maintenance for buyers</td><td>Bulk demand, possession-time renovation leads</td></tr>
+    <tr><td>Contractors &amp; trades</td><td>Leads, digital reputation, faster payment</td><td>Supply</td></tr>
+    <tr><td>Architects &amp; consultants</td><td>Execution partners for their designs</td><td>High-value project referrals</td></tr>
+    <tr><td>Manufacturers &amp; distributors</td><td>Access to contractors and retail buyers</td><td>Catalogue, pricing, co-marketing, applicator training</td></tr>
+    <tr><td>Equipment owners</td><td>Higher utilisation</td><td>Rental supply</td></tr>
+    <tr><td>Industrial solution providers</td><td>Qualified B2B enquiries</td><td>Vertical 06 delivery capability</td></tr>
+    <tr><td>Payment, logistics, tech providers</td><td>Volume</td><td>Infrastructure without building it</td></tr>
+    <tr><td>Banks &amp; NBFCs</td><td>Home-improvement loan leads</td><td>Customer financing, vendor working capital</td></tr>
+    <tr><td>RWAs, CREDAI chapters, IEI / IIA chapters</td><td>Member benefit</td><td>Credibility and reach</td></tr>
+  </table></div>
+  <p><b>Programme (proposed):</b> three tiers — Listed, Verified Partner, Strategic Partner — with a written MoU template, co-branded collateral and quarterly reviews. No partnerships are currently claimed.</p>
+</section>
+
+<!-- PROGRESS -->
+<section id="progress">
+  <div class="part">Part D · 27–28 · Deliverable 5</div>
+  <h2>Company progress &amp; current status</h2>
+  <p>Historical items are as reported by the founder and have not been independently revalidated. The codebase column is verified by inspection of the company repository on 16 Nov 2026.</p>
+  <div class="tbl"><table>
+    <tr><th>Workstream</th><th>Previously completed</th><th>Current verified status</th><th>Pending</th><th>Priority</th><th>Next action</th><th>Owner</th><th>Target</th></tr>
+    <tr><td>Corporate &amp; legal</td><td>Incorporated; GST; bank account; office</td><td><span class="k h">Reported — revalidate</span></td><td>INC-20A, share certificates, Udyam, statutory registers</td><td>P0</td><td>CA/CS compliance check</td><td>Founder + CS</td><td>15 Dec 2026</td></tr>
+    <tr><td>Branding</td><td>Positioning, palette, typography, logo</td><td><span class="k c">Completed — verified</span> (logo and tokens in use)</td><td>Brand guidelines PDF, trademark filing</td><td>P1</td><td>File TM in classes 35, 37, 42</td><td>Founder</td><td>Jan 2027</td></tr>
+    <tr><td>Website</td><td>Development initiated</td><td><span class="k p">In progress — evidence required</span> (domain live; content to audit)</td><td>SEO, legal pages, requirement form tracking</td><td>P0</td><td>Audit live site vs this document</td><td>Product</td><td>Dec 2026</td></tr>
+    <tr><td>Mobile app</td><td>Discussed</td><td><span class="k u">Not started — confirm</span></td><td>PWA first</td><td>P2</td><td>Defer until web traction</td><td>Product</td><td>H2 2027</td></tr>
+    <tr><td>Technology</td><td>Firebase preferred; feature architecture discussed</td><td><span class="k c">In progress — verified</span>: Next.js + PostgreSQL app with jobs, bids, provider onboarding, dashboards</td><td>Admin panel, uploads, payments, notifications, QA, deployment</td><td>P0</td><td>Freeze MVP scope; PRD</td><td>Tech lead</td><td>Feb 2027</td></tr>
+    <tr><td>Vendor acquisition</td><td>Discovery planned</td><td><span class="k u">Not started — confirm</span> (count unknown)</td><td>Database, SOP, onboarding drive</td><td>P0</td><td>List 300 local vendors</td><td>Supply lead</td><td>Jan 2027</td></tr>
+    <tr><td>Customer acquisition</td><td>WhatsApp groups created</td><td><span class="k h">Reported — revalidate</span></td><td>Launch campaigns</td><td>P1</td><td>Pilot with 2 RWAs</td><td>Growth</td><td>Feb 2027</td></tr>
+    <tr><td>Marketplace ops</td><td>WhatsApp + Sheets lead flow proposed</td><td><span class="k p">Planned</span></td><td>SOPs, SLAs, templates</td><td>P0</td><td>Write 5 core SOPs</td><td>Ops</td><td>Jan 2027</td></tr>
+    <tr><td>Revenue &amp; payments</td><td>Model defined</td><td><span class="k p">Planned</span></td><td>Gateway, pricing validation</td><td>P1</td><td>Vendor pricing interviews</td><td>Founder</td><td>Jan 2027</td></tr>
+    <tr><td>Marketing</td><td>Social accounts; 10+ carousels; character universe</td><td><span class="k h">Reported — revalidate</span></td><td>Calendar, GBP, reels production</td><td>P1</td><td>Content calendar</td><td>Growth</td><td>Dec 2026</td></tr>
+    <tr><td>Partnerships</td><td>None reported</td><td><span class="k u">Not started</span></td><td>Supplier and RWA MoUs</td><td>P2</td><td>Shortlist 10 partners</td><td>BD</td><td>Feb 2027</td></tr>
+    <tr><td>Finance &amp; accounting</td><td>Setup identified</td><td><span class="k u">Verify</span></td><td>Accounting software, monthly MIS</td><td>P0</td><td>Engage CA, set up books</td><td>Founder + CA</td><td>Dec 2026</td></tr>
+    <tr><td>Analytics</td><td>—</td><td><span class="k u">Not started</span></td><td>Tracking plan, dashboards</td><td>P1</td><td>Install analytics + events</td><td>Tech</td><td>Feb 2027</td></tr>
+    <tr><td>Expansion</td><td>Geography selected</td><td><span class="k p">Planned</span></td><td>City playbook</td><td>P3</td><td>After Greater Noida exit criteria</td><td>Founder</td><td>2027–28</td></tr>
+  </table></div>
+</section>
+
+<!-- PENDING -->
+<section id="pending">
+  <div class="part">Part D · 29</div>
+  <h2>Pending work &amp; priorities</h2>
+  <p>P0 = blocks launch · P1 = needed within 90 days · P2 = within 6 months · P3 = later.</p>
+  <div class="grid">
+    <div class="card"><h4>Corporate &amp; compliance</h4><ul><li>P0 Verify filings, share issuance, registers</li><li>P0 GST returns current; e-commerce TCS applicability</li><li>P1 Udyam registration</li><li>P0 Accounting and monthly reporting</li><li>P0 Terms, privacy policy, refund policy</li><li>P1 Vendor agreement, customer T&amp;C, NDA, MoU templates</li><li>P1 DPDP and consumer-protection review</li></ul></div>
+    <div class="card"><h4>Technology</h4><ul><li>P0 PRD and MVP scope freeze</li><li>P0 Admin dashboard and vendor verification</li><li>P0 Photo upload, notifications (WhatsApp)</li><li>P0 Deployment, backups, security review</li><li>P0 QA and UAT with 10 vendors, 10 customers</li><li>P1 Payments, analytics, UX polish</li></ul></div>
+    <div class="card"><h4>Operations</h4><ul><li>P0 Verification SOP, category standards</li><li>P0 Quote templates, SLAs</li><li>P0 Complaint, refund and cancellation process</li><li>P1 QA visits, project monitoring</li><li>P1 Support line and hours</li></ul></div>
+    <div class="card"><h4>Business development</h4><ul><li>P0 Vendor database (300 names)</li><li>P1 Contractor and supplier partnerships</li><li>P2 B2B pipeline, industrial and institutional relationships</li></ul></div>
+    <div class="card"><h4>Marketing</h4><ul><li>P1 Brand guidelines, GBP, SEO basics</li><li>P1 90-day content calendar, reels</li><li>P1 Referral programme, vendor campaign</li><li>P2 Testimonials, case studies, B2B outreach</li></ul></div>
+  </div>
+</section>
+
+<!-- 90 DAY -->
+<section id="plan90">
+  <div class="part">Deliverable 6</div>
+  <h2>90-day executable action plan · 17 Nov 2026 – 14 Feb 2027</h2>
+  <div class="tbl"><table>
+    <tr><th>Weeks</th><th>Dates</th><th>Product &amp; tech</th><th>Supply &amp; ops</th><th>Marketing &amp; compliance</th><th>Exit check</th></tr>
+    <tr><td>1–2</td><td>17–30 Nov</td><td>Audit codebase; write PRD v1; choose hosting</td><td>Build vendor list (trades, 9 MVP categories)</td><td>CA/CS compliance audit; content calendar</td><td>PRD signed off</td></tr>
+    <tr><td>3–4</td><td>1–14 Dec</td><td>Admin panel: users, vendor verification, categories</td><td>Write verification SOP and quote templates</td><td>GBP listing; terms and privacy drafts</td><td>Admin can approve a vendor</td></tr>
+    <tr><td>5–6</td><td>15–28 Dec</td><td>Photo upload; WhatsApp/SMS notifications</td><td>Onboard first 40 vendors (in person)</td><td>Reels with Setu and Shortcut Singh; RWA talks</td><td>40 verified vendors</td></tr>
+    <tr><td>7–8</td><td>29 Dec–11 Jan</td><td>Analytics events; staging; QA</td><td>Category standards for 5 trades</td><td>Brand guidelines; referral design</td><td>Bug list under 10 P1s</td></tr>
+    <tr><td>9–10</td><td>12–25 Jan</td><td>UAT with 10 vendors + 10 friendly customers</td><td>SLAs; complaint process live</td><td>Legal review complete; Udyam</td><td>UAT jobs completed</td></tr>
+    <tr><td>11–12</td><td>26 Jan–8 Feb</td><td>Production launch (Greater Noida)</td><td>100 verified vendors target</td><td>2 RWA activations; search ads test</td><td>First 20 paid jobs</td></tr>
+    <tr><td>13</td><td>9–14 Feb</td><td>Retro; Phase-2 backlog</td><td>Vendor scorecards v1</td><td>KPI baseline report</td><td>Go/no-go for scale-up</td></tr>
+  </table></div>
+</section>
+
+<!-- ORG -->
+<section id="org">
+  <div class="part">Part D · 30 · 13</div>
+  <h2>Organisational structure</h2>
+  <figure class="fig">
+    <svg viewBox="0 0 860 210" role="img" aria-label="Organisation chart">
+      <g font-size="12" text-anchor="middle">
+        <rect x="355" y="10" width="150" height="40" rx="5" fill="#0B1F4D"/><text x="430" y="35" style="fill:#fff;font-weight:600">Founder &amp; CEO</text>
+        <line x1="430" y1="50" x2="430" y2="75" stroke="#94A3B8"/><line x1="70" y1="75" x2="790" y2="75" stroke="#94A3B8"/>
+        <g>
+          <line x1="70" y1="75" x2="70" y2="95" stroke="#94A3B8"/><rect x="10" y="95" width="120" height="44" rx="5" fill="#F97316"/><text x="70" y="114" style="fill:#fff">Technology</text><text x="70" y="130" style="fill:#fff">&amp; Product</text>
+          <line x1="214" y1="75" x2="214" y2="95" stroke="#94A3B8"/><rect x="154" y="95" width="120" height="44" rx="5" fill="#F97316"/><text x="214" y="114" style="fill:#fff">Marketplace Ops</text><text x="214" y="130" style="fill:#fff">&amp; Support</text>
+          <line x1="358" y1="75" x2="358" y2="95" stroke="#94A3B8"/><rect x="298" y="95" width="120" height="44" rx="5" fill="#F97316"/><text x="358" y="114" style="fill:#fff">Supply /</text><text x="358" y="130" style="fill:#fff">Vendor Acquisition</text>
+          <line x1="502" y1="75" x2="502" y2="95" stroke="#94A3B8"/><rect x="442" y="95" width="120" height="44" rx="5" fill="#0B1F4D"/><text x="502" y="114" style="fill:#fff">BD &amp; Enterprise</text><text x="502" y="130" style="fill:#fff">Sales</text>
+          <line x1="646" y1="75" x2="646" y2="95" stroke="#94A3B8"/><rect x="586" y="95" width="120" height="44" rx="5" fill="#0B1F4D"/><text x="646" y="114" style="fill:#fff">Marketing</text><text x="646" y="130" style="fill:#fff">&amp; Growth</text>
+          <line x1="790" y1="75" x2="790" y2="95" stroke="#94A3B8"/><rect x="730" y="95" width="120" height="44" rx="5" fill="#0B1F4D"/><text x="790" y="114" style="fill:#fff">Finance, Legal</text><text x="790" y="130" style="fill:#fff">&amp; Compliance</text>
+        </g>
+        <rect x="154" y="160" width="408" height="36" rx="5" fill="none" stroke="#0B1F4D" stroke-dasharray="4 3"/><text x="358" y="183" style="fill:#475569">City Operations (one city manager per city from Phase 2)</text>
+      </g>
+    </svg>
+    <figcaption>Orange: functions staffed first in the lean team. Navy: added as revenue allows.</figcaption>
+  </figure>
+  <div class="tbl"><table>
+    <tr><th>Stage</th><th>Team</th><th>Trigger</th></tr>
+    <tr><td>Lean (now–mid 2027)</td><td>Founder; 1–2 full-stack developers (or agency); ops/supply executive; field vendor onboarder; part-time content creator; external CA/CS</td><td>MVP launch</td></tr>
+    <tr><td>Growth (2027–28)</td><td>Product manager; support executives (2); city manager Noida; growth marketer; B2B sales manager</td><td>~300 jobs/month or funding</td></tr>
+    <tr><td>Scale (2029+)</td><td>CTO, COO, CFO; city teams; enterprise pre-sales engineers; data analyst; legal counsel</td><td>Multi-city operations</td></tr>
+  </table></div>
+</section>
+
+<!-- ROADMAP -->
+<section id="roadmap">
+  <div class="part">Part D · 31 · Deliverable 7</div>
+  <h2>Strategic roadmap 2026–2035</h2>
+  <p>Budgets are indicative planning estimates, not company-approved budgets. Each phase starts only when the previous phase's exit criteria are met.</p>
+  <div class="phase"><div class="yr">Phase 1<small>Nov 2026 – Dec 2027</small></div><div>
+    <h4>Foundation &amp; validation · Greater Noida</h4>
+    <p><b>Objective:</b> prove customers will post, vendors will quote and both will pay. <b>Activities:</b> PRD, MVP, vendor onboarding, Build &amp; Renovate and Quick Home Services launch, SOPs, first revenue. <b>Dependencies:</b> compliance, developer capacity, seed capital. <b>KPIs:</b> 300 verified vendors, 3+ quotes per requirement, 25% requirement-to-hire, NPS &gt; 40. <b>Team:</b> 5–8. <b>Budget:</b> ₹60 L–1.2 Cr. <b>Risks:</b> thin supply, disintermediation. <b>Exit:</b> 150+ paid jobs/month, positive contribution on home services.</p></div></div>
+  <div class="phase"><div class="yr">Phase 2<small>2027 – 2029</small></div><div>
+    <h4>NCR expansion</h4>
+    <p>Noida → Ghaziabad → Delhi → Gurugram and Faridabad. Launch material RFQs and equipment rental, full professional discovery, first B2B and AMC contracts. <b>KPIs:</b> 5 cities live, ₹25 Cr+ annual GMV, 20% repeat rate. <b>Team:</b> 20–40. <b>Budget:</b> ₹5–15 Cr. <b>Risks:</b> city playbook not repeatable, cash burn. <b>Exit:</b> each city reaches contribution break-even within 9 months.</p></div></div>
+  <div class="phase"><div class="yr">Phase 3<small>2029 – 2031</small></div><div>
+    <h4>National expansion</h4>
+    <p>Enter 3–5 metros (e.g. Lucknow, Jaipur, Pune, Bengaluru, Hyderabad) chosen by data. City teams, enterprise partnerships, industrial services, standardised tech and ops. <b>Budget:</b> ₹30–80 Cr. <b>Exit:</b> company-level EBITDA break-even path visible.</p></div></div>
+  <div class="phase"><div class="yr">Phase 4<small>2031 – 2033</small></div><div>
+    <h4>Ecosystem integration</h4>
+    <p>Advanced project management, integrated procurement, enterprise dashboards, marketplace intelligence and automation, financing partnerships.</p></div></div>
+  <div class="phase"><div class="yr">Phase 5<small>2033 – 2035</small></div><div>
+    <h4>Industry leadership</h4>
+    <p>Nationwide ecosystem, strategic industry partnerships, technology services to developers and contractors, large enterprise integrations; evaluate international (e.g. GCC, South Asia) opportunities.</p></div></div>
+  <h3>Horizon view</h3>
+  <div class="tbl"><table>
+    <tr><th>Horizon</th><th>Window</th><th>Headline goal</th></tr>
+    <tr><td>90 days</td><td>to 14 Feb 2027</td><td>Live in Greater Noida with 100 verified vendors and first paid jobs</td></tr>
+    <tr><td>12 months</td><td>to Nov 2027</td><td>Phase 1 exit criteria met; Noida live; AMC product launched</td></tr>
+    <tr><td>3 years</td><td>to Nov 2029</td><td>All NCR, three verticals beyond services live, B2B revenue share &gt; 25%</td></tr>
+    <tr><td>5 years</td><td>to Nov 2031</td><td>5–8 cities, path to profitability, enterprise accounts</td></tr>
+    <tr><td>10 years</td><td>to 2035</td><td>National ConTech ecosystem across the build–maintain lifecycle</td></tr>
+  </table></div>
+</section>
+
+<!-- INVESTOR -->
+<section id="investor">
+  <div class="part">Part E · Deliverable 9</div>
+  <h2>Investor &amp; strategic partnership profile</h2>
+  <div class="kv">
+    <div>Opportunity</div><div>Large, fragmented, low-trust construction services and supply market moving to digital discovery and payments</div>
+    <div>Problem</div><div>Customers cannot find, compare or manage reliable providers; providers cannot reach customers efficiently</div>
+    <div>Solution</div><div>Requirement-led marketplace with verified supply, structured quotes and lifecycle extensions</div>
+    <div>Customers</div><div>Homeowners, property owners, SMEs, builders, institutions</div>
+    <div>Revenue</div><div>Commissions, lead fees, subscriptions, supply and rental margins, B2B sourcing, AMC</div>
+    <div>Growth</div><div>Micro-market density → NCR → metros; services → materials → B2B</div>
+    <div>Traction</div><div><span class="k u">To be inserted with evidence: vendors, jobs, GMV, repeat rate</span></div>
+    <div>Funding raised / valuation</div><div><span class="k u">None stated</span></div>
+    <div>Ask</div><div><span class="k u">Founder to define</span> (indicative Phase 1 need ₹60 L–1.2 Cr)</div>
+    <div>Use of funds</div><div>Product 30% · supply and ops 25% · demand 25% · compliance and buffer 20%</div>
+  </div>
+  <p>For strategic partners (manufacturers, developers, banks), lead with the partnership table and local density plan rather than valuation.</p>
+</section>
+
+<!-- RISK -->
+<section id="risk">
+  <div class="part">Part E · 33</div>
+  <h2>Risk management</h2>
+  <div class="tbl"><table>
+    <tr><th>Risk</th><th>Likelihood</th><th>Mitigation</th></tr>
+    <tr><td>Disintermediation (deals move off-platform)</td><td>High</td><td>Value only the platform gives: warranty support, milestone payments, dispute help, vendor ratings; lead fees for small jobs</td></tr>
+    <tr><td>Poor-quality work damages brand</td><td>High</td><td>Verification, QC checklists, scorecards, rework policy</td></tr>
+    <tr><td>Cold start (no quotes)</td><td>High</td><td>Supply-first onboarding; ops team manually sources quotes initially</td></tr>
+    <tr><td>Founder bandwidth</td><td>Medium</td><td>Early ops hire; agency for content; advisory board</td></tr>
+    <tr><td>Cash runway</td><td>Medium</td><td>Phase gates, asset-light model, early subscription revenue</td></tr>
+    <tr><td>Regulatory / data</td><td>Medium</td><td>Legal review, DPDP consent, grievance officer</td></tr>
+    <tr><td>Well-funded competitor enters segment</td><td>Medium</td><td>Local depth and civil-work specialisation</td></tr>
+    <tr><td>Worker safety incidents on jobs</td><td>Low–Med</td><td>Safety guidance for vendors; insurance partner; clear contractual responsibility</td></tr>
+  </table></div>
+</section>
+
+<!-- IMPACT -->
+<section id="impact">
+  <div class="part">Part E · 34–35</div>
+  <h2>Social &amp; economic impact · future vision</h2>
+  <div class="two">
+    <div><h4>Impact</h4><ul><li>Digital identity, reputation and steadier income for masons, plumbers, electricians and small contractors</li><li>Faster, documented payments</li><li>Better-built homes through standards and engineering input</li><li>Promotion of water and energy-efficient solutions</li><li>Local MSME supplier visibility</li></ul></div>
+    <div><h4>Future vision</h4><p>By 2035, any Indian household or business should be able to plan, build, equip and maintain a property through one trusted platform, and any capable tradesperson or supplier should be able to build a business on it.</p></div>
+  </div>
+</section>
+
+<!-- QC -->
+<section id="qc">
+  <div class="part">Quality control</div>
+  <h2>Open questions for the founder</h2>
+  <p>These must be answered before the document is shared externally.</p>
+  <ol>
+    <li>CIN, incorporation date, registered address, GSTIN, Udyam number.</li>
+    <li>Status of INC-20A, share certificates, statutory registers.</li>
+    <li>Founder biography, qualifications and photograph.</li>
+    <li>Is the web app deployed to production? Number of registered users and vendors to date, if any.</li>
+    <li>Confirm the stack decision (current code is Next.js + PostgreSQL, not Firebase).</li>
+    <li>Social media figures and links, with screenshots as evidence.</li>
+    <li>Character bible: confirm roles assigned above.</li>
+    <li>Funding position and intended raise.</li>
+    <li>Contact email and phone for publication.</li>
+  </ol>
+  <h3>Brand identity reference</h3>
+  <div class="swatches">
+    <div class="sw"><i style="background:#0B1F4D"></i><span>Navy #0B1F4D</span></div>
+    <div class="sw"><i style="background:#F97316"></i><span>Orange #F97316</span></div>
+    <div class="sw"><i style="background:#FACC15"></i><span>Yellow #FACC15</span></div>
+    <div class="sw"><i style="background:#F8FAFC"></i><span>Bg #F8FAFC</span></div>
+    <div class="sw"><i style="background:#0F172A"></i><span>Text #0F172A</span></div>
+    <div class="sw"><i style="background:#475569"></i><span>Muted #475569</span></div>
+  </div>
+  <p>Typography: Poppins (headings), Inter (body). Style: premium, engineering-led, structured. Avoid excessive orange fields and gradients.</p>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="part">Part E · 36</div>
+  <h2>Contact &amp; corporate information</h2>
+  <div class="kv">
+    <div>Company</div><div>Abhiyantri Setu Digital Infra Private Limited</div>
+    <div>Founder</div><div>Avinish Tripathi</div>
+    <div>Website</div><div>www.abhiyantrisetu.com</div>
+    <div>Office</div><div>Greater Noida, Uttar Pradesh, India <span class="k u">full address</span></div>
+    <div>Email · phone</div><div><span class="k u">to be supplied</span></div>
+  </div>
+  <div class="quote">Abhiyantri Setu. Building Connections. Engineering Progress.</div>
+</section>
+
+<footer>Corporate Brand Profile v1.0 · prepared 16 November 2026. Contains proposed strategy and illustrative projections that are not company results or approved budgets. Market figures are from public sources and should be re-verified before external distribution.</footer>
+</main>
+</div>
