@@ -1,0 +1,21 @@
+@page{size:A4;margin:18mm 18mm 20mm}
+body{font:10pt/1.55 Inter,Arial,sans-serif;color:#0F172A;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+h1{font:700 19pt Poppins;color:#0B1F4D;border-bottom:2px solid #F97316;padding-bottom:2mm;margin:0 0 4mm;page-break-before:always}
+h2{font:600 13pt Poppins;color:#0B1F4D;margin:6mm 0 2mm}
+p,li{orphans:3;widows:3}
+strong{color:#0B1F4D}
+table{border-collapse:collapse;width:100%;margin:3mm 0;font-size:9pt;page-break-inside:auto}
+th{background:#0B1F4D;color:#fff;text-align:left;padding:2mm 2.5mm}
+td{border-bottom:1px solid #DCE3EE;padding:1.8mm 2.5mm;vertical-align:top}
+tr{page-break-inside:avoid}
+tr:nth-child(even) td{background:#F5F7FB}
+hr{display:none}
+header#title-block-header{display:none}
+.cover{height:235mm;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;border-bottom:6mm solid #0B1F4D}
+.cover img{width:110mm}
+.cover .n{font:800 32pt Poppins;color:#0B1F4D;margin-top:6mm}.cover .n span{color:#F97316}
+.cover .e{letter-spacing:.18em;font-size:9pt;color:#475569}
+.cover .t{font:600 14pt Poppins;color:#0B1F4D;margin-top:12mm}.cover .t2{font:500 12pt Poppins;color:#F97316}
+.cover .d{margin-top:16mm;font-size:10pt;color:#475569}
+nav#TOC{page-break-before:always}nav#TOC::before{content:"Contents";font:700 19pt Poppins;color:#0B1F4D;display:block;border-bottom:2px solid #F97316;margin-bottom:4mm}
+nav#TOC ul{list-style:none;padding-left:0;columns:2;font-size:9.5pt}nav#TOC ul ul{display:none}nav#TOC a{color:#0F172A;text-decoration:none}
