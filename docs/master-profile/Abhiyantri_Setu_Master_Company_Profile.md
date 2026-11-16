@@ -32,7 +32,7 @@ This is the single source of truth about **Abhiyantri Setu Digital Infra Private
 | **Brand name** | Abhiyantri Setu |
 | **Meaning of name** | *Abhiyantri* = engineering; *Setu* = bridge. "The Engineer's Bridge." |
 | **Founder** | Avinish Tripathi |
-| **Headquarters** | Greater Noida, Uttar Pradesh, India |
+| **Registered office** | 336, Udyog Kendra-II, Ecotech-3, Greater Noida, Uttar Pradesh 201306, India |
 | **Website** | www.abhiyantrisetu.com |
 | **Industry** | Construction Technology (ConTech), digital marketplace, service aggregation |
 | **What we do** | A digital platform connecting customers with verified contractors, tradespeople, engineers, architects, material suppliers and equipment owners for construction, renovation, maintenance and infrastructure work |
@@ -46,7 +46,8 @@ This is the single source of truth about **Abhiyantri Setu Digital Infra Private
 | **Stage** | Early stage: incorporated, brand built, platform in development, Greater Noida launch in preparation |
 | **CIN / incorporation date** | [To be confirmed] |
 | **GSTIN** | Registered · number [To be confirmed] |
-| **Contact email / phone** | [To be confirmed] |
+| **Email** | info@abhiyantrisetu.com |
+| **Phone** | +91 92895 53069 |
 
 ---
 
@@ -515,7 +516,7 @@ Qualified requirements, quotes per requirement, requirement-to-hire rate, custom
 | Company incorporation | Completed |
 | GST registration | Completed |
 | Bank account | Completed |
-| Office | Set up in Greater Noida |
+| Office | Set up at Udyog Kendra-II, Ecotech-3, Greater Noida |
 | Brand identity (name, logo, colours, typography, taglines) | Completed |
 | Website domain | Live at www.abhiyantrisetu.com |
 | Social media (Instagram, Facebook, LinkedIn) and WhatsApp groups | Created; content published |
@@ -663,7 +664,7 @@ Builders and developers · contractors and trade associations · architects and 
 Abhiyantri Setu is India's digital construction and infrastructure ecosystem. Building Connections. Engineering Progress.
 
 **Social bio.**
-Find verified contractors, tradespeople, engineers and suppliers for construction, renovation and home services. Compare quotes, hire with confidence. Greater Noida | www.abhiyantrisetu.com
+Find verified contractors, tradespeople, engineers and suppliers for construction, renovation and home services. Compare quotes, hire with confidence. Greater Noida | info@abhiyantrisetu.com | www.abhiyantrisetu.com
 
 **Short paragraph.**
 Abhiyantri Setu connects homeowners and businesses with verified contractors, tradespeople, engineers, material suppliers and equipment owners. Post your requirement once, compare quotations clearly and get the work done right. Building Connections. Engineering Progress.
@@ -736,7 +737,7 @@ Home-service apps, interior companies, tech-enabled builders, lead directories a
 *[To be confirmed by the founder.]*
 
 **How can I contact the company?**
-Through www.abhiyantrisetu.com. *[Add email and phone.]*
+Email info@abhiyantrisetu.com, call +91 92895 53069, or visit www.abhiyantrisetu.com.
 
 ---
 
@@ -758,12 +759,14 @@ Through www.abhiyantrisetu.com. *[Add email and phone.]*
 
 # 29. Details to confirm before external use
 
-1. CIN, date of incorporation, registered office address, GSTIN, Udyam number.
+1. CIN, date of incorporation, GSTIN, Udyam number.
 2. Founder biography, education, experience and photograph; team and advisors.
-3. Contact email and phone numbers; social media handles.
+3. Social media handles.
 4. Platform status: launch date, number of verified providers, requirements received, jobs completed, revenue (only verified figures).
 5. Final pricing, commission and payment policy.
 6. Funding raised, current ask and use of funds.
 7. Signed partnerships, if any.
 
-*Abhiyantri Setu — Building Connections. Engineering Progress. · www.abhiyantrisetu.com*
+*Abhiyantri Setu — Building Connections. Engineering Progress.*
+
+336, Udyog Kendra-II, Ecotech-3, Greater Noida, Uttar Pradesh 201306, India · info@abhiyantrisetu.com · +91 92895 53069 · www.abhiyantrisetu.com
