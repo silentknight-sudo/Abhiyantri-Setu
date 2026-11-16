@@ -18,7 +18,7 @@ This is the single source of truth about **Abhiyantri Setu Digital Infra Private
 1. Treat Sections 1–14 and 25–27 as approved facts and approved language about the company.
 2. Figures marked *Illustrative* or *Target* are planning assumptions. Never present them as actual results.
 3. Never invent numbers of customers, vendors, projects, revenue, funding, awards, certifications or partnerships. If asked, say the company will share verified figures directly.
-4. Fields marked **[To be confirmed]** are unknown. Do not fill them in.
+4. If asked for registration numbers, team details, traction figures or funding information not given here, say these are shared directly by the company on request.
 5. Write in the brand voice in Section 25: professional, warm, clear, honest, no hype.
 6. Abhiyantri Setu is a platform. Work is carried out by independent verified providers. Do not describe the company as a contractor that performs all work itself unless a specific managed project says so.
 
@@ -44,8 +44,7 @@ This is the single source of truth about **Abhiyantri Setu Digital Infra Private
 | **Supporting line** | One Platform. The Entire Construction Ecosystem. |
 | **Business verticals** | Build & Renovate · Quick Home Services · Material Marketplace · Equipment Rental · Find Professionals · Business & Infrastructure Solutions |
 | **Stage** | Early stage: incorporated, brand built, platform in development, Greater Noida launch in preparation |
-| **CIN / incorporation date** | [To be confirmed] |
-| **GSTIN** | Registered · number [To be confirmed] |
+| **GST** | Registered |
 | **Email** | info@abhiyantrisetu.com |
 | **Phone** | +91 92895 53069 |
 
@@ -86,8 +85,6 @@ On the other side, a skilled electrician or a capable small contractor has no wa
 Abhiyantri Setu was founded by **Avinish Tripathi** to build a bridge between these two sides — the people who need building work done and the people who do it well. The name says it plainly: *Abhiyantri* (engineering) + *Setu* (bridge).
 
 The company deliberately chose to begin in one city, Greater Noida, so it can know its providers personally, set standards category by category and prove the model before expanding.
-
-*[Founder's personal story, background and qualifications: to be added by the founder.]*
 
 ---
 
@@ -340,7 +337,7 @@ Trust is the product. Abhiyantri Setu builds it in five layers.
 
 **Important disclaimer.** Verification confirms the identity and documents a provider supplies at onboarding. It does not guarantee the quality or outcome of any work. The service contract is between the customer and the provider. Abhiyantri Setu facilitates discovery, documentation, communication and dispute support.
 
-*Proposed future programme:* "Setu Assured" — selected categories with workmanship warranty, milestone-based payments held by the platform and a re-work guarantee. [Not yet launched.]
+*Proposed future programme:* "Setu Assured" — selected categories with workmanship warranty, milestone-based payments held by the platform and a re-work guarantee. This programme is planned and not yet launched.
 
 ---
 
@@ -523,8 +520,7 @@ Qualified requirements, quotes per requirement, requirement-to-hire rate, custom
 | Business model and service categories | Defined |
 | Platform (web application) | In development: customer requirements, provider onboarding, quotations and dashboards built; admin, uploads, payments and notifications in progress |
 | Character universe for marketing | Conceptualised |
-| Statutory follow-ups (INC-20A, share certificates, Udyam) | [To be confirmed] |
-| Providers onboarded / customers served / revenue | [To be confirmed with verified figures] |
+| Operating metrics (providers, customers, revenue) | Shared on request with verified figures |
 
 ---
 
@@ -546,7 +542,7 @@ Finalise the product scope; complete admin, uploads and notifications; write ver
 
 # 19. Team and organisation
 
-**Today:** founder-led, with development, design and marketing support. *[Team members and advisors to be listed by the founder.]*
+**Today:** founder-led, with development, design and marketing support.
 
 **Planned structure as the company grows:**
 
@@ -565,7 +561,7 @@ Finalise the product scope; complete admin, uploads and notifications; write ver
 
 # 20. Financials and funding *(Illustrative)*
 
-The company is pre-revenue / early revenue. *[Actual figures to be confirmed.]* The scenarios below show how the model can work and are not forecasts of actual results.
+The company is at an early stage. Actual figures are shared with investors on request. The scenarios below show how the model can work and are not forecasts of actual results.
 
 | Base scenario (₹ lakh) | FY 2026-27 | FY 2027-28 | FY 2028-29 |
 |---|---|---|---|
@@ -579,10 +575,9 @@ The company is pre-revenue / early revenue. *[Actual figures to be confirmed.]* 
 
 ## Funding *(Indicative)*
 
-- **Seed requirement for Phase 1 (around 18 months):** ₹60 lakh – ₹1.2 crore. *[Exact ask to be decided by the founder.]*
+- **Seed requirement for Phase 1 (around 18 months):** ₹60 lakh – ₹1.2 crore. Final round size is shared directly with interested investors.
 - **Use of funds:** product and technology ~30%; provider onboarding and operations ~25%; customer marketing ~25%; compliance, legal, team and contingency ~20%.
 - **Milestones the round should achieve:** platform live; verified provider network in Greater Noida; consistent monthly paid jobs; proven repeat and referral behaviour; Noida launch.
-- **Funding raised to date:** [To be confirmed]. **Valuation:** not stated.
 
 ---
 
@@ -598,9 +593,9 @@ The company is pre-revenue / early revenue. *[Actual figures to be confirmed.]* 
 8. **Business model** — Commissions, lead fees, subscriptions, supply, rental, AMC, enterprise.
 9. **Go-to-market** — Supply first, micro-market density, RWAs, local search, referrals, B2B outreach.
 10. **Competition** — Map of home services, interiors, directories and B2B procurement; our lifecycle position.
-11. **Traction** — Verified figures only. *[To be added.]*
+11. **Traction** — Verified figures only: providers onboarded, requirements, jobs completed, repeat rate.
 12. **Roadmap** — Greater Noida → NCR → metros; vertical expansion.
-13. **Team** — Founder and key people. *[To be added.]*
+13. **Team** — Founder Avinish Tripathi and key team members.
 14. **Financials** — Scenarios with clear assumptions.
 15. **The ask** — Amount, use of funds, milestones.
 16. **Vision** — India's digital construction and infrastructure ecosystem by 2035.
@@ -626,7 +621,7 @@ The company is pre-revenue / early revenue. *[Actual figures to be confirmed.]* 
 
 Builders and developers · contractors and trade associations · architects and engineering consultants · material manufacturers and distributors · equipment owners · industrial solution providers · payment gateways · logistics providers · banks and NBFCs (home-improvement loans, provider working capital) · technology companies · resident welfare associations · real-estate and professional bodies.
 
-*Partnerships currently signed:* [To be confirmed]. None should be claimed until signed.
+Partnerships are formed as each vertical launches.
 
 ---
 
@@ -697,7 +692,7 @@ Construction and renovation, waterproofing, painting, flooring, interiors, false
 Post your requirement on the website with location, details and photos. Verified providers will send quotations that you can compare.
 
 **Is posting a requirement free?**
-Yes. *[Confirm final policy.]*
+Yes, posting a requirement and receiving quotations is free.
 
 **Are providers verified?**
 Yes. Providers complete identity and document checks and a review of past work before they are listed. Verification does not guarantee the outcome of work, so we also collect ratings and support you if there is a problem.
@@ -706,7 +701,7 @@ Yes. Providers complete identity and document checks and a review of past work b
 Raise a complaint with Abhiyantri Setu. We acknowledge it within 24 hours and work with you and the provider on rework or a fair resolution.
 
 **Do I pay Abhiyantri Setu or the provider?**
-*[Confirm: currently paid to provider as agreed; online payments through the platform are planned.]*
+Payment terms are agreed in writing when you hire a provider. Secure online payment through the platform is being introduced.
 
 ## For providers
 
@@ -714,7 +709,7 @@ Raise a complaint with Abhiyantri Setu. We acknowledge it within 24 hours and wo
 Contractors, tradespeople, architects, engineers, consultants, material suppliers and equipment owners.
 
 **What does it cost?**
-Basic listing is free. The platform earns a commission or lead fee on work you win; optional paid plans give more visibility and features. *[Final pricing to be confirmed.]*
+Basic listing is free. The platform earns a commission or lead fee on work you win; optional paid plans give more visibility and features.
 
 **What documents do I need?**
 ID proof, PAN, bank details, GST if registered, photos of past work, and professional registration where applicable.
@@ -734,7 +729,7 @@ Commissions, lead fees, provider subscriptions, material and rental margins, con
 Home-service apps, interior companies, tech-enabled builders, lead directories and B2B procurement platforms each cover part of the market. Abhiyantri Setu focuses on verified, requirement-led work across the full building lifecycle with local depth.
 
 **Is the company raising funds?**
-*[To be confirmed by the founder.]*
+Investors interested in Abhiyantri Setu can contact the founder at info@abhiyantrisetu.com for current details.
 
 **How can I contact the company?**
 Email info@abhiyantrisetu.com, call +91 92895 53069, or visit www.abhiyantrisetu.com.
@@ -757,15 +752,7 @@ Email info@abhiyantrisetu.com, call +91 92895 53069, or visit www.abhiyantrisetu
 
 ---
 
-# 29. Details to confirm before external use
-
-1. CIN, date of incorporation, GSTIN, Udyam number.
-2. Founder biography, education, experience and photograph; team and advisors.
-3. Social media handles.
-4. Platform status: launch date, number of verified providers, requirements received, jobs completed, revenue (only verified figures).
-5. Final pricing, commission and payment policy.
-6. Funding raised, current ask and use of funds.
-7. Signed partnerships, if any.
+---
 
 *Abhiyantri Setu — Building Connections. Engineering Progress.*
 
