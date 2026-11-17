@@ -1,0 +1,479 @@
+<title>Abhiyantri Setu Company Profile</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: photo-led company profile — sticky section bar, full-bleed navy bands for hero/stats, white reading sections with interactive panels */
+:root{
+  --navy:#0B1F4D; --orange:#F97316; --yellow:#FACC15;
+  --bg:#F8FAFC; --surface:#FFFFFF; --text:#0F172A; --muted:#475569; --line:#DCE3EE; --tint:#EEF2F9;
+  --head:#0B1F4D; --band:#0B1F4D; --on-band:#FFFFFF; --on-band-muted:#C9D4EA; --chip:#E2E8F0;
+  --display:"Poppins",system-ui,sans-serif; --body:"Inter",system-ui,sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0A1328;--surface:#101C38;--text:#E6ECF7;--muted:#A5B2CB;--line:#24345A;--tint:#152447;--head:#C7D6F7;--band:#071230;--chip:#1A2747;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0A1328;--surface:#101C38;--text:#E6ECF7;--muted:#A5B2CB;--line:#24345A;--tint:#152447;--head:#C7D6F7;--band:#071230;--chip:#1A2747;color-scheme:dark}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+body{background:var(--bg);color:var(--text);font:16px/1.65 var(--body);margin:0}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:30;background:var(--band)}
+.in{max-width:1160px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+h1,h2,h3,h4{font-family:var(--display);color:var(--head);text-wrap:balance;line-height:1.2;margin:0}
+h2{font-size:clamp(26px,3.4vw,36px);margin-bottom:10px}
+h3{font-size:20px;margin-bottom:6px}
+p{margin:0 0 12px;max-width:70ch}
+.eye{font:700 12px var(--body);letter-spacing:.14em;text-transform:uppercase;color:var(--orange);margin-bottom:8px}
+.lead{font-size:18px;color:var(--muted)}
+section{padding-block:72px;scroll-margin-top:56px}
+.ill{display:inline-block;font:600 11px var(--body);letter-spacing:.05em;text-transform:uppercase;background:var(--tint);color:var(--muted);border:1px solid var(--line);padding:2px 8px;border-radius:999px;vertical-align:2px}
+
+/* nav */
+nav.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--band);border-bottom:1px solid rgba(255,255,255,.08)}
+nav.top .in{display:flex;align-items:center;gap:18px;height:56px}
+nav.top .brand{display:flex;align-items:center;gap:10px;font:700 16px var(--display);color:#fff;text-decoration:none;white-space:nowrap}
+nav.top .brand img{height:28px;background:#fff;border-radius:4px;padding:2px 4px}
+nav.top .brand span{color:var(--orange)}
+nav.top .links{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;min-width:0}
+nav.top .links::-webkit-scrollbar{display:none}
+nav.top .links a{color:var(--on-band-muted);text-decoration:none;font-size:13.5px;padding:6px 10px;border-radius:6px;white-space:nowrap}
+nav.top .links a:hover,nav.top .links a.on{color:#fff;background:rgba(255,255,255,.1)}
+
+/* hero */
+.hero{position:relative;background:var(--band);color:#fff;padding-block:0;overflow:hidden}
+.hero .bgimg{position:absolute;inset:0;background:url(img/hero.jpg) center/cover;opacity:.28}
+.hero .bgimg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#0B1F4D 30%,rgba(11,31,77,.4))}
+.hero .in{position:relative;display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,.9fr);gap:40px;align-items:center;padding-block:72px 64px}
+.hero .ent{font:600 12px var(--body);letter-spacing:.18em;color:var(--on-band-muted)}
+.hero h1{color:#fff;font-size:clamp(38px,6vw,64px);font-weight:800;margin:10px 0 4px;letter-spacing:-.01em}
+.hero h1 span{color:var(--orange)}
+.hero .tag{font:600 clamp(18px,2.4vw,24px) var(--display);color:var(--yellow);margin-bottom:18px}
+.hero p{color:#E2E8F5;font-size:17px}
+.hero .cta{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.btn{display:inline-flex;align-items:center;gap:8px;font:600 14px var(--body);padding:11px 18px;border-radius:6px;text-decoration:none;border:1px solid transparent;cursor:pointer}
+.btn.pri{background:var(--orange);color:#fff}
+.btn.sec{border-color:rgba(255,255,255,.35);color:#fff;background:transparent}
+.hero .logo{background:#fff;border-radius:8px;padding:24px;box-shadow:0 20px 50px rgba(0,0,0,.35)}
+.hero .logo img{display:block;width:100%}
+.facts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid rgba(255,255,255,.12);position:relative}
+.facts div{padding:18px 20px;border-right:1px solid rgba(255,255,255,.12)}
+.facts div:last-child{border-right:none}
+.facts b{display:block;font:700 20px var(--display);color:#fff}
+.facts span{font-size:13px;color:var(--on-band-muted)}
+@media (max-width:860px){.hero .in{grid-template-columns:minmax(0,1fr)}.hero .logo{max-width:360px}.facts{grid-template-columns:repeat(2,minmax(0,1fr))}.facts div:nth-child(2){border-right:none}.facts div:nth-child(-n+2){border-bottom:1px solid rgba(255,255,255,.12)}}
+
+/* generic layouts */
+.split{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:48px;align-items:center}
+.split>*{min-width:0}
+@media (max-width:860px){.split{grid-template-columns:minmax(0,1fr);gap:28px}}
+.photo{border-radius:8px;overflow:hidden;aspect-ratio:4/3;max-width:100%;background:var(--tint)}
+.photo img{width:100%;height:100%;object-fit:cover;display:block}
+.quote{font:600 22px/1.4 var(--display);color:var(--head);border-left:4px solid var(--orange);padding-left:18px;margin:20px 0}
+.cards{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:18px 20px;min-width:0}
+.card h4{font-size:16px;margin-bottom:6px}
+.card p{font-size:14.5px;color:var(--muted);margin:0}
+.alt{background:var(--surface);border-block:1px solid var(--line)}
+
+/* problem/solution compare */
+.vs{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);border:1px solid var(--line);border-radius:8px;overflow:hidden;background:var(--surface)}
+.vs>div{padding:22px 24px;min-width:0}
+.vs .old{border-right:1px solid var(--line)}
+.vs h4{font-size:15px;margin-bottom:10px}
+.vs ul{list-style:none;margin:0;padding:0;display:grid;gap:9px;font-size:14.5px}
+.vs li{padding-left:24px;position:relative}
+.vs .old li::before{content:"✕";position:absolute;left:0;color:#B91C1C;font-weight:700}
+.vs .new li::before{content:"✓";position:absolute;left:0;color:#15803D;font-weight:700}
+@media (max-width:700px){.vs{grid-template-columns:minmax(0,1fr)}.vs .old{border-right:none;border-bottom:1px solid var(--line)}}
+
+/* tabs */
+.tabs{display:flex;flex-wrap:wrap;gap:8px;margin:20px 0}
+.tab{font:600 14px var(--body);padding:9px 14px;border-radius:999px;border:1px solid var(--line);background:var(--surface);color:var(--text);cursor:pointer}
+.tab[aria-selected="true"]{background:var(--navy);border-color:var(--navy);color:#fff}
+:root[data-theme="dark"] .tab[aria-selected="true"]{background:var(--orange);border-color:var(--orange)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .tab[aria-selected="true"]{background:var(--orange);border-color:var(--orange)}}
+.tab:focus-visible,.btn:focus-visible,summary:focus-visible,input:focus-visible{outline:2px solid var(--orange);outline-offset:2px}
+.vpanel{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:0;border:1px solid var(--line);border-radius:8px;overflow:hidden;background:var(--surface)}
+.vpanel .photo{border-radius:0;aspect-ratio:auto;min-height:340px}
+.vpanel .txt{padding:26px 28px;min-width:0}
+.status{display:inline-block;font:600 11px var(--body);letter-spacing:.06em;text-transform:uppercase;padding:3px 9px;border-radius:999px;margin-bottom:10px}
+.s-live{background:#FFEAD9;color:#C2410C}.s-next{background:#E8EEFD;color:#1D4ED8}.s-exp{background:var(--chip);color:var(--muted)}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin:12px 0}
+.chips span{font-size:13px;background:var(--tint);border:1px solid var(--line);padding:3px 10px;border-radius:999px}
+@media (max-width:760px){.vpanel{grid-template-columns:minmax(0,1fr)}.vpanel .photo{min-height:200px;aspect-ratio:16/9}}
+
+/* journey */
+.flow{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px;counter-reset:f}
+.flow div{counter-increment:f;background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:14px 14px 14px 52px;position:relative;font-size:14.5px;min-width:0}
+.flow div::before{content:counter(f);position:absolute;left:14px;top:12px;width:26px;height:26px;border-radius:50%;background:var(--orange);color:#fff;font:700 13px/26px var(--display);text-align:center}
+
+/* charts */
+.chartbox{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:18px;min-width:0}
+.chartbox .cv{position:relative;height:300px}
+.chartbox h4{font-size:15px;margin-bottom:2px}
+.chartbox .sub{font-size:13px;color:var(--muted);margin-bottom:12px}
+.grid2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px}
+@media (max-width:860px){.grid2{grid-template-columns:minmax(0,1fr)}}
+
+/* calculator */
+.calc{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.8fr);gap:0;border:1px solid var(--line);border-radius:8px;overflow:hidden;background:var(--surface)}
+.calc .ctrls{padding:24px;display:grid;gap:16px}
+.calc label{display:flex;justify-content:space-between;font-size:14px;font-weight:600;gap:10px}
+.calc label output{font-variant-numeric:tabular-nums;color:var(--orange)}
+.calc input[type=range]{width:100%;accent-color:#F97316}
+.calc .res{background:var(--band);color:#fff;padding:24px;display:flex;flex-direction:column;justify-content:center;gap:4px}
+.calc .res .big{font:800 clamp(30px,4vw,42px) var(--display);color:var(--yellow);font-variant-numeric:tabular-nums}
+.calc .res small{color:var(--on-band-muted);font-size:13px}
+.calc .res .row{display:flex;justify-content:space-between;font-size:14px;border-top:1px solid rgba(255,255,255,.15);padding-top:8px;margin-top:8px;font-variant-numeric:tabular-nums}
+@media (max-width:760px){.calc{grid-template-columns:minmax(0,1fr)}}
+
+/* table */
+.tbl{overflow-x:auto;border:1px solid var(--line);border-radius:8px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th{background:var(--tint);color:var(--head);text-align:left;padding:11px 14px;font-weight:600;white-space:nowrap}
+td{padding:11px 14px;border-top:1px solid var(--line);vertical-align:top}
+td:first-child{font-weight:600;white-space:nowrap}
+.mk{font-size:12px;color:var(--muted)}
+
+/* roadmap */
+.road{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:0;position:relative;margin-top:24px}
+.road::before{content:"";position:absolute;left:0;right:0;top:19px;height:3px;background:var(--line)}
+.road button{all:unset;cursor:pointer;position:relative;padding:0 8px;text-align:left}
+.road button .dot{width:40px;height:40px;border-radius:50%;background:var(--surface);border:3px solid var(--line);display:grid;place-items:center;font:700 14px var(--display);color:var(--muted);position:relative}
+.road button[aria-selected="true"] .dot{background:var(--orange);border-color:var(--orange);color:#fff}
+.road button b{display:block;font:600 14px var(--display);color:var(--head);margin-top:10px}
+.road button small{color:var(--muted);font-size:12.5px}
+.road button:focus-visible .dot{outline:2px solid var(--orange);outline-offset:3px}
+.roaddetail{margin-top:20px}
+@media (max-width:700px){.road{grid-template-columns:minmax(0,1fr);gap:12px}.road::before{display:none}.road button{display:flex;gap:12px;align-items:center}.road button b{margin-top:0}}
+
+/* faq */
+details{background:var(--surface);border:1px solid var(--line);border-radius:8px;margin-bottom:8px}
+summary{cursor:pointer;padding:14px 18px;font-weight:600;list-style:none;display:flex;justify-content:space-between;gap:12px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font:600 20px/1 var(--display);color:var(--orange)}
+details[open] summary::after{content:"–"}
+details p{padding:0 18px 14px;margin:0;color:var(--muted);font-size:15px}
+
+/* contact */
+.contact{background:var(--band);color:#fff}
+.contact h2{color:#fff}
+.contact .grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:20px}
+.contact .grid3>div{border:1px solid rgba(255,255,255,.18);border-radius:8px;padding:18px;min-width:0}
+.contact .k{font:600 12px var(--body);letter-spacing:.1em;text-transform:uppercase;color:var(--orange)}
+.contact .v{font-size:16px;margin-top:4px;word-break:break-word;user-select:all}
+.copy{margin-top:8px;font:600 12px var(--body);background:transparent;color:var(--on-band-muted);border:1px solid rgba(255,255,255,.25);border-radius:4px;padding:4px 10px;cursor:pointer}
+@media (max-width:760px){.contact .grid3{grid-template-columns:minmax(0,1fr)}}
+footer{background:var(--band);color:var(--on-band-muted);font-size:12.5px;padding-block:18px 28px;border-top:1px solid rgba(255,255,255,.1)}
+</style>
+
+<nav class="top" aria-label="Sections"><div class="in">
+  <a class="brand" href="#home"><img src="img/logo.png" alt="">Abhiyantri <span>Setu</span></a>
+  <div class="links">
+    <a href="#about">About</a><a href="#problem">Problem</a><a href="#verticals">Services</a><a href="#how">How it works</a><a href="#model">Business model</a><a href="#market">Market</a><a href="#compete">Industry</a><a href="#roadmap">Roadmap</a><a href="#invest">Investors</a><a href="#faq">FAQ</a><a href="#contact">Contact</a>
+  </div>
+</div></nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="bgimg" aria-hidden="true"></div>
+  <div class="in">
+    <div>
+      <div class="ent">ABHIYANTRI SETU DIGITAL INFRA PRIVATE LIMITED</div>
+      <h1>Abhiyantri <span>Setu</span></h1>
+      <div class="tag">Building Connections. Engineering Progress.</div>
+      <p>India's digital construction and infrastructure ecosystem. One platform to find verified contractors, tradespeople, engineers, suppliers and equipment, compare quotations and get building work done right.</p>
+      <div class="cta"><a class="btn pri" href="#verticals">Explore our services</a><a class="btn sec" href="#invest">Investor overview</a></div>
+    </div>
+    <div class="logo"><img src="img/logo.png" alt="Abhiyantri Setu logo: an A-shaped bridge arch with a crane and city skyline"></div>
+  </div>
+  <div class="in"><div class="facts">
+    <div><b>6</b><span>business verticals</span></div>
+    <div><b>B2C + B2B</b><span>homes, builders, businesses</span></div>
+    <div><b>Greater Noida</b><span>launch market, then NCR</span></div>
+    <div><b>Pan-India</b><span>long-term ambition</span></div>
+  </div></div>
+</section>
+
+<!-- ABOUT -->
+<section id="about"><div class="in split">
+  <div>
+    <div class="eye">Who we are</div>
+    <h2>The Engineer's Bridge</h2>
+    <p class="lead">Abhiyantri Setu connects the people who need building work done with the people who do it well.</p>
+    <p>The name joins <b>Abhiyantri</b> (engineering) and <b>Setu</b> (bridge). Homeowners, businesses and builders post a requirement once, receive quotations from verified providers, compare them clearly and manage the work from start to finish. The same platform grows into materials, equipment rental, professional services and business infrastructure.</p>
+    <p>Founded by <b>Avinish Tripathi</b> and headquartered in Greater Noida, the company starts in one city so it can know every provider and set standards category by category before expanding across India.</p>
+    <div class="quote">One Platform. The Entire Construction Ecosystem.</div>
+  </div>
+  <div class="photo"><img src="img/villa.jpg" alt="A completed modern residential villa"></div>
+</div>
+<div class="in" style="margin-top:40px">
+  <div class="cards">
+    <div class="card"><h4>Vision</h4><p>To become India's most trusted and comprehensive digital ecosystem for construction, engineering and infrastructure services.</p></div>
+    <div class="card"><h4>Mission</h4><p>To connect customers, professionals, contractors, suppliers and businesses through technology, transparency and reliable service delivery.</p></div>
+    <div class="card"><h4>Promise</h4><p>Whatever you need to build, repair or maintain, we connect you to verified people who will do it right, at a price you can understand.</p></div>
+  </div>
+</div></section>
+
+<!-- PROBLEM -->
+<section id="problem" class="alt"><div class="in">
+  <div class="eye">Why we exist</div>
+  <h2>Building in India still runs on word of mouth</h2>
+  <p class="lead">Construction is one of India's largest industries and one of its least organised. Here is what changes with Abhiyantri Setu.</p>
+  <div class="vs" style="margin-top:22px">
+    <div class="old"><h4>The usual way</h4><ul>
+      <li>Find a mason through a neighbour and hope for the best</li>
+      <li>Three verbal quotes in three formats that cannot be compared</li>
+      <li>Scope, payments and promises agreed only by phone</li>
+      <li>Materials bought from whoever answers, at unclear prices</li>
+      <li>Poor work shows up months later, with no one to call</li>
+      <li>Skilled tradespeople stay invisible beyond their street</li>
+    </ul></div>
+    <div class="new"><h4>With Abhiyantri Setu</h4><ul>
+      <li>Verified providers with checked documents and past work</li>
+      <li>Quotations in one standard format, side by side</li>
+      <li>Written scope, stage photos and milestone sign-off</li>
+      <li>Local supplier quotes by brand, grade and delivery</li>
+      <li>Ratings, complaint handling and after-service support</li>
+      <li>Genuine leads and a digital reputation for providers</li>
+    </ul></div>
+  </div>
+</div></section>
+
+<!-- VERTICALS -->
+<section id="verticals"><div class="in">
+  <div class="eye">What we offer</div>
+  <h2>Six verticals, one ecosystem</h2>
+  <p class="lead">Select a vertical to see what it covers.</p>
+  <div class="tabs" role="tablist" id="vtabs"></div>
+  <div class="vpanel" id="vpanel" role="tabpanel" aria-live="polite"></div>
+</div></section>
+
+<!-- HOW -->
+<section id="how" class="alt"><div class="in">
+  <div class="eye">How it works</div>
+  <h2>From requirement to completed work</h2>
+  <p class="lead">Choose who you are to see your journey on the platform.</p>
+  <div class="tabs" role="tablist" id="jtabs"></div>
+  <div class="flow" id="jflow"></div>
+  <div class="split" style="margin-top:48px">
+    <div class="photo"><img src="img/professionals.jpg" alt="Construction professionals reviewing work on site"></div>
+    <div>
+      <div class="eye">Trust framework</div>
+      <h3>Five layers of trust</h3>
+      <div class="flow" style="grid-template-columns:minmax(0,1fr);margin-top:12px">
+        <div><b>Verification before listing.</b> ID, PAN, GST where applicable, references and past-work review.</div>
+        <div><b>Structured quotations.</b> Standard templates so customers compare like with like.</div>
+        <div><b>Documented execution.</b> Written scope, stage photos and milestone sign-off.</div>
+        <div><b>Accountable support.</b> Complaints acknowledged in 24 hours, a plan within 72.</div>
+        <div><b>Performance scorecards.</b> Ratings, punctuality and rework tracked for every provider.</div>
+      </div>
+      <p class="mk" style="margin-top:10px">Verification confirms identity and documents at onboarding. It does not guarantee the outcome of work; the service contract is between customer and provider.</p>
+    </div>
+  </div>
+</div></section>
+
+<!-- MODEL -->
+<section id="model"><div class="in">
+  <div class="eye">Business model</div>
+  <h2>How Abhiyantri Setu earns</h2>
+  <p class="lead">Multiple revenue streams that grow as customers use more of the ecosystem. <span class="ill">Illustrative figures</span></p>
+  <div class="grid2" style="margin-top:20px">
+    <div class="chartbox"><h4>Commission ranges by category</h4><div class="sub">Share of transaction value earned by the platform (%)</div><div class="cv"><canvas id="cComm" aria-label="Commission range chart"></canvas></div></div>
+    <div class="chartbox"><h4>Where revenue comes from, by phase</h4><div class="sub">Number of active revenue streams as verticals launch</div><div class="cv"><canvas id="cStreams" aria-label="Revenue streams by phase chart"></canvas></div></div>
+  </div>
+  <div class="cards" style="margin-top:16px">
+    <div class="card"><h4>Basic · Free</h4><p>Verified profile, one category and area. Pay per lead or commission.</p></div>
+    <div class="card"><h4>Professional · ₹999–1,999/mo</h4><p>More categories, unlimited quotes, lower commission, portfolio, insights.</p></div>
+    <div class="card"><h4>Enterprise · ₹4,999–9,999/mo</h4><p>Team accounts, B2B RFQ access, labelled featured placement, account manager.</p></div>
+  </div>
+  <h3 style="margin-top:44px">Growth scenarios</h3>
+  <p>Switch between scenarios. GMV is the total value transacted; platform revenue is only the commissions and fees the company earns. <span class="ill">Planning assumptions, not results</span></p>
+  <div class="tabs" role="tablist" id="stabs"></div>
+  <div class="chartbox"><div class="cv" style="height:330px"><canvas id="cFin" aria-label="GMV and revenue scenario chart"></canvas></div></div>
+</div></section>
+
+<!-- MARKET -->
+<section id="market" class="alt"><div class="in">
+  <div class="eye">Market opportunity</div>
+  <h2>A large market, still largely offline</h2>
+  <div class="cards" style="margin-top:18px">
+    <div class="card"><h4>~US$1.4 trillion</h4><p>Projected value of India's construction sector. <span class="mk">Source: IBEF</span></p></div>
+    <div class="card"><h4>₹11.21 lakh crore</h4><p>Union Budget 2025-26 capital expenditure. <span class="mk">Source: Ministry of Finance</span></p></div>
+    <div class="card"><h4>1 crore homes</h4><p>PMAY-Urban 2.0 target for new urban housing. <span class="mk">Source: MoHUA</span></p></div>
+    <div class="card"><h4>Jewar &amp; YEIDA</h4><p>Noida International Airport and new sectors driving Greater Noida growth.</p></div>
+  </div>
+  <h3 style="margin-top:44px">Revenue potential calculator</h3>
+  <p>Move the sliders to see how much annual revenue the platform could earn in its launch region from home services and renovation alone. <span class="ill">Illustrative</span></p>
+  <div class="calc">
+    <div class="ctrls">
+      <div><label for="hh">Households in target area <output id="hhO"></output></label><input type="range" id="hh" min="100000" max="1500000" step="50000" value="400000"></div>
+      <div><label for="pen">Households using the platform <output id="penO"></output></label><input type="range" id="pen" min="0.5" max="10" step="0.5" value="2"></div>
+      <div><label for="jobs">Jobs per household per year <output id="jobsO"></output></label><input type="range" id="jobs" min="0.5" max="4" step="0.5" value="1.5"></div>
+      <div><label for="tix">Average job value <output id="tixO"></output></label><input type="range" id="tix" min="2000" max="50000" step="1000" value="8000"></div>
+      <div><label for="take">Platform take rate <output id="takeO"></output></label><input type="range" id="take" min="2" max="15" step="0.5" value="6"></div>
+    </div>
+    <div class="res">
+      <small>Annual platform revenue</small>
+      <div class="big" id="rev">—</div>
+      <div class="row"><span>Annual GMV</span><b id="gmv">—</b></div>
+      <div class="row"><span>Jobs per year</span><b id="jobsT">—</b></div>
+      <small style="margin-top:10px">Before materials, rental and B2B revenue.</small>
+    </div>
+  </div>
+</div></section>
+
+<!-- COMPETE -->
+<section id="compete"><div class="in">
+  <div class="eye">Industry references</div>
+  <h2>What we learn from companies in this space</h2>
+  <p class="lead">Each serves part of the market. Abhiyantri Setu combines their lessons across the full building lifecycle.</p>
+  <div class="tabs" role="tablist" id="ctabs"></div>
+  <div class="tbl"><table><thead><tr><th>Company</th><th>Market</th><th>Model</th><th>Lesson for Abhiyantri Setu</th></tr></thead><tbody id="ctbody"></tbody></table></div>
+  <div class="grid2" style="margin-top:24px">
+    <div class="chartbox"><h4>Positioning map</h4><div class="sub">Breadth of the building lifecycle covered vs. depth of trust and verification (qualitative)</div><div class="cv" style="height:340px"><canvas id="cMap" aria-label="Positioning map"></canvas></div></div>
+    <div class="card" style="display:flex;flex-direction:column;justify-content:center">
+      <h4>Our intended position</h4>
+      <p style="margin-bottom:10px">A verified, requirement-led platform covering find, compare, procure, build and maintain, with engineering credibility and local depth.</p>
+      <p style="margin-bottom:10px"><b>Defensibility to build:</b> dense verified networks per micro-market, proprietary rate and performance data, multi-vertical relationships, recurring AMC and enterprise contracts.</p>
+      <p class="mk">Positions on the map are a qualitative view for discussion, not measured data. No claim of market leadership is made.</p>
+    </div>
+  </div>
+</div></section>
+
+<!-- ROADMAP -->
+<section id="roadmap" class="alt"><div class="in">
+  <div class="eye">Roadmap</div>
+  <h2>2026 to 2035</h2>
+  <p class="lead">Select a phase. Each phase begins when the previous one meets its goals.</p>
+  <div class="road" role="tablist" id="road"></div>
+  <div class="card roaddetail" id="roadd" role="tabpanel" aria-live="polite"></div>
+  <div class="split" style="margin-top:48px">
+    <div>
+      <div class="eye">Progress so far</div>
+      <h3>Foundations in place</h3>
+      <div class="flow" style="grid-template-columns:minmax(0,1fr);margin-top:12px">
+        <div>Company incorporated, GST registered, bank account and office in Greater Noida</div>
+        <div>Brand identity: name, logo, colours, typography and taglines</div>
+        <div>Website domain live; Instagram, Facebook and LinkedIn active</div>
+        <div>Web platform in development: requirements, provider onboarding, quotations, dashboards</div>
+        <div>Marketing character universe and launch plan for Greater Noida</div>
+      </div>
+    </div>
+    <div class="photo"><img src="img/residential.jpg" alt="Residential construction project"></div>
+  </div>
+</div></section>
+
+<!-- INVEST -->
+<section id="invest"><div class="in">
+  <div class="eye">For investors</div>
+  <h2>The investment case</h2>
+  <div class="split" style="align-items:start">
+    <div>
+      <p class="lead">An asset-light ConTech marketplace addressing India's fragmented market for construction, renovation, maintenance and building supply.</p>
+      <div class="cards" style="grid-template-columns:repeat(auto-fit,minmax(200px,1fr))">
+        <div class="card"><h4>Problem</h4><p>No trusted way to find, compare and manage building providers.</p></div>
+        <div class="card"><h4>Solution</h4><p>Requirement-led marketplace with verified supply and structured quotes.</p></div>
+        <div class="card"><h4>Model</h4><p>Commissions, lead fees, subscriptions, supply, rental, AMC and B2B.</p></div>
+        <div class="card"><h4>Edge</h4><p>Local depth, engineering credibility and a lifecycle relationship.</p></div>
+      </div>
+    </div>
+    <div class="chartbox"><h4>Indicative use of seed funds</h4><div class="sub">Phase 1 requirement: ₹60 lakh – ₹1.2 crore <span class="ill">Indicative</span></div><div class="cv" style="height:280px"><canvas id="cFunds" aria-label="Use of funds chart"></canvas></div></div>
+  </div>
+  <p class="mk" style="margin-top:14px">Operating metrics and the current round are shared directly with interested investors at info@abhiyantrisetu.com.</p>
+</div></section>
+
+<!-- FAQ -->
+<section id="faq" class="alt"><div class="in">
+  <div class="eye">Questions</div>
+  <h2>Frequently asked questions</h2>
+  <div class="tabs" role="tablist" id="ftabs"></div>
+  <div id="flist"></div>
+</div></section>
+
+<!-- CONTACT -->
+<section id="contact" class="contact"><div class="in">
+  <div class="eye">Get in touch</div>
+  <h2>Let's build together</h2>
+  <p style="color:var(--on-band-muted)">Customers, providers, suppliers, partners and investors are welcome to reach out.</p>
+  <div class="grid3">
+    <div><div class="k">Office</div><div class="v">336, Udyog Kendra-II, Ecotech-3, Greater Noida, Uttar Pradesh 201306</div></div>
+    <div><div class="k">Email</div><div class="v" id="em">info@abhiyantrisetu.com</div><button class="copy" data-copy="em">Copy email</button></div>
+    <div><div class="k">Phone</div><div class="v" id="ph">+91 92895 53069</div><button class="copy" data-copy="ph">Copy number</button></div>
+  </div>
+  <p style="margin-top:20px;color:var(--on-band-muted)">Web: <a href="https://www.abhiyantrisetu.com/" style="color:#fff">www.abhiyantrisetu.com</a> · Founder: Avinish Tripathi</p>
+</div></section>
+<footer><div class="in">© Abhiyantri Setu Digital Infra Private Limited. Figures marked illustrative or indicative are planning assumptions, not company results. Market figures are from public sources.</div></footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<script>
+const $=s=>document.querySelector(s);
+const css=n=>getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+function tabs(el,items,onSel,start=0){el.innerHTML='';items.forEach((t,i)=>{const b=document.createElement('button');b.className='tab';b.role='tab';b.textContent=t;b.setAttribute('aria-selected',i===start);b.onclick=()=>{[...el.children].forEach(c=>c.setAttribute('aria-selected',c===b));onSel(i)};el.appendChild(b)});onSel(start)}
+
+/* verticals */
+const V=[
+ {n:'Build & Renovate',s:['s-live','Launch vertical'],img:'renovation',d:'For anyone building new or improving what they have, from a single bathroom to a full G+2 house.',c:['New homes & builder floors','Renovation & remodelling','Waterproofing','Painting & finishes','Flooring & tiling','Interior fit-out','POP & gypsum ceilings','PVC/WPC panelling','Boundary walls & gates','Roofing & sheds','Fabrication','Masonry & civil','Structural engineering','Labour contractors'],u:'A family adding a floor · a landlord renovating before rent · a shop fit-out · a builder sourcing a tiling contractor.'},
+ {n:'Quick Home Services',s:['s-live','Launch vertical'],img:'hero-house',d:'Everyday repairs and maintenance by verified tradespeople, plus yearly maintenance contracts.',c:['Mason','Painter','Carpenter','Plumber','Electrician','Tile fitter','Deep cleaning','AC & HVAC service','Repairs','Annual Maintenance Contracts'],u:'Leaking tap · short circuit · broken door · seasonal AC service · post-renovation cleaning.'},
+ {n:'Material Marketplace',s:['s-next','Next phase'],img:'commercial',d:'Compare local supplier quotes by brand, grade and quantity, including delivery.',c:['Cement','Steel & TMT','Sand & aggregates','Bricks & AAC blocks','Tiles','Marble & granite','Paints','Sanitaryware','Electrical','Plumbing','Construction chemicals','Plywood & laminates','Hardware'],u:'A homeowner buying for a renovation · a contractor placing a bulk order for a site.'},
+ {n:'Equipment Rental',s:['s-next','Next phase'],img:'industrial',d:'Rent machinery and site equipment with clear terms on period, transport, deposit, damage and operator.',c:['Excavators & JCBs','Cranes','Scaffolding','Cuplock systems','Shuttering','Concrete mixers','Vibrators','Lifting equipment','Power tools','Industrial equipment'],u:'A builder needing scaffolding for 30 days · a contractor hiring an excavator for two days.'},
+ {n:'Find Professionals',s:['s-next','Being added'],img:'professionals',d:'Expert advice, design and supervision from qualified, registered professionals.',c:['Architects','Civil engineers','Structural engineers','Interior designers','MEP consultants','HVAC consultants','Project managers (PMC)','Quantity surveyors','Safety consultants','Vastu consultants'],u:'Drawings for a new house · a structural check before adding a floor · a Vastu consultation.'},
+ {n:'Business & Infrastructure',s:['s-exp','Strategic expansion'],img:'industrial',d:'Engineering solutions and maintenance for industries, commercial buildings, institutions and housing societies.',c:['STP / ETP / WTP','RO plants','Fire fighting','HVAC & pumping','Hydropneumatic systems','Industrial pumps','VFD panels','Automation','Rainwater harvesting','Borewells','Facility management','EPC services'],u:'A factory needing ETP compliance · a society upgrading its STP · a school installing fire fighting.'}];
+tabs($('#vtabs'),V.map(v=>v.n),i=>{const v=V[i];$('#vpanel').innerHTML=`<div class="photo"><img src="img/${v.img}.jpg" alt="${v.n}"></div><div class="txt"><span class="status ${v.s[0]}">${v.s[1]}</span><h3>${v.n}</h3><p>${v.d}</p><div class="chips">${v.c.map(x=>`<span>${x}</span>`).join('')}</div><p class="mk"><b>Typical uses:</b> ${v.u}</p></div>`});
+
+/* journeys */
+const J={'Customer':['Choose a category on the website','Describe the requirement, location and budget','Upload photos or drawings','Our team checks it and finds verified providers','Providers inspect and send quotations','Compare quotes side by side','Hire and confirm scope in writing','Track progress with stage photos','Approve completion','Rate the work and get after-service support'],
+'Provider':['Register with your mobile number','Add categories, service area and past work','Complete ID and document verification','Get approved as a verified provider','Receive requirements in your area','Send quotations and talk to customers','Complete the work with documentation','Get paid and build your rating'],
+'Supplier':['Register and verify GST','List products with brands, grades and units','Set delivery area and minimum order','Receive quote requests and bulk enquiries','Quote with freight and lead time','Confirm the order','Deliver with proof','Close and invoice'],
+'Equipment owner':['Register equipment with photos and capacity','Set rates, deposit and operator terms','Manage availability','Accept bookings','Handover checklist with photos','Return inspection','Deposit release and payout'],
+'Business':['Create a business account with GSTIN','Submit a project or RFQ with specifications','Receive bids from pre-qualified vendors','Compare technical and commercial terms','Negotiate','Issue PO or contract','Track milestones, quality and invoices']};
+tabs($('#jtabs'),Object.keys(J),i=>{$('#jflow').innerHTML=Object.values(J)[i].map(s=>`<div>${s}</div>`).join('')});
+
+/* charts */
+Chart.defaults.font.family='Inter, system-ui, sans-serif';
+const charts=[];
+function base(){return{color:css('--muted'),grid:css('--line')}}
+function mkCharts(){charts.forEach(c=>c.destroy());charts.length=0;const b=base();Chart.defaults.color=b.color;
+ const ax={grid:{color:b.grid},ticks:{color:b.color},border:{color:b.grid}};
+ charts.push(new Chart($('#cComm'),{type:'bar',data:{labels:['Home services','Construction','Materials','Equipment rental','Consultations','Enterprise'],datasets:[{data:[[10,20],[3,6],[1,10],[8,15],[10,15],[2,5]],backgroundColor:'#F97316',borderRadius:4,barThickness:18}]},options:{indexAxis:'y',maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>`${c.raw[0]}–${c.raw[1]}%`}}},scales:{x:{...ax,min:0,max:22,ticks:{...ax.ticks,callback:v=>v+'%'}},y:{...ax,grid:{display:false}}}}}));
+ charts.push(new Chart($('#cStreams'),{type:'bar',data:{labels:['Launch','Early','Growth','Scale','Long-term'],datasets:[{label:'Services & leads',data:[2,2,2,2,2],backgroundColor:'#0B1F4D'},{label:'Subscriptions & consults',data:[0,2,3,3,3],backgroundColor:'#F97316'},{label:'Supply, rental & B2B',data:[0,0,4,5,5],backgroundColor:'#FACC15'},{label:'Ads & software',data:[0,0,0,1,2],backgroundColor:'#94A3B8'}]},options:{maintainAspectRatio:false,plugins:{legend:{position:'bottom',labels:{boxWidth:12,color:b.color}}},scales:{x:{...ax,stacked:true,grid:{display:false}},y:{...ax,stacked:true,title:{display:true,text:'revenue streams',color:b.color},ticks:{...ax.ticks,stepSize:2}}}}}));
+ const fin={'Base':{g:[240,900,2400],r:[18,65,170]},'Conservative':{g:[90,380,1100],r:[6,26,75]},'Aggressive':{g:[520,1800,4800],r:[42,140,350]}};
+ const fc=new Chart($('#cFin'),{data:{labels:['FY 2026-27','FY 2027-28','FY 2028-29'],datasets:[{type:'bar',label:'GMV (₹ lakh)',data:fin.Base.g,backgroundColor:'#0B1F4D',borderRadius:4,yAxisID:'y'},{type:'line',label:'Platform revenue (₹ lakh)',data:fin.Base.r,borderColor:'#F97316',backgroundColor:'#F97316',tension:.3,pointRadius:5,yAxisID:'y1'}]},options:{maintainAspectRatio:false,interaction:{mode:'index',intersect:false},plugins:{legend:{position:'bottom',labels:{boxWidth:12,color:b.color}}},scales:{x:{...ax,grid:{display:false}},y:{...ax,position:'left',title:{display:true,text:'GMV ₹ lakh',color:b.color}},y1:{...ax,position:'right',grid:{display:false},title:{display:true,text:'Revenue ₹ lakh',color:b.color}}}}});
+ charts.push(fc);
+ if(!$('#stabs').children.length)tabs($('#stabs'),Object.keys(fin),i=>{const k=Object.keys(fin)[i];window._fin=k;const c=charts.find(x=>x.canvas.id==='cFin');if(c){c.data.datasets[0].data=fin[k].g;c.data.datasets[1].data=fin[k].r;c.update()}});
+ else{const k=window._fin||'Base';fc.data.datasets[0].data=fin[k].g;fc.data.datasets[1].data=fin[k].r;fc.update()}
+ const pts=[['Urban Company',2,8.8,'#64748B'],['Brick&Bolt',4,7.4,'#64748B'],['Livspace / HomeLane',2.5,6,'#64748B'],['NoBroker',5,4.6,'#64748B'],['Infra.Market',3.2,3.4,'#64748B'],['IndiaMART / Justdial',6.2,1.8,'#64748B'],['Abhiyantri Setu (target)',8.6,8.4,'#F97316']];
+ charts.push(new Chart($('#cMap'),{type:'bubble',data:{datasets:pts.map(p=>({label:p[0],data:[{x:p[1],y:p[2],r:p[0].startsWith('Abhi')?14:9}],backgroundColor:p[3]+'CC',borderColor:p[3]}))},options:{maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>c.dataset.label}}},scales:{x:{...ax,min:0,max:10,title:{display:true,text:'Lifecycle breadth →',color:b.color},ticks:{display:false}},y:{...ax,min:0,max:10,title:{display:true,text:'Trust & verification depth →',color:b.color},ticks:{display:false}}}},plugins:[{id:'lbl',afterDatasetsDraw(ch){const x=ch.ctx;x.save();x.font='600 11px Inter';x.fillStyle=css('--text');ch.data.datasets.forEach((d,i)=>{const m=ch.getDatasetMeta(i).data[0];const left=m.x>ch.chartArea.right-120;x.textAlign=left?'right':'left';x.fillText(d.label,m.x+(left?-16:16),m.y+4)});x.restore()}}]}));
+ charts.push(new Chart($('#cFunds'),{type:'doughnut',data:{labels:['Product & technology','Provider onboarding & ops','Customer marketing','Compliance, team & buffer'],datasets:[{data:[30,25,25,20],backgroundColor:['#0B1F4D','#F97316','#FACC15','#94A3B8'],borderColor:css('--surface'),borderWidth:3}]},options:{maintainAspectRatio:false,cutout:'58%',plugins:{legend:{position:'right',labels:{boxWidth:12,color:b.color}},tooltip:{callbacks:{label:c=>`${c.label}: ${c.raw}%`}}}}}));
+}
+if(window.Chart){mkCharts();matchMedia('(prefers-color-scheme: dark)').addEventListener('change',mkCharts);new MutationObserver(mkCharts).observe(document.documentElement,{attributes:true,attributeFilter:['data-theme']})}
+
+/* calculator */
+const inr=n=>n>=1e7?'₹'+(n/1e7).toFixed(2)+' crore':n>=1e5?'₹'+(n/1e5).toFixed(1)+' lakh':'₹'+Math.round(n).toLocaleString('en-IN');
+function calc(){const hh=+$('#hh').value,pen=+$('#pen').value,jobs=+$('#jobs').value,tix=+$('#tix').value,take=+$('#take').value;
+ $('#hhO').textContent=(hh/1e5).toFixed(1)+' lakh';$('#penO').textContent=pen+'%';$('#jobsO').textContent=jobs;$('#tixO').textContent='₹'+tix.toLocaleString('en-IN');$('#takeO').textContent=take+'%';
+ const j=hh*pen/100*jobs,g=j*tix;$('#jobsT').textContent=Math.round(j).toLocaleString('en-IN');$('#gmv').textContent=inr(g);$('#rev').textContent=inr(g*take/100)}
+['hh','pen','jobs','tix','take'].forEach(id=>$('#'+id).addEventListener('input',calc));calc();
+
+/* competitors */
+const C=[['Urban Company','India','Managed home-services marketplace with trained, rated professionals and fixed prices','Standardisation and quality control build trust'],['NoBroker','India','Real-estate platform cross-selling painting, cleaning, moving and interiors','Cross-sell services at key moments like moving and renting'],['Livspace / HomeLane','India','Full-service interior design and execution','Customers pay for one accountable partner on large projects'],['Brick&Bolt','India','Tech-enabled home construction with stage-wise payments and checks','Stage-wise payment and quality checkpoints reduce disputes'],['Infra.Market','India','B2B construction materials procurement and private brands','Materials are a large revenue pool; credit and logistics matter'],['Moglix / OfBusiness','India','B2B industrial procurement and financing','Enterprises reward reliability and documentation'],['IndiaMART / Justdial / Sulekha','India','Lead directories with seller subscriptions','Seller subscriptions scale, but directories leave the customer alone'],['Thumbtack','Global','Customers post a job; local pros quote','Requirement-and-quote works across many categories'],['Angi','Global','Home services via leads, ads and fixed-price jobs','Lead quality decides provider retention'],['Checkatrade','Global','Vetted-trades directory with membership and guarantee','Vetting plus a guarantee is a strong promise'],['Houzz','Global','Design inspiration, pro directory and pro software','Content attracts homeowners; software retains pros'],['Procore','Global','Construction project-management software','Long-term opportunity in contractor software']];
+tabs($('#ctabs'),['All','India','Global'],i=>{const f=['All','India','Global'][i];$('#ctbody').innerHTML=C.filter(c=>f==='All'||c[1]===f).map(c=>`<tr><td>${c[0]}</td><td>${c[1]}</td><td>${c[2]}</td><td>${c[3]}</td></tr>`).join('')});
+
+/* roadmap */
+const R=[['Foundation','2026–27','Greater Noida launch','Platform live · verified providers across launch trades · first paying customers · quote templates and SOPs · first revenue','₹60 L – 1.2 Cr'],['NCR expansion','2027–29','Noida, Ghaziabad, Delhi, Gurugram, Faridabad','Material marketplace and equipment rental live · professional discovery · first B2B and AMC contracts · mobile apps','₹5 – 15 Cr'],['National','2029–31','Selected metros and tier-1 cities','City teams · enterprise partnerships · industrial services · standard city playbook','₹30 – 80 Cr'],['Integration','2031–33','Ecosystem depth','Integrated procurement · project management tools · enterprise dashboards · financing partnerships · automation','To be planned'],['Leadership','2033–35','Nationwide scale','Nationwide ecosystem · technology services for the industry · large enterprise integrations · evaluate international markets','To be planned']];
+const road=$('#road');R.forEach((r,i)=>{const b=document.createElement('button');b.role='tab';b.innerHTML=`<span class="dot">${i+1}</span><span><b>${r[0]}</b><small>${r[1]}</small></span>`;b.onclick=()=>selR(i);road.appendChild(b)});
+function selR(i){[...road.children].forEach((c,j)=>c.setAttribute('aria-selected',i===j));const r=R[i];$('#roadd').innerHTML=`<h3>Phase ${i+1} · ${r[0]} <span class="mk">(${r[1]})</span></h3><p><b>Focus:</b> ${r[2]}</p><div class="chips">${r[3].split(' · ').map(x=>`<span>${x}</span>`).join('')}</div><p class="mk">Indicative budget: ${r[4]}</p>`}
+selR(0);
+
+/* faq */
+const F={'Customers':[['What is Abhiyantri Setu?','A platform to find verified contractors, tradespeople, engineers, suppliers and equipment for any construction, renovation, repair or maintenance need, and compare quotations before hiring.'],['Which areas do you serve?','Greater Noida first, followed by Noida and the rest of Delhi NCR.'],['Is posting a requirement free?','Yes. Posting a requirement and receiving quotations is free.'],['Are providers verified?','Yes. Providers complete identity and document checks and a review of past work before listing. We also collect ratings and support you if there is a problem.'],['What if I am not happy with the work?','Raise a complaint with us. We acknowledge it within 24 hours and work with you and the provider on rework or a fair resolution.']],
+'Providers':[['Who can join?','Contractors, tradespeople, architects, engineers, consultants, material suppliers and equipment owners.'],['What does it cost?','Basic listing is free. The platform earns a commission or lead fee on work you win; optional paid plans give more visibility and features.'],['What documents do I need?','ID proof, PAN, bank details, GST if registered, photos of past work, and professional registration where applicable.'],['How do I get work?','You receive requirements in your categories and service area and send quotations through the platform.']],
+'Investors':[['What stage is the company at?','Early stage: incorporated, brand built, platform in development, preparing the Greater Noida launch.'],['How does it make money?','Commissions, lead fees, provider subscriptions, material and rental margins, consultation fees, maintenance contracts and enterprise sourcing fees.'],['Who are the competitors?','Home-service apps, interior companies, tech-enabled builders, directories and B2B procurement platforms each cover part of the market. We focus on verified, requirement-led work across the full lifecycle.'],['How can I learn more?','Write to info@abhiyantrisetu.com for current details, metrics and the funding round.']]};
+tabs($('#ftabs'),Object.keys(F),i=>{$('#flist').innerHTML=Object.values(F)[i].map(q=>`<details><summary>${q[0]}</summary><p>${q[1]}</p></details>`).join('')});
+
+/* copy */
+document.querySelectorAll('.copy').forEach(b=>b.onclick=()=>{const t=$('#'+b.dataset.copy).textContent;const done=()=>{const o=b.textContent;b.textContent='Copied';setTimeout(()=>b.textContent=o,1500)};
+ (navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).then(done).catch(()=>{const r=document.createRange();r.selectNodeContents($('#'+b.dataset.copy));const s=getSelection();s.removeAllRanges();s.addRange(r)})});
+
+/* nav highlight */
+const secs=[...document.querySelectorAll('section[id]')];const links=[...document.querySelectorAll('nav.top .links a')];
+addEventListener('scroll',()=>{let cur='';secs.forEach(s=>{if(s.getBoundingClientRect().top<120)cur=s.id});links.forEach(a=>a.classList.toggle('on',a.getAttribute('href')==='#'+cur))},{passive:true});
+</script>
